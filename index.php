@@ -2071,7 +2071,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                       if (!empty($_POST['email'])) {
                           // session_start();
                           $user->email =  $_POST['email'];
-                          $user->password =  $_POST['password'];
+                          $user->password =  base64_encode($_POST['password']);
                           $user->nombre = $_POST['name'];
                           $user->lastname = $_POST['lastname'];
                           $user->signup();
