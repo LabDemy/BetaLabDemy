@@ -45,25 +45,25 @@ class User implements \Serializable
     }
     public function signup()
     {
-        if ($this->isAlreadyExist()) {
-            return false;
-        }
+        // if ($this->isAlreadyExist()) {
+        //     return false;
+        // }
 
         // Check connection
-        if (mysqli_connect_errno()) {
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
-        }
+        // if (mysqli_connect_errno()) {
+        //     echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        // }
 
 
 
 
         // Perform queries
-        if (!is_null($this->username)) {
-            $sql= "INSERT INTO $this->table_name VALUES ('$this->nombre', '$this->lastname','$this->password','$this->email',1);";
-            // echo $sql;
-            $result = $this->conn->query($sql);
-            $result->setFetchMode(PDO::FETCH_ASSOC);
+        if (!$this->isAlreadyExist()) {
+            $sql= "INSERT INTO $this->table_name VALUES (null,'$this->nombre', '$this->password','$this->email','$this->lastname',1);";
 
+            $result = $this->conn->prepare($sql);
+            // $result->setFetchMode(PDO::FETCH_ASSOC);
+            $result->execute();
             return true;
         } else {
             return false;
@@ -97,11 +97,13 @@ class User implements \Serializable
             FROM
                 " . $this->table_name . "
             WHERE
-                Usuario='".$this->username."'";
+                email='".$this->email."'";
         // prepare query statement
+
         $stmt = $this->conn->prepare($query);
         // execute query
         $stmt->execute();
+
         if ($stmt->rowCount() > 0) {
             return true;
         } else {

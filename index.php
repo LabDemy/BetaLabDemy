@@ -28,6 +28,7 @@
 </head>
 
 <body>
+
     <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
@@ -2027,7 +2028,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
     <!-- form itself end -->
 
     <!-- form itself end-->
-    <form id="test-form2" class="white-popup-block mfp-hide">
+    <form id="test-form2" class="white-popup-block mfp-hide" action="index.php" method="post">
         <div class="popup_box ">
             <div class="popup_inner">
                 <div class="logo text-center">
@@ -2036,29 +2037,47 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                     </a>
                 </div>
                 <h3>Registration</h3>
-                <form action="#">
+                <form action="">
                     <div class="row" >
                         <div class="col-xl-12 col-md-12" >
-                            <input type="text" placeholder="Enter name">
+                            <input type="text" id="name" name='name' placeholder="Enter name">
                         </div>
                         <div class="col-xl-12 col-md-12">
-                            <input type="text" placeholder="Enter last name">
+                            <input type="text" id="lastname" name='lastname' placeholder="Enter last name">
                         </div>
-                        <div class="col-xl-12 col-md-12">
-                            <input type="password" placeholder="Password">
+                        <div class="col-xl-12 col-md-12" >
+                            <input type="password" id="password" name='password' placeholder="Password">
                         </div>
-                        <div class="col-xl-12 col-md-12">
-                            <input type="password" placeholder="Confirm password">
+                        <div class="col-xl-12 col-md-12" >
+                            <input type="password"  placeholder="Confirm password">
                         </div>
-                        <div class="col-xl-12 col-md-12">
-                            <input type="email" placeholder="Enter email">
+                        <div class="col-xl-12 col-md-12" >
+                            <input type="email" id="email" name='email' placeholder="Enter email">
                         </div>
                         <div class="col-xl-12">
-                        <a href="login.php"  class="boxed_btn_orange" type="button">Sign Up</a>
-                        <!-- <button type="submit"  class="boxed_btn_orange">Sign Up</button> -->
+                        <!-- <a href="login.php"  class="boxed_btn_orange" type="button">Sign Up</a> -->
+                        <button type="submit"  class="boxed_btn_orange">Sign Up</button>
                         </div>
 
                     </div>
+                    <?php
+
+                      include_once 'backend/database.php';
+                      include_once 'backend/user.php';
+
+                      $database = new Database();
+                      $db = $database->getConnection();
+                      $user = new user($db);
+                      if (!empty($_POST['email'])) {
+                          // session_start();
+                          $user->email =  $_POST['email'];
+                          $user->password =  $_POST['password'];
+                          $user->nombre = $_POST['name'];
+                          $user->lastname = $_POST['lastname'];
+                          $user->signup();
+                      }
+                    ?>
+
                 </form>
             </div>
         </div>
