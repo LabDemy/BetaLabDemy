@@ -40,7 +40,7 @@
                   $user = new user($db);
 
                   if (!empty($_GET['email'])) {
-                      session_start();
+                      //session_start();
                       $user->email =  $_GET['email'];
                       $user->password =  $_GET['password'];
                       $user->nombre = $_GET['name'];
