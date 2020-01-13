@@ -80,7 +80,6 @@ class User implements \Serializable
                 WHERE
                     email='".$this->email."' AND password='".$this->password."'";
 
-
         // prepare query statement
         $stmt = $this->conn->prepare($query);
         // execute query
