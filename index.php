@@ -28,7 +28,9 @@
 </head>
 
 <body>
-
+<?php
+session_start();
+ ?>
     <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
@@ -74,7 +76,14 @@
                             <div class="log_chat_area d-flex align-items-center">
                                 <a href="#test-form" class="login popup-with-form">
                                     <i class="flaticon-user"></i>
-                                    <span>log in</span>
+
+                                    <span>  <?php
+
+                                       if (!isset($_SESSION['usuario'])) {
+                                           echo "Log In";
+                                       } else {
+                                           echo $_SESSION['usuario'];
+                                       }?></span>
                                 </a>
                                 <div class="live_chat_btn">
                                     <a class="boxed_btn_orange" href="#">
@@ -1998,7 +2007,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
 
 
     <!-- form itself end-->
-    <form id="test-form" class="white-popup-block mfp-hide">
+    <form id="test-form" class="white-popup-block mfp-hide"  href="sessiondestroy.php" method="post">
         <div class="popup_box ">
             <div class="popup_inner">
                 <div class="logo text-center">
@@ -2006,20 +2015,50 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                         <img src="img/form-logo.png" alt="">
                     </a>
                 </div>
+
+
                 <h3>Sign in</h3>
                 <form action="#">
                     <div class="row">
+                      <?php if (empty($_SESSION['usuario'])) {
+                                           ?>
                         <div class="col-xl-12 col-md-12">
-                            <input type="email" placeholder="Enter email">
+                            <input type="email" name='emailsignin' placeholder="Enter email">
                         </div>
                         <div class="col-xl-12 col-md-12">
-                            <input type="password" placeholder="Password">
+                            <input type="password" name='passwordsignin' placeholder="Password">
                         </div>
+                      <?php
+                                       } ?>
                         <div class="col-xl-12">
-                            <button type="submit" class="boxed_btn_orange">Sign in</button>
+                            <button type="submit" formaction="index.php" class="boxed_btn_orange">
+                              <?php
+                              if (!empty($_SESSION['usuario'])) {
+                                  echo "Log out";
+                              } else {
+                                  echo "Sign in";
+                              }
+                               ?>
+                             </button>
                         </div>
                     </div>
                 </form>
+                <?php
+                include_once 'backend/database.php';
+                include_once 'backend/user.php';
+
+                $database = new Database();
+                $db = $database->getConnection();
+                $user = new User($db);
+                if (!empty($_POST['emailsignin'])) {
+                    $user->email= $_POST['emailsignin'];
+                    $user->password = base64_encode($_POST['passwordsignin']);
+                    $var=$user->login();
+                    while ($fila = $var->fetch()) {
+                        $_SESSION['usuario']=$fila['nombre'];
+                    }
+                }
+                ?>
                 <p class="doen_have_acc">Don’t have an account? <a class="dont-hav-acc" href="#test-form2">Sign Up</a>
                 </p>
             </div>
@@ -2061,23 +2100,21 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
 
                     </div>
                     <?php
-
                       include_once 'backend/database.php';
                       include_once 'backend/user.php';
-
                       $database = new Database();
                       $db = $database->getConnection();
                       $user = new user($db);
+
                       if (!empty($_POST['email'])) {
-                          // session_start();
                           $user->email =  $_POST['email'];
                           $user->password =  base64_encode($_POST['password']);
                           $user->nombre = $_POST['name'];
                           $user->lastname = $_POST['lastname'];
                           $user->signup();
                       }
-                    ?>
 
+                    ?>
                 </form>
             </div>
         </div>
