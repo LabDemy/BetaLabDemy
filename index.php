@@ -2056,6 +2056,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                     $var=$user->login();
                     while ($fila = $var->fetch()) {
                         $_SESSION['usuario']=$fila['nombre'];
+                        echo "<meta http-equiv='refresh' content='0'>";
                     }
                 }
                 ?>
