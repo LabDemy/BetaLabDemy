@@ -13,24 +13,28 @@ CREATE TABLE usuario(
 CREATE TABLE cursos(
   id INT NOT NULL AUTO_INCREMENT,
   nombre VARCHAR(64),
-  contenido INT NOT NULL AUTO_INCREMENT
-);
-CREATE TABLE Tipos_de_usuario(
-  id INT NOT NULL AUTO_INCREMENT,
-  nombre VARCHAR(64)
-);
-CREATE TABLE contenido(
-  id INT NOT NULL AUTO_INCREMENT,
   linkvideo VARCHAR(64),
   titulo VARCHAR(64),
-  texto VARCHAR
+  texto TEXT,
+  imagen TEXT,
+    PRIMARY KEY (`id`)
+);
+CREATE TABLE tipos_de_usuario(
+  id INT NOT NULL AUTO_INCREMENT,
+  nombre VARCHAR(64),
+  PRIMARY KEY (`id`)
 );
 CREATE TABLE cursosporusuario(
   id INT NOT NULL AUTO_INCREMENT,
   id_user INT NOT NULL,
   id_curso INT NOT NULL,
-          PRIMARY KEY (`id`)
-          FOREIGN KEY (`id_user`),
+          PRIMARY KEY (`id`),
+          FOREIGN KEY (`id_user`)
+          REFERENCES `usuario` (`id`),
           FOREIGN KEY (`id_curso`)
-
-)
+          REFERENCES `cursos` (`id`)
+);
+INSERT INTO tipos_de_usuario (id, nombre) VALUES (null, 'estudiante');
+INSERT INTO tipos_de_usuario (id, nombre) VALUES (null, 'profesores');
+INSERT INTO tipos_de_usuario (id, nombre) VALUES (null, 'admin');
+INSERT INTO usuario VALUES (1,'admin','admin',null,null,3);
