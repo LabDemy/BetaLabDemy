@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Edumark</title>
+    <title>LabDemy</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,6 +28,21 @@
 </head>
 
 <body>
+<?php
+session_start();
+
+ ?>
+ <script>
+ function validate(){
+
+     var a = document.getElementById("password").value;
+     var b = document.getElementById("confirm_password").value;
+     if (a!=b) {
+        alert("Passwords do no match");
+        return false;
+     }
+ }
+</script>
     <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
@@ -41,7 +56,7 @@
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo-img">
                                 <a href="index.php">
-                                    <img src="img/logo.png" alt="">
+                                    <img src="img/logo-nuevo.png" alt="">
                                 </a>
                             </div>
                         </div>
@@ -49,22 +64,22 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="index.php">home</a></li>
-                                        <li><a href="courses.php">Courses</a></li>
-                                        <li><a class="active" href="#">pages <i class="ti-angle-down"></i></a>
+                                        <li><a  href="index.php">Inicio</a></li>
+                                        <li><a href="courses.php">Cursos</a></li>
+                                        <li><a href="onprocess.php">Planes<i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
-                                                <li><a href="course_details.html">course details</a></li>
-                                                <li><a href="elements.html">elements</a></li>
+                                                <li><a href="course_details.html">Detalles</a></li>
+                                                <!--li><a href="elements.html">elements</a></li-->
                                             </ul>
                                         </li>
-                                        <li><a href="about.php">About</a></li>
-                                        <li><a href="#">blog <i class="ti-angle-down"></i></a>
+                                        <li><a class="active" href="about.php">Nosotros</a></li>
+                                        <!--li><a href="#">blog <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html">blog</a></li>
                                                 <li><a href="single-blog.html">single-blog</a></li>
-                                            </ul>
+                                            </ul-->
                                         </li>
-                                        <li><a href="contact.php">Contact</a></li>
+                                        <li><a href="contact.php">Contacto</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -73,12 +88,19 @@
                             <div class="log_chat_area d-flex align-items-center">
                                 <a href="#test-form" class="login popup-with-form">
                                     <i class="flaticon-user"></i>
-                                    <span>log in</span>
+
+                                    <span>  <?php
+
+                                       if (!isset($_SESSION['usuario'])) {
+                                           echo "Log In";
+                                       } else {
+                                           echo $_SESSION['usuario'];
+                                       }?></span>
                                 </a>
                                 <div class="live_chat_btn">
                                     <a class="boxed_btn_orange" href="#">
                                         <i class="fa fa-phone"></i>
-                                        <span>+10 378 467 3672</span>
+                                        <span>Call Center</span>
                                     </a>
                                 </div>
                             </div>
@@ -93,185 +115,133 @@
     </header>
     <!-- header-end -->
 
-     <!-- bradcam_area_start -->
-     <div class="courses_details_banner">
-         <div class="container">
-             <div class="row">
-                 <div class="col-xl-6">
-                     <div class="course_text">
-                            <h3>UI/UX design with <br> Adobe XD with</h3>
-                            <div class="prise">
-                                <span class="inactive">$89.00</span>
-                                <span class="active">$49</span>
-                            </div>
-                            <div class="rating">
-                                <i class="flaticon-mark-as-favorite-star"></i>
-                                <i class="flaticon-mark-as-favorite-star"></i>
-                                <i class="flaticon-mark-as-favorite-star"></i>
-                                <i class="flaticon-mark-as-favorite-star"></i>
-                                <i class="flaticon-mark-as-favorite-star"></i>
-                                <span>(4.5)</span>
-                            </div>
-                            <div class="hours">
-                                <div class="video">
-                                     <div class="single_video">
-                                            <i class="fa fa-clock-o"></i> <span>12 Videos</span>
-                                     </div>
-                                     <div class="single_video">
-                                            <i class="fa fa-play-circle-o"></i> <span>9 Hours</span>
-                                     </div>
-                                   
-                                </div>
-                            </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-    </div>
-    <!-- bradcam_area_end -->
+        <!-- bradcam_area_start -->
+        <div class="bradcam_area breadcam_bg overlay2">
+            <h3>About Us</h3>
+        </div>
+        <!-- bradcam_area_end -->
 
-    <div class="courses_details_info">
+    <!-- about_area_start -->
+    <div class="about_area">
         <div class="container">
             <div class="row">
-                <div class="col-xl-7 col-lg-7">
-                    <div class="single_courses">
-                        <h3>Objectives</h3>
-                        <p>Our set he for firmament morning sixth subdue darkness creeping gathered divide our let god moving. Moving in fourth air night bring upon you’re it beast let you dominion likeness open place day great wherein heaven sixth lesser subdue fowl male signs his day face waters itself and make be to our itself living. Fish in thing lights moveth. Over god spirit morning, greater had man years green multiply creature, form them in, likeness him behold two cattle for divided. Fourth darkness had. Living light there place moved divide under earth. Light face, fly dry us </p>
-                    <h3 class="second_title">Course Outline</h3>
-                    </div>
-                    <div class="outline_courses_info">
-                            <div id="accordion">
-                                    <div class="card">
-                                        <div class="card-header" id="headingTwo">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                    <i class="flaticon-question"></i> Is WordPress hosting worth it?
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                            <div class="card-body">
-                                                Our set he for firmament morning sixth subdue darkness creeping gathered divide our
-                                                let god moving. Moving in fourth air night bring upon
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="headingOne">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                                    <i class="flaticon-question"></i>Basic Classes</span>
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion" style="">
-                                            <div class="card-body">
-                                                Our set he for firmament morning sixth subdue darkness creeping gathered divide our
-                                                let god moving. Moving in fourth air night bring upon
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="headingThree">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                    <i class="flaticon-question"></i> Will you transfer my site?
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                            <div class="card-body">
-                                                Our set he for firmament morning sixth subdue darkness creeping gathered divide our
-                                                let god moving. Moving in fourth air night bring upon
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="heading_4">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse_4" aria-expanded="false" aria-controls="collapse_4">
-                                                    <i class="flaticon-question"></i> Why should I host with Hostza?
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapse_4" class="collapse" aria-labelledby="heading_4" data-parent="#accordion">
-                                            <div class="card-body">
-                                                Our set he for firmament morning sixth subdue darkness creeping gathered divide our
-                                                let god moving. Moving in fourth air night bring upon
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="heading_5">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse_5" aria-expanded="false" aria-controls="collapse_5">
-                                                    <i class="flaticon-question"></i> How do I get started <span>with Shared
-                                                        Hosting?</span>
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapse_5" class="collapse" aria-labelledby="heading_5" data-parent="#accordion">
-                                            <div class="card-body">
-                                                Our set he for firmament morning sixth subdue darkness creeping gathered divide our
-                                                let god moving. Moving in fourth air night bring upon
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                <div class="col-xl-5 col-lg-6">
+                    <div class="single_about_info">
+                        <h3>Over 7000 Tutorials <br>
+                            from 20 Courses</h3>
+                        <p>Our set he for firmament morning sixth subdue darkness creeping gathered divide our let god
+                            moving. Moving in fourth air night bring upon you’re it beast let you dominion likeness open
+                            place day great wherein heaven sixth lesser subdue fowl </p>
+                        <a href="#" class="boxed_btn">Enroll a Course</a>
                     </div>
                 </div>
-                <div class="col-xl-5 col-lg-5">
-                    <div class="courses_sidebar">
-                        <div class="video_thumb">
-                            <img src="img/latest_blog/video.png" alt="">
-                            <a class="popup-video" href="https://www.youtube.com/watch?v=AjgD3CvWzS0">
-                                <i class="fa fa-play"></i>
-                            </a>
-                        </div>
-                        <div class="author_info">
-                            <div class="auhor_header">
-                                <div class="thumb">
-                                        <img src="img/latest_blog/author.png" alt="">
-                                </div>
-                                <div class="name">
-                                    <h3>Macau Wilium</h3>
-                                    <p>UI/UX Designer</p>
+                <div class="col-xl-6 offset-xl-1 col-lg-6">
+                    <div class="about_tutorials">
+                        <div class="courses">
+                            <div class="inner_courses">
+                                <div class="text_info">
+                                    <span>20+</span>
+                                    <p> Courses</p>
                                 </div>
                             </div>
-                            <p class="text_info">
-                                Our set he for firmament morning sixth subdue darkness creeping gathered divide our let
-                                god moving. Moving in fourth air night bring upon you’re it beast let you dominion
-                                likeness open place day
-                            </p>
-                            <ul>
-                                <li><a href="#"> <i class="fa fa-envelope"></i> </a></li>
-                                <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
-                                <li><a href="#"> <i class="ti-linkedin"></i> </a></li>
-                            </ul>
                         </div>
-                        <a href="#" class="boxed_btn">Buy Course</a>
-                        <div class="feedback_info">
-                            <h3>Write your feedback</h3>
-                            <p>Your rating</p>
-                            <i class="flaticon-mark-as-favorite-star"></i>
-                            <i class="flaticon-mark-as-favorite-star"></i>
-                            <i class="flaticon-mark-as-favorite-star"></i>
-                            <i class="flaticon-mark-as-favorite-star"></i>
-                            <i class="flaticon-mark-as-favorite-star"></i>
-                            
-                        <form action="#">
-                                <textarea name="" id="" cols="30" rows="10" placeholder="Write your feedback"></textarea>
-                                <button type="submit" class="boxed_btn">Submit</button>
-                            </form>
+                        <div class="courses-blue">
+                            <div class="inner_courses">
+                                <div class="text_info">
+                                    <span>7638</span>
+                                    <p> Courses</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="courses-sky">
+                            <div class="inner_courses">
+                                <div class="text_info">
+                                    <span>230+</span>
+                                    <p> Courses</p>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- about_area_end -->
 
-
-
+    <!-- our_team_member_start -->
+    <div class="our_team_member">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-md-6 col-lg-3">
+                    <div class="single_team">
+                        <div class="thumb">
+                            <img src="img/team/1.png" alt="">
+                            <div class="social_link">
+                                <a href="#"><i class="fa fa-envelope"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="master_name text-center">
+                            <h3>Macau Wilium</h3>
+                            <p>Massage Master</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-lg-3">
+                    <div class="single_team">
+                        <div class="thumb">
+                            <img src="img/team/2.png" alt="">
+                            <div class="social_link">
+                                <a href="#"><i class="fa fa-envelope"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="master_name text-center">
+                            <h3>Dan Jacky</h3>
+                            <p>Mens Cut</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-lg-3">
+                    <div class="single_team">
+                        <div class="thumb">
+                            <img src="img/team/3.png" alt="">
+                            <div class="social_link">
+                                <a href="#"><i class="fa fa-envelope"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="master_name text-center">
+                            <h3>Luka Luka</h3>
+                            <p>Mens Cut</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-lg-3">
+                    <div class="single_team">
+                        <div class="thumb">
+                            <img src="img/team/4.png" alt="">
+                            <div class="social_link">
+                                <a href="#"><i class="fa fa-envelope"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="master_name text-center">
+                            <h3>Rona Dana</h3>
+                            <p>Ladies Cut</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- our_team_member_end -->
 
     <!-- testimonial_area_start -->
     <div class="testimonial_area testimonial_bg_1 overlay">
@@ -599,17 +569,32 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                         <img src="img/form-logo.png" alt="">
                     </a>
                 </div>
+                <?php if (empty($_SESSION['usuario'])) {
+                                           ?>
                 <h3>Sign in</h3>
                 <form action="#">
                     <div class="row">
+
                         <div class="col-xl-12 col-md-12">
-                            <input type="email" placeholder="Enter email">
+                            <input type="email" name='emailsignin' placeholder="Enter email">
                         </div>
                         <div class="col-xl-12 col-md-12">
-                            <input type="password" placeholder="Password">
+                            <input type="password" name='passwordsignin' placeholder="Password">
                         </div>
+                      <?php
+                                       } ?>
                         <div class="col-xl-12">
-                            <button type="submit" class="boxed_btn_orange">Sign in</button>
+
+                              <?php
+                              if (!empty($_SESSION['usuario'])) {
+                                  echo '<button type="submit" formaction="sessiondestroy.php" class="boxed_btn_orange">';
+                                  echo "Log out";
+                              } else {
+                                  echo '<button type="submit" formaction="index.php" class="boxed_btn_orange">';
+                                  echo "Sign in";
+                              }
+                               ?>
+                             </button>
                         </div>
                     </div>
                 </form>

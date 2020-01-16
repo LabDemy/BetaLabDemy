@@ -40,7 +40,7 @@
                     <div class="row align-items-center no-gutters">
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo-img">
-                                <a href="index.html">
+                                <a href="index.php">
                                     <img src="img/logo-nuevo.png" alt="">
                                 </a>
                             </div>
@@ -49,17 +49,17 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="index.html">Inicio</a></li>
-                                        <li><a href="Courses.html">Cursos</a></li>
+                                        <li><a href="index.php">Inicio</a></li>
+                                        <li><a href="courses.php">Cursos</a></li>
                                         <li><a class="active" href="#">Planes <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="course_details.html">course details</a></li>
                                                 <li><a href="elements.html">elements</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="about.html">Nosotros</a></li>
+                                        <li><a href="about.php">Nosotros</a></li>
                                         </li>
-                                        <li><a href="contact.html">Contacto</a></li>
+                                        <li><a href="contact.php">Contacto</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -95,7 +95,7 @@
                      <div class="onprocess"> <br><br><br><br><br>
                         <h1 align="center"> PÁGINA EN PROCESO </h1>
 
-                            <img src="img/process.jpg" alt= ""> 
+                            <img src="img/process.jpg" alt= "">
                                 </div>
                             </div>
                      </div>
@@ -111,7 +111,7 @@
 
                 </div>
             </div>
-               
+
     <!-- our_latest_blog_end -->
 
 
@@ -204,7 +204,7 @@
                     <div class="col-xl-12">
                         <p class="copy_right text-center">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Fue hecho con <i class="fa fa-heart-o" aria-hidden="true"></i> 
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Fue hecho con <i class="fa fa-heart-o" aria-hidden="true"></i>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>
@@ -224,17 +224,32 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                         <img src="img/form-logo.png" alt="">
                     </a>
                 </div>
+                <?php if (empty($_SESSION['usuario'])) {
+    ?>
                 <h3>Sign in</h3>
                 <form action="#">
                     <div class="row">
+
                         <div class="col-xl-12 col-md-12">
-                            <input type="email" placeholder="Enter email">
+                            <input type="email" name='emailsignin' placeholder="Enter email">
                         </div>
                         <div class="col-xl-12 col-md-12">
-                            <input type="password" placeholder="Password">
+                            <input type="password" name='passwordsignin' placeholder="Password">
                         </div>
+                      <?php
+} ?>
                         <div class="col-xl-12">
-                            <button type="submit" class="boxed_btn_orange">Sign in</button>
+
+                              <?php
+                              if (!empty($_SESSION['usuario'])) {
+                                  echo '<button type="submit" formaction="sessiondestroy.php" class="boxed_btn_orange">';
+                                  echo "Log out";
+                              } else {
+                                  echo '<button type="submit" formaction="index.php" class="boxed_btn_orange">';
+                                  echo "Sign in";
+                              }
+                               ?>
+                             </button>
                         </div>
                     </div>
                 </form>

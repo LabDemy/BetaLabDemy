@@ -55,7 +55,7 @@ session_start();
                     <div class="row align-items-center no-gutters">
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo-img">
-                                <a href="index.html">
+                                <a href="index.php">
                                     <img src="img/logo-nuevo.png" alt="">
                                 </a>
                             </div>
@@ -64,22 +64,22 @@ session_start();
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a class="active" href="index.html">Inicio</a></li>
-                                        <li><a href="Courses.html">Cursos</a></li>
-                                        <li><a href="#">Planes<i class="ti-angle-down"></i></a>
+                                        <li><a class="active" href="index.php">Inicio</a></li>
+                                        <li><a  href="courses.php">Cursos</a></li>
+                                        <li><a href="onprocess.php">Planes<i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="course_details.html">Detalles</a></li>
                                                 <!--li><a href="elements.html">elements</a></li-->
                                             </ul>
                                         </li>
-                                        <li><a href="about.html">Nosotros</a></li>
+                                        <li><a href="about.php">Nosotros</a></li>
                                         <!--li><a href="#">blog <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html">blog</a></li>
                                                 <li><a href="single-blog.html">single-blog</a></li>
                                             </ul-->
                                         </li>
-                                        <li><a href="contact.html">Contacto</a></li>
+                                        <li><a href="contact.php">Contacto</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -253,13 +253,13 @@ session_start();
                                     <div class="col-xl-4 col-lg-4 col-md-6">
                                         <div class="single_courses">
                                             <div class="thumb">
-                                                <a href="#">
+                                                <a href="android_inscripcion.php">
                                                     <img src="img/courses/1.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="courses_info">
                                                 <span>Android</span>
-                                                <h3><a href="#">Aplicaciones Android<br>
+                                                <h3><a href="android_inscripcion.php">Aplicaciones Android<br>
                                                         </a></h3>
                                                 <div class="star_prise d-flex justify-content-between">
                                                     <div class="star">
@@ -402,7 +402,7 @@ session_start();
                                     </div>
                                     <div class="col-xl-12">
                                         <div class="more_courses text-center">
-                                            <a href="#" class="boxed_btn_rev">Más Cursos</a>
+                                            <a href="courses.php" class="boxed_btn_rev">Más Cursos</a>
                                         </div>
                                     </div>
                                 </div>
@@ -412,7 +412,7 @@ session_start();
                                     <div class="col-xl-4 col-lg-4 col-md-6  col-md-6">
                                         <div class="single_courses">
                                             <div class="thumb">
-                                                <a href="#">
+                                                <a href="android_inscripcion.php">
                                                     <img src="img/courses/1.png" alt="">
                                                 </a>
                                             </div>
@@ -1979,7 +1979,7 @@ session_start();
                             <ul>
                                 <li><a href="#">Inicio</a></li>
                                 <li><a href="#">Cursos</a></li>
-                                <li><a href="#">Planes</a></li>
+                                <li><a href="onprocess.php">Planes</a></li>
                                 <li><a href="#">Nosotros</a></li>
                                 <li><a href="#">Contacto</a></li>
                             </ul>
@@ -2028,12 +2028,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                     </a>
                 </div>
 
-
+                <?php if (empty($_SESSION['usuario'])) {
+                                           ?>
                 <h3>Sign in</h3>
                 <form action="#">
                     <div class="row">
-                      <?php if (empty($_SESSION['usuario'])) {
-                                           ?>
+
                         <div class="col-xl-12 col-md-12">
                             <input type="email" name='emailsignin' placeholder="Enter email">
                         </div>
