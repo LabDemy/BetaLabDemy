@@ -85,10 +85,13 @@ class User implements \Serializable
         // execute query
         $stmt->execute();
 
-
-
-
-        return $stmt;
+        if ($stmt->rowCount() > 0) {
+            return $stmt;
+        } else {
+            echo '<script type="text/javascript">
+              alert("Password incorrect");
+         </script>';
+        }
     }
     public function isAlreadyExist()
     {
