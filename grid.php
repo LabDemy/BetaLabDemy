@@ -80,7 +80,7 @@
  <!-- <h2 class="demo-text">EDITOR</h2> -->
              <form role="form" method="post">
                  <div class="form-group">
-                     <textarea class="form-control" rows="12" id="comentarios" name="comentarios">
+                     <!-- <textarea class="form-control" rows="12" id="comentarios" name="comentarios"> -->
 <?php
 
                         $database = new Database();
@@ -90,7 +90,7 @@
                         $cursos = new cursos($db);
                         $array=$cursos->getCoursePerId($cursoid);
                         echo $array['texto']; ?>
-                     </textarea>
+                     <!-- </textarea> -->
                      </div>
                      <!-- <button type="submit" class="btn btn-primary py-2 px-2 text-white">ACEPTAR CAMBIOS</button> -->
                      </form>
