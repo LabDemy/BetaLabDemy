@@ -224,17 +224,32 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                         <img src="img/form-logo.png" alt="">
                     </a>
                 </div>
+                <?php if (empty($_SESSION['usuario'])) {
+    ?>
                 <h3>Sign in</h3>
                 <form action="#">
                     <div class="row">
+
                         <div class="col-xl-12 col-md-12">
-                            <input type="email" placeholder="Enter email">
+                            <input type="email" name='emailsignin' placeholder="Enter email">
                         </div>
                         <div class="col-xl-12 col-md-12">
-                            <input type="password" placeholder="Password">
+                            <input type="password" name='passwordsignin' placeholder="Password">
                         </div>
+                      <?php
+} ?>
                         <div class="col-xl-12">
-                            <button type="submit" class="boxed_btn_orange">Sign in</button>
+
+                              <?php
+                              if (!empty($_SESSION['usuario'])) {
+                                  echo '<button type="submit" formaction="sessiondestroy.php" class="boxed_btn_orange">';
+                                  echo "Log out";
+                              } else {
+                                  echo '<button type="submit" formaction="index.php" class="boxed_btn_orange">';
+                                  echo "Sign in";
+                              }
+                               ?>
+                             </button>
                         </div>
                     </div>
                 </form>
