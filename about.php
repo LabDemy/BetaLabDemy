@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Labdemy</title>
+    <title>LabDemy</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,6 +28,21 @@
 </head>
 
 <body>
+<?php
+session_start();
+
+ ?>
+ <script>
+ function validate(){
+
+     var a = document.getElementById("password").value;
+     var b = document.getElementById("confirm_password").value;
+     if (a!=b) {
+        alert("Passwords do no match");
+        return false;
+     }
+ }
+</script>
     <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
@@ -40,7 +55,7 @@
                     <div class="row align-items-center no-gutters">
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo-img">
-                                <a href="index.html">
+                                <a href="index.php">
                                     <img src="img/logo-nuevo.png" alt="">
                                 </a>
                             </div>
@@ -49,16 +64,22 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="index.html">Inicio</a></li>
-                                        <li><a href="Courses.html">Cursos</a></li>
-                                        <li><a class="active" href="#">Planes<i class="ti-angle-down"></i></a>
+                                        <li><a  href="index.php">Inicio</a></li>
+                                        <li><a href="courses.php">Cursos</a></li>
+                                        <li><a href="onprocess.php">Planes<i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
-                                                <li><a href="course_details.html">course details</a></li>
-                                                <li><a href="elements.html">elements</a></li>
+                                                <li><a href="course_details.html">Detalles</a></li>
+                                                <!--li><a href="elements.html">elements</a></li-->
                                             </ul>
                                         </li>
-                                        <li><a href="about.html">Nosotros</a></li>
-                                        <li><a href="contact.html">Contacto</a></li>
+                                        <li><a class="active" href="about.php">Nosotros</a></li>
+                                        <!--li><a href="#">blog <i class="ti-angle-down"></i></a>
+                                            <ul class="submenu">
+                                                <li><a href="blog.html">blog</a></li>
+                                                <li><a href="single-blog.html">single-blog</a></li>
+                                            </ul-->
+                                        </li>
+                                        <li><a href="contact.php">Contacto</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -67,7 +88,14 @@
                             <div class="log_chat_area d-flex align-items-center">
                                 <a href="#test-form" class="login popup-with-form">
                                     <i class="flaticon-user"></i>
-                                    <span>Iniciar Sesión</span>
+
+                                    <span>  <?php
+
+                                       if (!isset($_SESSION['usuario'])) {
+                                           echo "Log In";
+                                       } else {
+                                           echo $_SESSION['usuario'];
+                                       }?></span>
                                 </a>
                                 <div class="live_chat_btn">
                                     <a class="boxed_btn_orange" href="#">
@@ -87,184 +115,136 @@
     </header>
     <!-- header-end -->
 
-     <!-- bradcam_area_start -->
-     <div class="courses_details_banner">
-         <div class="container">
-             <div class="row">
-                 <div class="col-xl-6">
-                     <div class="course_text">
-                            <h3>Aplicaciones <br> Android</h3>
-                            <div class="prise">
-                                <span class="inactive">Bs100.00</span>
-                                <span class="active">Bs69</span>
-                            </div>
-                            <div class="rating">
-                                <i class="flaticon-mark-as-favorite-star"></i>
-                                <i class="flaticon-mark-as-favorite-star"></i>
-                                <i class="flaticon-mark-as-favorite-star"></i>
-                                <i class="flaticon-mark-as-favorite-star"></i>
-                                <i class="flaticon-mark-as-favorite-star"></i>
-                                <span>(4.5)</span>
-                            </div>
-                            <div class="hours">
-                                <div class="video">
-                                     <div class="single_video">
-                                            <i class="fa fa-clock-o"></i> <span>1 video</span>
-                                     </div>
-                                     <div class="single_video">
-                                            <i class="fa fa-play-circle-o"></i> <span>9 Horas de Entrenamiento</span>
-                                     </div>
-                                   
-                                </div>
-                            </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-    </div>
-    <!-- bradcam_area_end -->
+        <!-- bradcam_area_start -->
+        <div class="bradcam_area breadcam_bg overlay2">
+            <h3>About Us</h3>
+        </div>
+        <!-- bradcam_area_end -->
 
-    <div class="courses_details_info">
+    <!-- about_area_start -->
+    <div class="about_area">
         <div class="container">
             <div class="row">
-                <div class="col-xl-7 col-lg-7">
-                    <div class="single_courses">
-                        <h3>Objetivos</h3>
-                        <p>Con esta formación el alumno aprenderá a programar aplicaciones para dispositivos Android con el nuevo entorno de desarrollo Android Studio. A lo largo del curso conocerá:</p> <br>
-
-                        <p>&#10004; En qué consiste la plataforma Android y cuáles son los elementos que la integran<p><br>&#10004; El IDE (entorno de desarrollo) oficial, Android Studio: su instalación, configuración (SDK, emuladores…) y uso.<p> <br>&#10004; Cuáles son los componentes de una App Android y cómo se implementan<p> <br> &#10004; Cómo diseñar a interfaz de usuario <p> <br> &#10004; Cómo implementar funcionalidades importantes: tareas asíncronas, multimedia, acceso a base de datos o utilización de la geolocalización y mapas<p> <br> &#10004; Cómo incluir una Aplicación en Google Play para su distribución o venta <p>
-                    <h3 class="second_title">Preguntas Frecuentes</h3>
-                    </div>
-                    <div class="outline_courses_info">
-                            <div id="accordion">
-                                    <div class="card">
-                                        <div class="card-header" id="headingTwo">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                    <i class="flaticon-question"></i> ¿Android vale la pena?
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                            <div class="card-body">
-                                                El desarrollo de las aplicaciones Android abarca un mayor campo y mayor crecimiento, donde tienes más posibilidades de entrar al mercado y tienes más capacidad de ser descubierto. Android tiene menores problemas de privacidad y tiene una publicidad mejor segmentada
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="headingOne">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                                    <i class="flaticon-question"></i>¿Seré un experto en Android?</span>
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion" style="">
-                                            <div class="card-body">
-                                                La práctica hace al maestro, con nuestro curso introductorio y práctica, podrás crear tus propias ideas en tiempo record
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="headingThree">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                    <i class="flaticon-question"></i> ¿Que sirve más, iOS o Android?
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                            <div class="card-body">
-                                                Depende mucho del tipo de orientación que tengas en cuanto a dispositivos móviles, android es mucho más abierto y el campo es más grande, pero es depende a los gustos de cada uno.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="heading_4">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse_4" aria-expanded="false" aria-controls="collapse_4">
-                                                    <i class="flaticon-question"></i>¿Cómo es la competencia en el desarrollo android?
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapse_4" class="collapse" aria-labelledby="heading_4" data-parent="#accordion">
-                                            <div class="card-body">
-                                                Sin duda, muchas empresas están empezando a apostar únicamente por aplicaciones móviles. Poco a poco irán apareciendo nuevas empresas dedicadas únicamente a la movilidad y las actuales tendrán que ir adaptándose a este nuevo panorama que, seguramente, les exigirán sus propios clientes.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="heading_5">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse_5" aria-expanded="false" aria-controls="collapse_5">
-                                                    <i class="flaticon-question"></i> How do I get started <span>with Shared
-                                                        Hosting?</span>
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapse_5" class="collapse" aria-labelledby="heading_5" data-parent="#accordion">
-                                            <div class="card-body">
-                                                Our set he for firmament morning sixth subdue darkness creeping gathered divide our
-                                                let god moving. Moving in fourth air night bring upon
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                <div class="col-xl-5 col-lg-6">
+                    <div class="single_about_info">
+                        <h3>Over 7000 Tutorials <br>
+                            from 20 Courses</h3>
+                        <p>Our set he for firmament morning sixth subdue darkness creeping gathered divide our let god
+                            moving. Moving in fourth air night bring upon you’re it beast let you dominion likeness open
+                            place day great wherein heaven sixth lesser subdue fowl </p>
+                        <a href="#" class="boxed_btn">Enroll a Course</a>
                     </div>
                 </div>
-                <div class="col-xl-5 col-lg-5">
-                    <div class="courses_sidebar">
-                        <div class="video_thumb">
-                            <img src="img/latest_blog/curso2.jpg" alt="">
-                            <a class="popup-video" href="https://www.youtube.com/watch?v=PRQjrp_7ip8">
-                                <i class="fa fa-play"></i>
-                            </a>
-                        </div>
-                        <div class="author_info">
-                            <div class="auhor_header">
-                                <div class="thumb">
-                                        <img src="img/latest_blog/kev.png" alt="">
-                                </div>
-                                <div class="name">
-                                    <h3>Kevin Cárdenas</h3>
-                                    <p>Desarrollador de Android</p>
+                <div class="col-xl-6 offset-xl-1 col-lg-6">
+                    <div class="about_tutorials">
+                        <div class="courses">
+                            <div class="inner_courses">
+                                <div class="text_info">
+                                    <span>20+</span>
+                                    <p> Courses</p>
                                 </div>
                             </div>
-                            <p class="text_info">
-                               "El desarrollo de Android es clave para un futuro lleno de tecnología"
-                            </p>
-                            <ul>
-                                <li><a href="#"> <i class="fa fa-envelope"></i> </a></li>
-                                <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
-                                <li><a href="#"> <i class="ti-linkedin"></i> </a></li>
-                            </ul>
                         </div>
-                        <a href="#" class="boxed_btn">Comprar Curso</a>
-                        <div class="feedback_info">
-                            <h3>Califica este curso!</h3>
-                            <p>Rating</p>
-                            <i class="flaticon-mark-as-favorite-star"></i>
-                            <i class="flaticon-mark-as-favorite-star"></i>
-                            <i class="flaticon-mark-as-favorite-star"></i>
-                            <i class="flaticon-mark-as-favorite-star"></i>
-                            <i class="flaticon-mark-as-favorite-star"></i>
-                            
-                        <form action="#">
-                                <textarea name="" id="" cols="30" rows="10" placeholder="Escríbenos"></textarea>
-                                <button type="submit" class="boxed_btn">Enviar</button>
-                            </form>
+                        <div class="courses-blue">
+                            <div class="inner_courses">
+                                <div class="text_info">
+                                    <span>7638</span>
+                                    <p> Courses</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="courses-sky">
+                            <div class="inner_courses">
+                                <div class="text_info">
+                                    <span>230+</span>
+                                    <p> Courses</p>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- about_area_end -->
 
-
-
+    <!-- our_team_member_start -->
+    <div class="our_team_member">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-md-6 col-lg-3">
+                    <div class="single_team">
+                        <div class="thumb">
+                            <img src="img/team/1.png" alt="">
+                            <div class="social_link">
+                                <a href="#"><i class="fa fa-envelope"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="master_name text-center">
+                            <h3>Macau Wilium</h3>
+                            <p>Massage Master</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-lg-3">
+                    <div class="single_team">
+                        <div class="thumb">
+                            <img src="img/team/2.png" alt="">
+                            <div class="social_link">
+                                <a href="#"><i class="fa fa-envelope"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="master_name text-center">
+                            <h3>Dan Jacky</h3>
+                            <p>Mens Cut</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-lg-3">
+                    <div class="single_team">
+                        <div class="thumb">
+                            <img src="img/team/3.png" alt="">
+                            <div class="social_link">
+                                <a href="#"><i class="fa fa-envelope"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="master_name text-center">
+                            <h3>Luka Luka</h3>
+                            <p>Mens Cut</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-lg-3">
+                    <div class="single_team">
+                        <div class="thumb">
+                            <img src="img/team/4.png" alt="">
+                            <div class="social_link">
+                                <a href="#"><i class="fa fa-envelope"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="master_name text-center">
+                            <h3>Rona Dana</h3>
+                            <p>Ladies Cut</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- our_team_member_end -->
 
     <!-- testimonial_area_start -->
-   <!-- <div class="testimonial_area testimonial_bg_1 overlay">
+    <div class="testimonial_area testimonial_bg_1 overlay">
         <div class="testmonial_active owl-carousel">
             <div class="single_testmoial">
                 <div class="container">
@@ -313,7 +293,7 @@
     <!-- testimonial_area_end -->
 
     <!-- our_courses_start -->
-    <!--<div class="our_courses">
+    <div class="our_courses">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -380,7 +360,7 @@
     <!-- our_courses_end -->
 
     <!-- subscribe_newsletter_Start -->
-   <!-- <div class="subscribe_newsletter">
+    <div class="subscribe_newsletter">
         <div class="container">
             <div class="row">
                 <div class="col-xl-6 col-lg-6">
@@ -404,7 +384,7 @@
     <!-- subscribe_newsletter_end -->
 
     <!-- our_latest_blog_start -->
-   <!-- <div class="our_latest_blog">
+    <div class="our_latest_blog">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -483,9 +463,14 @@
                         <div class="footer_widget">
                             <div class="footer_logo">
                                 <a href="#">
-                                    <img src="img/logo-nuevo.png" alt="">
+                                    <img src="img/logo.png" alt="">
                                 </a>
                             </div>
+                            <p>
+                                Firmament morning sixth subdue darkness creeping gathered divide our let god moving.
+                                Moving in fourth air night bring upon it beast let you dominion likeness open place day
+                                great.
+                            </p>
                             <div class="socail_links">
                                 <ul>
                                     <li>
@@ -516,13 +501,13 @@
                     <div class="col-xl-2 offset-xl-1 col-md-6 col-lg-3">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                Cursos
+                                Courses
                             </h3>
                             <ul>
-                                <li><a href="#">Android</a></li>
-                                <li><a href="#">Raspberry Pi</a></li>
-                                <li><a href="#">Arduino</a></li>
-                                <li><a href="#">Bootstrap</a></li>
+                                <li><a href="#">Wordpress</a></li>
+                                <li><a href="#"> Photoshop</a></li>
+                                <li><a href="#">Illustrator</a></li>
+                                <li><a href="#">Adobe XD</a></li>
                                 <li><a href="#">UI/UX</a></li>
                             </ul>
 
@@ -531,25 +516,26 @@
                     <div class="col-xl-2 col-md-6 col-lg-2">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                Menú
+                                Resourches
                             </h3>
                             <ul>
-                                <li><a href="#">Incio</a></li>
-                                <li><a href="#">Cursos</a></li>
-                                <li><a href="#">Planes</a></li>
-                                <li><a href="#">Nosotros</a></li>
-                                <li><a href="#"> Contacto</a></li>
+                                <li><a href="#">Free Adobe XD</a></li>
+                                <li><a href="#">Tutorials</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#"> About</a></li>
+                                <li><a href="#"> Contact</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6 col-lg-3">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                Contacto
+                                Address
                             </h3>
                             <p>
-                                70163895 - 2755505 <br>
-                                info@labdemy.edu
+                                200, D-block, Green lane USA <br>
+                                +10 367 467 8934 <br>
+                                edumark@contact.com
                             </p>
                         </div>
                     </div>
