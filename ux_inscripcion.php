@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Labdemy</title>
+    <title>LabDemy</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,6 +28,21 @@
 </head>
 
 <body>
+<?php
+session_start();
+
+ ?>
+ <script>
+ function validate(){
+
+     var a = document.getElementById("password").value;
+     var b = document.getElementById("confirm_password").value;
+     if (a!=b) {
+        alert("Passwords do no match");
+        return false;
+     }
+ }
+</script>
     <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
@@ -49,15 +64,21 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="index.php">Inicio</a></li>
-                                        <li><a href="courses.php">Cursos</a></li>
-                                        <li><a class="active" href="#">Planes<i class="ti-angle-down"></i></a>
+                                        <li><a  href="index.php">Inicio</a></li>
+                                        <li><a   class="active" href="courses.php">Cursos</a></li>
+                                        <li><a href="onprocess.php">Planes<i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
-                                                <li><a href="course_details.html">course details</a></li>
-                                                <li><a href="elements.html">elements</a></li>
+                                                <li><a href="course_details.html">Detalles</a></li>
+                                                <!--li><a href="elements.html">elements</a></li-->
                                             </ul>
                                         </li>
                                         <li><a href="about.php">Nosotros</a></li>
+                                        <!--li><a href="#">blog <i class="ti-angle-down"></i></a>
+                                            <ul class="submenu">
+                                                <li><a href="blog.html">blog</a></li>
+                                                <li><a href="single-blog.html">single-blog</a></li>
+                                            </ul-->
+                                        </li>
                                         <li><a href="contact.php">Contacto</a></li>
                                     </ul>
                                 </nav>
@@ -67,7 +88,14 @@
                             <div class="log_chat_area d-flex align-items-center">
                                 <a href="#test-form" class="login popup-with-form">
                                     <i class="flaticon-user"></i>
-                                    <span>Iniciar Sesión</span>
+
+                                    <span>  <?php
+
+                                       if (!isset($_SESSION['usuario'])) {
+                                           echo "Log In";
+                                       } else {
+                                           echo $_SESSION['usuario'];
+                                       }?></span>
                                 </a>
                                 <div class="live_chat_btn">
                                     <a class="boxed_btn_orange" href="#">
@@ -114,7 +142,7 @@
                                      <div class="single_video">
                                             <i class="fa fa-play-circle-o"></i> <span>4 Horas de Entrenamiento</span>
                                      </div>
-                                   
+
                                 </div>
                             </div>
                      </div>
@@ -132,7 +160,7 @@
                         <h3>Objetivos</h3>
                         <p>El diseñador UX tiene como objetivo que el usuario tenga una experiencia positiva a la hora de conseguir el objetivo por el cual está visitando un sitio. El diseño UI podría definirse como una nueva tendencia en el diseño web que se enfoca en crear una interfaces entre las personas y los diferentes dispositivos digitales.</p> <br>
 
-                        <p>&#10004; Obtener estimaciones más precisas. Podremos modificar elementos de diseño de manera más fácil.<p><br>&#10004; Optimizar tiempos. Si tenemos un buen diseño podremos definir más claramente las fases de desarrollo de un producto. <p> <br>&#10004; Aumentar tráfico y, a su vez, la audiencia.  <p> <br> &#10004; Ayuda a definir las necesidades de los usuarios. <p> <br> &#10004; Bajar la tasa de rebote en la web. Se eliminarán errores y por lo tanto los clientes se quedarán. 
+                        <p>&#10004; Obtener estimaciones más precisas. Podremos modificar elementos de diseño de manera más fácil.<p><br>&#10004; Optimizar tiempos. Si tenemos un buen diseño podremos definir más claramente las fases de desarrollo de un producto. <p> <br>&#10004; Aumentar tráfico y, a su vez, la audiencia.  <p> <br> &#10004; Ayuda a definir las necesidades de los usuarios. <p> <br> &#10004; Bajar la tasa de rebote en la web. Se eliminarán errores y por lo tanto los clientes se quedarán.
 <p> <br> &#10004; Mejorar el posicionamiento en los buscadores. Una página usable para el móvil y para el ordenador será mucho mejor puntuada por Google. <p>
                     <h3 class="second_title">Preguntas Frecuentes</h3>
                     </div>
@@ -247,7 +275,7 @@
                             <i class="flaticon-mark-as-favorite-star"></i>
                             <i class="flaticon-mark-as-favorite-star"></i>
                             <i class="flaticon-mark-as-favorite-star"></i>
-                            
+
                         <form action="#">
                                 <textarea name="" id="" cols="30" rows="10" placeholder="Escríbenos"></textarea>
                                 <button type="submit" class="boxed_btn">Enviar</button>
@@ -562,7 +590,7 @@
                     <div class="col-xl-12">
                         <p class="copy_right text-center">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Fue hecho con <i class="fa fa-heart-o" aria-hidden="true"></i> 
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Fue hecho con <i class="fa fa-heart-o" aria-hidden="true"></i>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>
@@ -582,17 +610,32 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                         <img src="img/form-logo.png" alt="">
                     </a>
                 </div>
+                <?php if (empty($_SESSION['usuario'])) {
+                                           ?>
                 <h3>Sign in</h3>
                 <form action="#">
                     <div class="row">
+
                         <div class="col-xl-12 col-md-12">
-                            <input type="email" placeholder="Enter email">
+                            <input type="email" name='emailsignin' placeholder="Enter email">
                         </div>
                         <div class="col-xl-12 col-md-12">
-                            <input type="password" placeholder="Password">
+                            <input type="password" name='passwordsignin' placeholder="Password">
                         </div>
+                      <?php
+                                       } ?>
                         <div class="col-xl-12">
-                            <button type="submit" class="boxed_btn_orange">Sign in</button>
+
+                              <?php
+                              if (!empty($_SESSION['usuario'])) {
+                                  echo '<button type="submit" formaction="sessiondestroy.php" class="boxed_btn_orange">';
+                                  echo "Log out";
+                              } else {
+                                  echo '<button type="submit" formaction="index.php" class="boxed_btn_orange">';
+                                  echo "Sign in";
+                              }
+                               ?>
+                             </button>
                         </div>
                     </div>
                 </form>

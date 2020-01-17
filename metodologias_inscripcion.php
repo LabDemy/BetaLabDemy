@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Labdemy</title>
+    <title>LabDemy</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,6 +28,21 @@
 </head>
 
 <body>
+<?php
+session_start();
+
+ ?>
+ <script>
+ function validate(){
+
+     var a = document.getElementById("password").value;
+     var b = document.getElementById("confirm_password").value;
+     if (a!=b) {
+        alert("Passwords do no match");
+        return false;
+     }
+ }
+</script>
     <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
@@ -40,7 +55,7 @@
                     <div class="row align-items-center no-gutters">
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo-img">
-                                <a href="index.html">
+                                <a href="index.php">
                                     <img src="img/logo-nuevo.png" alt="">
                                 </a>
                             </div>
@@ -49,16 +64,22 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="index.html">Inicio</a></li>
-                                        <li><a href="Courses.html">Cursos</a></li>
-                                        <li><a class="active" href="#">Planes<i class="ti-angle-down"></i></a>
+                                        <li><a class="active" href="index.php">Inicio</a></li>
+                                        <li><a  href="courses.php">Cursos</a></li>
+                                        <li><a href="onprocess.php">Planes<i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
-                                                <li><a href="course_details.html">course details</a></li>
-                                                <li><a href="elements.html">elements</a></li>
+                                                <li><a href="course_details.html">Detalles</a></li>
+                                                <!--li><a href="elements.html">elements</a></li-->
                                             </ul>
                                         </li>
-                                        <li><a href="about.html">Nosotros</a></li>
-                                        <li><a href="contact.html">Contacto</a></li>
+                                        <li><a href="about.php">Nosotros</a></li>
+                                        <!--li><a href="#">blog <i class="ti-angle-down"></i></a>
+                                            <ul class="submenu">
+                                                <li><a href="blog.html">blog</a></li>
+                                                <li><a href="single-blog.html">single-blog</a></li>
+                                            </ul-->
+                                        </li>
+                                        <li><a href="contact.php">Contacto</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -67,7 +88,14 @@
                             <div class="log_chat_area d-flex align-items-center">
                                 <a href="#test-form" class="login popup-with-form">
                                     <i class="flaticon-user"></i>
-                                    <span>Iniciar Sesión</span>
+
+                                    <span>  <?php
+
+                                       if (!isset($_SESSION['usuario'])) {
+                                           echo "Log In";
+                                       } else {
+                                           echo $_SESSION['usuario'];
+                                       }?></span>
                                 </a>
                                 <div class="live_chat_btn">
                                     <a class="boxed_btn_orange" href="#">
@@ -93,7 +121,7 @@
              <div class="row">
                  <div class="col-xl-6">
                      <div class="course_text">
-                            <h3>Diseño de Aplicaciones <br> con User Experience</h3>
+                            <h3>Metodologías <br> Ágiles</h3>
                             <div class="prise">
                                 <span class="inactive">Bs100.00</span>
                                 <span class="active">Bs69</span>
@@ -112,9 +140,9 @@
                                             <i class="fa fa-clock-o"></i> <span>1 video</span>
                                      </div>
                                      <div class="single_video">
-                                            <i class="fa fa-play-circle-o"></i> <span>2 Horas de Entrenamiento</span>
+                                            <i class="fa fa-play-circle-o"></i> <span>5 Horas de Entrenamiento</span>
                                      </div>
-                                   
+
                                 </div>
                             </div>
                      </div>
@@ -130,10 +158,9 @@
                 <div class="col-xl-7 col-lg-7">
                     <div class="single_courses">
                         <h3>Objetivos</h3>
-                        <p>El concepto “UX” ha cobrado una fiera importancia dentro de la empresa, donde se dan cuenta del valor que supone ya no solo como una manera de diferenciarse en el mercado frente a la competencia (ese gran reto de cualquier empresa), sino también como una herramienta para afianzar usuarios dándoles junto al producto que adquieren una experiencia de uso cómoda y humana, convirtiendo al consumidor en un defensor de la marca del producto, aquí aprenderás todo sobre:</p> <br>
+                        <p>Las empresas que apuestan por una Transformación Digital completa terminan por incluir, implantar y desarrollar metodologías ágiles en el interior de sus departamentos para entregar los productos y/o servicios con una mayor calidad y con unos costes y tiempos mucho más reducidos, aquí aprenderás todo sobre:</p> <br>
 
-                        <p>&#10004; aumento de los índices de éxito del proyecto o servicio<p><br>&#10004; mejora en la eficiencia y productividad. <p> <br>&#10004; incremento en la satisfacción de los usuarios<p> <br> &#10004; Amayor gratificación en los equipos de desarrollo. <p> <br> &#10004; mayor facilidad de uso y aprendizaje 
-                        <p> 
+                        <p>&#10004; Respuesta rápida a cambios de requisitos durante el proyecto<p><br>&#10004; Se identifican errores rápidamente debido a que se van haciendo pruebas a medida que se avanza<p> <br>&#10004; Hacer que el equipo de desarrollo conoce el estado del proyecto<p> <br>
                     <h3 class="second_title">Preguntas Frecuentes</h3>
                     </div>
                     <div class="outline_courses_info">
@@ -214,7 +241,7 @@
                 <div class="col-xl-5 col-lg-5">
                     <div class="courses_sidebar">
                         <div class="video_thumb">
-                            <img src="img/latest_blog/3.jpg" alt="">
+                            <img src="img/latest_blog/4.jpg" alt="">
                             <a class="popup-video" href="https://www.youtube.com/watch?v=PRQjrp_7ip8">
                                 <i class="fa fa-play"></i>
                             </a>
@@ -222,15 +249,15 @@
                         <div class="author_info">
                             <div class="auhor_header">
                                 <div class="thumb">
-                                        <img src="img/latest_blog/vladi.png" alt="">
+                                        <img src="img/latest_blog/eynar.png" alt="">
                                 </div>
                                 <div class="name">
-                                    <h3>Vladimir Tirado</h3>
-                                    <p>Diseñador de UX/UI</p>
+                                    <h3>Eynar Pari</h3>
+                                    <p>QA Lead Developer</p>
                                 </div>
                             </div>
                             <p class="text_info">
-                               "Un buen diseño web es la clave principal que hay que tener en cuenta para tener éxito en la estratégia de Marketing Digital"
+                               "Scrum no es una metodología.  Scrum ni siquiera es un proceso. A lo sumo podríamos definirlo como un  metaproceso: una maquinita que nos ayuda a construir iteractiva e incrementalmente nuestro propio proceso"
                             </p>
                             <ul>
                                 <li><a href="#"> <i class="fa fa-envelope"></i> </a></li>
@@ -247,7 +274,7 @@
                             <i class="flaticon-mark-as-favorite-star"></i>
                             <i class="flaticon-mark-as-favorite-star"></i>
                             <i class="flaticon-mark-as-favorite-star"></i>
-                            
+
                         <form action="#">
                                 <textarea name="" id="" cols="30" rows="10" placeholder="Escríbenos"></textarea>
                                 <button type="submit" class="boxed_btn">Enviar</button>
@@ -562,7 +589,7 @@
                     <div class="col-xl-12">
                         <p class="copy_right text-center">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Fue hecho con <i class="fa fa-heart-o" aria-hidden="true"></i> 
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Fue hecho con <i class="fa fa-heart-o" aria-hidden="true"></i>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>
@@ -582,22 +609,41 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                         <img src="img/form-logo.png" alt="">
                     </a>
                 </div>
+                <?php if (empty($_SESSION['usuario'])) {
+                                           ?>
                 <h3>Sign in</h3>
                 <form action="#">
                     <div class="row">
+
                         <div class="col-xl-12 col-md-12">
-                            <input type="email" placeholder="Enter email">
+                            <input type="email" name='emailsignin' placeholder="Enter email">
                         </div>
                         <div class="col-xl-12 col-md-12">
-                            <input type="password" placeholder="Password">
+                            <input type="password" name='passwordsignin' placeholder="Password">
                         </div>
+                      <?php
+                                       } ?>
                         <div class="col-xl-12">
-                            <button type="submit" class="boxed_btn_orange">Sign in</button>
+
+                              <?php
+                              if (!empty($_SESSION['usuario'])) {
+                                  echo '<button type="submit" formaction="sessiondestroy.php" class="boxed_btn_orange">';
+                                  echo "Log out";
+                              } else {
+                                  echo '<button type="submit" formaction="index.php" class="boxed_btn_orange">';
+                                  echo "Sign in";
+                              }
+                               ?>
+                             </button>
                         </div>
                     </div>
                 </form>
+                <?php if (empty($_SESSION['usuario'])) {
+                                   ?>
                 <p class="doen_have_acc">Don’t have an account? <a class="dont-hav-acc" href="#test-form2">Sign Up</a>
                 </p>
+                <?php
+                               } ?>
             </div>
         </div>
     </form>

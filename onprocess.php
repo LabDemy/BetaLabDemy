@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Labdemy</title>
+    <title>LabDemy</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,6 +28,21 @@
 </head>
 
 <body>
+<?php
+session_start();
+
+ ?>
+ <script>
+ function validate(){
+
+     var a = document.getElementById("password").value;
+     var b = document.getElementById("confirm_password").value;
+     if (a!=b) {
+        alert("Passwords do no match");
+        return false;
+     }
+ }
+</script>
     <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
@@ -49,15 +64,20 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="index.php">Inicio</a></li>
+                                        <li><a  href="index.php">Inicio</a></li>
                                         <li><a href="courses.php">Cursos</a></li>
-                                        <li><a class="active" href="#">Planes <i class="ti-angle-down"></i></a>
+                                        <li><a href="onprocess.php">Planes<i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
-                                                <li><a href="course_details.html">course details</a></li>
-                                                <li><a href="elements.html">elements</a></li>
+                                                <li><a href="course_details.html">Detalles</a></li>
+                                                <!--li><a href="elements.html">elements</a></li-->
                                             </ul>
                                         </li>
-                                        <li><a href="about.php">Nosotros</a></li>
+                                        <li><a class="active" href="about.php">Nosotros</a></li>
+                                        <!--li><a href="#">blog <i class="ti-angle-down"></i></a>
+                                            <ul class="submenu">
+                                                <li><a href="blog.html">blog</a></li>
+                                                <li><a href="single-blog.html">single-blog</a></li>
+                                            </ul-->
                                         </li>
                                         <li><a href="contact.php">Contacto</a></li>
                                     </ul>
@@ -68,7 +88,14 @@
                             <div class="log_chat_area d-flex align-items-center">
                                 <a href="#test-form" class="login popup-with-form">
                                     <i class="flaticon-user"></i>
-                                    <span>Iniciar Sesión</span>
+
+                                    <span>  <?php
+
+                                       if (!isset($_SESSION['usuario'])) {
+                                           echo "Log In";
+                                       } else {
+                                           echo $_SESSION['usuario'];
+                                       }?></span>
                                 </a>
                                 <div class="live_chat_btn">
                                     <a class="boxed_btn_orange" href="#">
@@ -87,32 +114,28 @@
         </div>
     </header>
     <!-- header-end -->
+        <!-- bradcam_area_start -->
+        <div class="bradcam_area breadcam_bg overlay2">
+          <div class="container">
+              <div class="row">
+                      <div class="onprocess">
 
-     <!-- bradcam_area_start -->
-     <!--<div class="courses_details_banner"> -->
-         <div class="container">
-             <div class="row">
-                     <div class="onprocess"> <br><br><br><br><br>
-                        <h1 align="center"> PÁGINA EN PROCESO </h1>
+                      </div>
+              </div>
+            <h1 align="center" style="color:white"> PÁGINA EN PROCESO </h1>
+          </div>
+      <!-- bradcam_area_end -->
+        </div>
+        <!-- <div class = "onprocess2"> -->
+            <div class = "col-xl-12" align="center">
+            <img src="img/process.png" alt = "">
+        </div>
+      <!-- </div> -->
+        <!-- bradcam_area_end -->
 
-                            <img src="img/process.jpg" alt= "">
-                                </div>
-                            </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-    </div>
-    <!-- bradcam_area_end -->
-                </div>
-                <div class = "onprocess">
-                    <div class = "col-xl-12" align="center">
-                    <img src="img/process.png" alt = "">
 
-                </div>
-            </div>
 
-    <!-- our_latest_blog_end -->
+
 
 
     <!-- footer -->
@@ -124,9 +147,14 @@
                         <div class="footer_widget">
                             <div class="footer_logo">
                                 <a href="#">
-                                    <img src="img/logo-nuevo.png" alt="">
+                                    <img src="img/logo.png" alt="">
                                 </a>
                             </div>
+                            <p>
+                                Firmament morning sixth subdue darkness creeping gathered divide our let god moving.
+                                Moving in fourth air night bring upon it beast let you dominion likeness open place day
+                                great.
+                            </p>
                             <div class="socail_links">
                                 <ul>
                                     <li>
@@ -157,13 +185,13 @@
                     <div class="col-xl-2 offset-xl-1 col-md-6 col-lg-3">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                Cursos
+                                Courses
                             </h3>
                             <ul>
-                                <li><a href="#">Android</a></li>
-                                <li><a href="#">Raspberry Pi</a></li>
-                                <li><a href="#">Arduino</a></li>
-                                <li><a href="#">Bootstrap</a></li>
+                                <li><a href="#">Wordpress</a></li>
+                                <li><a href="#"> Photoshop</a></li>
+                                <li><a href="#">Illustrator</a></li>
+                                <li><a href="#">Adobe XD</a></li>
                                 <li><a href="#">UI/UX</a></li>
                             </ul>
 
@@ -172,7 +200,7 @@
                     <div class="col-xl-2 col-md-6 col-lg-2">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                Menú
+                                Resourches
                             </h3>
                             <ul>
                                 <li><a href="#">Free Adobe XD</a></li>
@@ -186,11 +214,12 @@
                     <div class="col-xl-3 col-md-6 col-lg-3">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                Contacto
+                                Address
                             </h3>
                             <p>
-                                70163895 - 2750555<br>
-                                info@labdemy.com
+                                200, D-block, Green lane USA <br>
+                                +10 367 467 8934 <br>
+                                edumark@contact.com
                             </p>
                         </div>
                     </div>
@@ -204,7 +233,7 @@
                     <div class="col-xl-12">
                         <p class="copy_right text-center">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Fue hecho con <i class="fa fa-heart-o" aria-hidden="true"></i>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>
@@ -225,7 +254,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                     </a>
                 </div>
                 <?php if (empty($_SESSION['usuario'])) {
-    ?>
+                                           ?>
                 <h3>Sign in</h3>
                 <form action="#">
                     <div class="row">
@@ -237,7 +266,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                             <input type="password" name='passwordsignin' placeholder="Password">
                         </div>
                       <?php
-} ?>
+                                       } ?>
                         <div class="col-xl-12">
 
                               <?php
