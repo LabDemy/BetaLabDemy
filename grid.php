@@ -28,7 +28,7 @@
                   include_once 'backend/database.php';
                   include_once 'backend/cursos.php';
                   session_start();
-                      $_SESSION['tipo']=1;
+                      $_SESSION['tipo']=3;
                     if ($_SESSION['tipo']==3) {
                         ?>
 				        <h2 class="demo-text">EDITOR</h2>

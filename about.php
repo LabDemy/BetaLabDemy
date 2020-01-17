@@ -66,7 +66,7 @@ session_start();
                                     <ul id="navigation">
                                         <li><a  href="index.php">Inicio</a></li>
                                         <li><a href="courses.php">Cursos</a></li>
-                                        <li><a href="onprocess.php">Planes<i class="ti-angle-down"></i></a>
+                                        <li><a href="onprocess.php">Planes <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="course_details.html">Detalles</a></li>
                                                 <!--li><a href="elements.html">elements</a></li-->
@@ -117,7 +117,7 @@ session_start();
 
         <!-- bradcam_area_start -->
         <div class="bradcam_area breadcam_bg overlay2">
-            <h3>About Us</h3>
+            <h3>Nosotros</h3>
         </div>
         <!-- bradcam_area_end -->
 
@@ -127,12 +127,9 @@ session_start();
             <div class="row">
                 <div class="col-xl-5 col-lg-6">
                     <div class="single_about_info">
-                        <h3>Over 7000 Tutorials <br>
-                            from 20 Courses</h3>
-                        <p>Our set he for firmament morning sixth subdue darkness creeping gathered divide our let god
-                            moving. Moving in fourth air night bring upon you’re it beast let you dominion likeness open
-                            place day great wherein heaven sixth lesser subdue fowl </p>
-                        <a href="#" class="boxed_btn">Enroll a Course</a>
+                        <h3>Podras encontrar mucho tutoriales<br>
+                            en los 6 cursos disponibles</h3>
+                        <a href="onprocess.php" class="boxed_btn">Inscríbete ya!</a>
                     </div>
                 </div>
                 <div class="col-xl-6 offset-xl-1 col-lg-6">
@@ -140,16 +137,16 @@ session_start();
                         <div class="courses">
                             <div class="inner_courses">
                                 <div class="text_info">
-                                    <span>20+</span>
-                                    <p> Courses</p>
+                                    <span>6</span>
+                                    <p>Cursos</p>
                                 </div>
                             </div>
                         </div>
                         <div class="courses-blue">
                             <div class="inner_courses">
                                 <div class="text_info">
-                                    <span>7638</span>
-                                    <p> Courses</p>
+                                    <span>10</span>
+                                    <p>Tutoriales</p>
                                 </div>
 
                             </div>
@@ -157,8 +154,8 @@ session_start();
                         <div class="courses-sky">
                             <div class="inner_courses">
                                 <div class="text_info">
-                                    <span>230+</span>
-                                    <p> Courses</p>
+                                    <span>12+</span>
+                                    <p>Profesores de excelencia</p>
                                 </div>
 
                             </div>
@@ -173,23 +170,8 @@ session_start();
     <!-- our_team_member_start -->
     <div class="our_team_member">
         <div class="container">
-            <div class="row">
-                <div class="col-xl-3 col-md-6 col-lg-3">
-                    <div class="single_team">
-                        <div class="thumb">
-                            <img src="img/team/1.png" alt="">
-                            <div class="social_link">
-                                <a href="#"><i class="fa fa-envelope"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                            </div>
-                        </div>
-                        <div class="master_name text-center">
-                            <h3>Macau Wilium</h3>
-                            <p>Massage Master</p>
-                        </div>
-                    </div>
-                </div>
+            <div align="center">
+                <h1>Equipo:</h1>
                 <div class="col-xl-3 col-md-6 col-lg-3">
                     <div class="single_team">
                         <div class="thumb">
@@ -201,8 +183,8 @@ session_start();
                             </div>
                         </div>
                         <div class="master_name text-center">
-                            <h3>Dan Jacky</h3>
-                            <p>Mens Cut</p>
+                            <h3>Emilia A.</h3>
+                            <p>DEV</p>
                         </div>
                     </div>
                 </div>
@@ -217,27 +199,14 @@ session_start();
                             </div>
                         </div>
                         <div class="master_name text-center">
-                            <h3>Luka Luka</h3>
-                            <p>Mens Cut</p>
+                            <h3>Sara U.</h3>
+                            <p>DEV</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-md-6 col-lg-3">
-                    <div class="single_team">
-                        <div class="thumb">
-                            <img src="img/team/4.png" alt="">
-                            <div class="social_link">
-                                <a href="#"><i class="fa fa-envelope"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                            </div>
-                        </div>
-                        <div class="master_name text-center">
-                            <h3>Rona Dana</h3>
-                            <p>Ladies Cut</p>
-                        </div>
-                    </div>
-                </div>
+            </div>
+            <div class="row">
+                
             </div>
         </div>
     </div>
@@ -255,31 +224,8 @@ session_start();
                                     <img src="img/testmonial/author_img.png" alt="">
                                 </div>
                                 <p>
-                                    "Working in conjunction with humanitarian aid <br> agencies we have supported
-                                    programmes to <br>
-                                    alleviate.
-                                    human suffering.
-
-                                </p>
-                                <span>- Jquileen</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single_testmoial">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="testmonial_text text-center">
-                                <div class="author_img">
-                                    <img src="img/testmonial/author_img.png" alt="">
-                                </div>
-                                <p>
-                                    "Working in conjunction with humanitarian aid <br> agencies we have supported
-                                    programmes to <br>
-                                    alleviate.
-                                    human suffering.
+                                    "La educación no cambia al mundo; <br> Cambia a las personas que
+                                    van a cambiar al mundo". <br>
 
                                 </p>
                                 <span>- Jquileen</span>
@@ -292,168 +238,6 @@ session_start();
     </div>
     <!-- testimonial_area_end -->
 
-    <!-- our_courses_start -->
-    <div class="our_courses">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="section_title text-center mb-100">
-                        <h3>Our Course Speciality</h3>
-                        <p>Your domain control panel is designed for ease-of-use and <br>
-                            allows for all aspects of your domains.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-3 col-md-6 col-lg-6">
-                    <div class="single_course text-center">
-                        <div class="icon">
-                            <i class="flaticon-art-and-design"></i>
-                        </div>
-                        <h3>Premium Quality</h3>
-                        <p>
-                            Your domain control panel is designed for ease-of-use <br> and <br>
-                            allows for all aspects of
-                        </p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 col-lg-6">
-                    <div class="single_course text-center">
-                        <div class="icon blue">
-                            <i class="flaticon-business-and-finance"></i>
-                        </div>
-                        <h3>Premium Quality</h3>
-                        <p>
-                            Your domain control panel is designed for ease-of-use <br> and <br>
-                            allows for all aspects of
-                        </p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 col-lg-6">
-                    <div class="single_course text-center">
-                        <div class="icon">
-                            <i class="flaticon-premium"></i>
-                        </div>
-                        <h3>Premium Quality</h3>
-                        <p>
-                            Your domain control panel is designed for ease-of-use <br> and <br>
-                            allows for all aspects of
-                        </p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 col-lg-6">
-                    <div class="single_course text-center">
-                        <div class="icon gradient">
-                            <i class="flaticon-crown"></i>
-                        </div>
-                        <h3>Premium Quality</h3>
-                        <p>
-                            Your domain control panel is designed for ease-of-use <br> and <br>
-                            allows for all aspects of
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- our_courses_end -->
-
-    <!-- subscribe_newsletter_Start -->
-    <div class="subscribe_newsletter">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-6 col-lg-6">
-                    <div class="newsletter_text">
-                        <h3>Subscribe Newsletter</h3>
-                        <p>Your domain control panel is designed for ease-of-use and allows for all aspects of your</p>
-                    </div>
-                </div>
-                <div class="col-xl-5 offset-xl-1 col-lg-6">
-                    <div class="newsletter_form">
-                        <h4>Your domain control panel is</h4>
-                        <form action="#" class="newsletter_form">
-                            <input type="text" placeholder="Enter your mail">
-                            <button type="submit">Sign Up</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- subscribe_newsletter_end -->
-
-    <!-- our_latest_blog_start -->
-    <div class="our_latest_blog">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="section_title text-center mb-100">
-                        <h3>Our Latest Blog</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-4 col-md-4">
-                    <div class="single_latest_blog">
-                        <div class="thumb">
-                            <img src="img/latest_blog/1.png" alt="">
-                        </div>
-                        <div class="content_blog">
-                            <div class="date">
-                                <p>12 Jun, 2019 in <a href="#">Design tips</a></p>
-                            </div>
-                            <div class="blog_meta">
-                                <h3><a href="#">Commitment to dedicated Support</a></h3>
-                            </div>
-                            <p class="blog_text">
-                                Firmament morning sixth subdue darkness creeping gathered divide.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-4">
-                    <div class="single_latest_blog">
-                        <div class="thumb">
-                            <img src="img/latest_blog/2.png" alt="">
-                        </div>
-                        <div class="content_blog">
-                            <div class="date">
-                                <p>12 Jun, 2019 in <a href="#">Design tips</a></p>
-                            </div>
-                            <div class="blog_meta">
-                                <h3><a href="#">Commitment to dedicated Support</a></h3>
-                            </div>
-                            <p class="blog_text">
-                                Firmament morning sixth subdue darkness creeping gathered divide.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-4">
-                    <div class="single_latest_blog">
-                        <div class="thumb">
-                            <img src="img/latest_blog/3.png" alt="">
-                        </div>
-                        <div class="content_blog">
-                            <div class="date">
-                                <p>12 Jun, 2019 in <a href="#">Design tips</a></p>
-                            </div>
-                            <div class="blog_meta">
-                                <h3><a href="#">Commitment to dedicated Support</a></h3>
-                            </div>
-                            <p class="blog_text">
-                                Firmament morning sixth subdue darkness creeping gathered divide.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- our_latest_blog_end -->
-
-
     <!-- footer -->
     <footer class="footer footer_bg_1">
         <div class="footer_top">
@@ -463,14 +247,9 @@ session_start();
                         <div class="footer_widget">
                             <div class="footer_logo">
                                 <a href="#">
-                                    <img src="img/logo.png" alt="">
+                                    <img src="img/logo-nuevo.png" alt="">
                                 </a>
                             </div>
-                            <p>
-                                Firmament morning sixth subdue darkness creeping gathered divide our let god moving.
-                                Moving in fourth air night bring upon it beast let you dominion likeness open place day
-                                great.
-                            </p>
                             <div class="socail_links">
                                 <ul>
                                     <li>
@@ -501,13 +280,13 @@ session_start();
                     <div class="col-xl-2 offset-xl-1 col-md-6 col-lg-3">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                Courses
+                                Cursos
                             </h3>
                             <ul>
-                                <li><a href="#">Wordpress</a></li>
-                                <li><a href="#"> Photoshop</a></li>
-                                <li><a href="#">Illustrator</a></li>
-                                <li><a href="#">Adobe XD</a></li>
+                                <li><a href="#">Android</a></li>
+                                <li><a href="#">Raspberry Pi</a></li>
+                                <li><a href="#">Arduino</a></li>
+                                <li><a href="#">Bootstrap</a></li>
                                 <li><a href="#">UI/UX</a></li>
                             </ul>
 
@@ -516,26 +295,26 @@ session_start();
                     <div class="col-xl-2 col-md-6 col-lg-2">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                Resourches
+                                Menú
                             </h3>
                             <ul>
-                                <li><a href="#">Free Adobe XD</a></li>
-                                <li><a href="#">Tutorials</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#"> About</a></li>
-                                <li><a href="#"> Contact</a></li>
+                                <li><a href="#">Inicio</a></li>
+                                <li><a href="#">Cursos</a></li>
+                                <li><a href="onprocess.php">Planes</a></li>
+                                <li><a href="#">Nosotros</a></li>
+                                <li><a href="#">Contacto</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6 col-lg-3">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                Address
+                                Contacto
                             </h3>
                             <p>
-                                200, D-block, Green lane USA <br>
-                                +10 367 467 8934 <br>
-                                edumark@contact.com
+                                70163895 - 2750555 <br>
+                               info@labdemy.edu <br>
+
                             </p>
                         </div>
                     </div>
@@ -549,7 +328,7 @@ session_start();
                     <div class="col-xl-12">
                         <p class="copy_right text-center">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Fue hecho con <i class="fa fa-heart-o" aria-hidden="true"></i></a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>
