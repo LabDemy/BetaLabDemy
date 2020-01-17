@@ -333,13 +333,13 @@ session_start();
                                     <div class="col-xl-4 col-lg-4 col-md-6">
                                         <div class="single_courses">
                                             <div class="thumb">
-                                                <a href="#">
+                                                <a href="office_inscripcion.php">
                                                     <img src="img/courses/6.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="courses_info">
                                                 <span>Office 2019</span>
-                                                <h3><a href="#">Aprende Excel, Word y Más <br>
+                                                <h3><a href="office_inscripcion.php">Aprende Excel, Word y Más <br>
                                                         </a></h3>
                                                 <div class="star_prise d-flex justify-content-between">
                                                     <div class="star">

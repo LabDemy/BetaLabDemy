@@ -192,7 +192,7 @@ session_start();
                                                 </a>
                                             </div>
                                             <div class="courses_info">
-                                                <span>Android</span>
+                                            <span>Android</span>
                                                 <h3><a href="android_inscripcion.php">Aplicaciones Android<br>
                                                         </a></h3>
                                                 <div class="star_prise d-flex justify-content-between">
@@ -213,13 +213,13 @@ session_start();
                                     <div class="col-xl-4 col-lg-4 col-md-6">
                                         <div class="single_courses">
                                             <div class="thumb">
-                                                <a href="#">
+                                                <a href="ux_inscripcion.php">
                                                     <img src="img/courses/2.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="courses_info">
                                                 <span>UX/UI</span>
-                                                <h3><a href="#">UI vs UX </a></h3>
+                                                <h3><a href="ux_inscripcion.php">UI vs UX </a></h3>
                                                 <div class="star_prise d-flex justify-content-between">
                                                     <div class="star">
                                                         <i class="flaticon-mark-as-favorite-star"></i>
@@ -238,13 +238,13 @@ session_start();
                                     <div class="col-xl-4 col-lg-4 col-md-6">
                                         <div class="single_courses">
                                             <div class="thumb">
-                                                <a href="#">
+                                                <a href="disenoApps_inscripcion.php">
                                                     <img src="img/courses/3.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="courses_info">
                                                 <span>Aplicaciones</span>
-                                                <h3><a href="#">Diseño de Aplicaciones con UX</a></h3>
+                                                <h3><a href="disenoApps_inscripcion.php">Diseño de Aplicaciones con UX</a></h3>
                                                 <div class="star_prise d-flex justify-content-between">
                                                     <div class="star">
                                                         <i class="flaticon-mark-as-favorite-star"></i>
@@ -263,13 +263,13 @@ session_start();
                                     <div class="col-xl-4 col-lg-4 col-md-6">
                                         <div class="single_courses">
                                             <div class="thumb">
-                                                <a href="#">
+                                                <a href="metodologias_inscripcion.php">
                                                     <img src="img/courses/4.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="courses_info">
                                                 <span>Ingeniería de Software</span>
-                                                <h3><a href="#">Metodologías Ágiles</a></h3>
+                                                <h3><a href="metodologias_inscripcion.php">Metodologías Ágiles</a></h3>
                                                 <div class="star_prise d-flex justify-content-between">
                                                     <div class="star">
                                                         <i class="flaticon-mark-as-favorite-star"></i>
@@ -288,11 +288,13 @@ session_start();
                                     <div class="col-xl-4 col-lg-4 col-md-6">
                                         <div class="single_courses">
                                             <div class="thumb">
-                                                <img src="img/courses/5.jpg" alt="">
+                                              <a href="customer_inscripcion.php">
+                                                <img  src="img/courses/5.jpg" alt="">
+                                              </a>
                                             </div>
                                             <div class="courses_info">
                                                 <span>CX</span>
-                                                <h3><a href="#">Servicio al Cliente</a></h3>
+                                                <h3><a href="customer_inscripcion.php">Servicio al Cliente</a></h3>
                                                 <div class="star_prise d-flex justify-content-between">
                                                     <div class="star">
                                                         <i class="flaticon-mark-as-favorite-star"></i>
@@ -311,13 +313,13 @@ session_start();
                                     <div class="col-xl-4 col-lg-4 col-md-6">
                                         <div class="single_courses">
                                             <div class="thumb">
-                                                <a href="#">
+                                                <a href="office_inscripcion.php">
                                                     <img src="img/courses/6.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="courses_info">
                                                 <span>Office 2019</span>
-                                                <h3><a href="#">Aprende Excel, Word y Más <br>
+                                                <h3><a href="office_inscripcion.php">Aprende Excel, Word y Más <br>
                                                         </a></h3>
                                                 <div class="star_prise d-flex justify-content-between">
                                                     <div class="star">
@@ -327,7 +329,7 @@ session_start();
                                                     <div class="prise">
                                                         <span class="offer">Bs89.00</span>
                                                         <span class="active_prise">
-                                                        Bs49
+                                                            Bs49
                                                         </span>
                                                     </div>
                                                 </div>
