@@ -243,7 +243,7 @@ session_start();
                     <div class="courses_sidebar">
                         <div class="video_thumb">
                             <img src="img/latest_blog/3.jpg" alt="">
-                            <a class="popup-video" href="https://www.youtube.com/watch?v=PRQjrp_7ip8">
+                            <a class="popup-video" href="https://www.youtube.com/watch?v=4K4ehuyi9rk">
                                 <i class="fa fa-play"></i>
                             </a>
                         </div>
