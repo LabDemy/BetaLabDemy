@@ -116,15 +116,32 @@ session_start();
     <!-- header-end -->
 
      <!-- bradcam_area_start -->
+     <?php
+     include_once 'backend/database.php';
+     include_once 'backend/cursos.php';
+     include_once 'backend/user.php';
+     $database = new Database();
+     $db = $database->getConnection();
+     $course = new cursos($db);
+     $user = new User($db);
+     //$idcourse=$_SESSION['curso'];
+     $idcourse=1;
+     $array=$course->getCourseInformationPerId($idcourse);
+     $arraydocente=$user->getUser($array['id_docente']);
+     ?>
      <div class="courses_details_banner">
          <div class="container">
              <div class="row">
                  <div class="col-xl-6">
                      <div class="course_text">
-                            <h3>Aplicaciones <br> Android</h3>
+                            <h3><?php
+                            echo $array['titulo'];
+                              ?></h3>
                             <div class="prise">
                                 <span class="inactive">Bs100.00</span>
-                                <span class="active">Bs69</span>
+                                <span class="active">Bs<?php
+                                  echo $array['precio'];
+                                ?></span>
                             </div>
                             <div class="rating">
                                 <i class="flaticon-mark-as-favorite-star"></i>
@@ -243,18 +260,18 @@ session_start();
                 <div class="col-xl-5 col-lg-5">
                     <div class="courses_sidebar">
                         <div class="video_thumb">
-                            <img src="img/latest_blog/curso2.jpg" alt="">
-                            <a class="popup-video" href="https://www.youtube.com/watch?v=PRQjrp_7ip8">
+                            <img src="<?php echo $array['imagenvideo'];?>" alt="">
+                            <a class="popup-video" href="<?php echo $array['linkvideo'];?>">
                                 <i class="fa fa-play"></i>
                             </a>
                         </div>
                         <div class="author_info">
                             <div class="auhor_header">
                                 <div class="thumb">
-                                        <img src="img/latest_blog/kev.png" alt="">
+                                        <img src="<?php echo $arraydocente['imagen'];?>" alt="">
                                 </div>
                                 <div class="name">
-                                    <h3>Kevin Cárdenas</h3>
+                                    <h3><?php echo $arraydocente['nombre']." "; echo $arraydocente['lastname'];?> </h3>
                                     <p>Desarrollador de Android</p>
                                 </div>
                             </div>
@@ -612,7 +629,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                     </a>
                 </div>
                 <?php if (empty($_SESSION['usuario'])) {
-                                           ?>
+                                    ?>
                 <h3>Sign in</h3>
                 <form action="#">
                     <div class="row">
@@ -624,7 +641,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                             <input type="password" name='passwordsignin' placeholder="Password">
                         </div>
                       <?php
-                                       } ?>
+                                } ?>
                         <div class="col-xl-12">
 
                               <?php

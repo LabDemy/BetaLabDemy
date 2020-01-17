@@ -67,4 +67,13 @@ class cursos
 
         return $var;
     }
+    public function getCourseInformationPerId($idcourse)
+    {
+        $sql = 'SELECT * from informacioncursos where id_curso='.$idcourse.';';
+        $result = $this->conn->query($sql);
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        $var=$result->fetch();
+
+        return $var;
+    }
 }

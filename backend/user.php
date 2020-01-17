@@ -114,7 +114,7 @@ class User implements \Serializable
     }
     public function getUser($iduser)
     {
-        $sql = 'SELECT * from Usuarios where ID_usuarios='.$iduser.';';
+        $sql = 'SELECT * from usuario where id='.$iduser.';';
         $result = $this->conn->query($sql);
         $result->setFetchMode(PDO::FETCH_ASSOC);
         $fila = $result->fetch();
