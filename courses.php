@@ -1837,8 +1837,16 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                               if (!empty($_SESSION['usuario'])) {
                                   echo '<button type="submit" formaction="sessiondestroy.php" class="boxed_btn_orange">';
                                   echo "Log out";
+                                  echo '</button>';
+                                  echo "<p>";
+                                  echo "<p>";
+                                  echo "<p>";
+                                  echo "<p>";
+                                  echo '<button type="submit" formaction="onprocess.php" class="boxed_btn_orange">';
+                                  echo "Ver perfil";
+                                  echo '</button>';
                               } else {
-                                  echo '<button type="submit" formaction="index.php" class="boxed_btn_orange">';
+                                  echo '<button type="submit" formaction="courses.php" class="boxed_btn_orange">';
                                   echo "Sign in";
                               }
                                ?>
@@ -1846,8 +1854,28 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                         </div>
                     </div>
                 </form>
+                <?php
+                include_once 'backend/database.php';
+                include_once 'backend/user.php';
+
+                $database = new Database();
+                $db = $database->getConnection();
+                $user = new User($db);
+                if (!empty($_POST['emailsignin'])) {
+                    $user->email= $_POST['emailsignin'];
+                    $user->password = base64_encode($_POST['passwordsignin']);
+                    $var=$user->login();
+                    while ($fila = $var->fetch()) {
+                        $_SESSION['usuario']=$fila['nombre'];
+                        echo "<meta http-equiv='refresh' content='0'>";
+                    }
+                }
+  if (empty($_SESSION['usuario'])) {
+      ?>
                 <p class="doen_have_acc">Don’t have an account? <a class="dont-hav-acc" href="#test-form2">Sign Up</a>
                 </p>
+              <?php
+  }?>
             </div>
         </div>
     </form>

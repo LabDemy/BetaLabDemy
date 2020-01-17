@@ -72,7 +72,7 @@ session_start();
                                                 <!--li><a href="elements.html">elements</a></li-->
                                             </ul>
                                         </li>
-                                        <li><a class="active" href="about.php">Nosotros</a></li>
+                                        <li><a  href="about.php">Nosotros</a></li>
                                         <!--li><a href="#">blog <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html">blog</a></li>
@@ -245,7 +245,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 
     <!-- form itself end-->
-    <form id="test-form" class="white-popup-block mfp-hide">
+    <form id="test-form" class="white-popup-block mfp-hide" method="post">
         <div class="popup_box ">
             <div class="popup_inner">
                 <div class="logo text-center">
@@ -273,8 +273,16 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                               if (!empty($_SESSION['usuario'])) {
                                   echo '<button type="submit" formaction="sessiondestroy.php" class="boxed_btn_orange">';
                                   echo "Log out";
+                                  echo '</button>';
+                                  echo "<p>";
+                                  echo "<p>";
+                                  echo "<p>";
+                                  echo "<p>";
+                                  echo '<button type="submit" formaction="onprocess.php" class="boxed_btn_orange">';
+                                  echo "Ver perfil";
+                                  echo '</button>';
                               } else {
-                                  echo '<button type="submit" formaction="index.php" class="boxed_btn_orange">';
+                                  echo '<button type="submit" formaction="onprocess.php" class="boxed_btn_orange">';
                                   echo "Sign in";
                               }
                                ?>
@@ -282,8 +290,29 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                         </div>
                     </div>
                 </form>
+                <?php
+                include_once 'backend/database.php';
+                include_once 'backend/user.php';
+
+                $database = new Database();
+                $db = $database->getConnection();
+                $user = new User($db);
+                if (!empty($_POST['emailsignin'])) {
+                    $user->email= $_POST['emailsignin'];
+                    $user->password = base64_encode($_POST['passwordsignin']);
+                    $var=$user->login();
+                    while ($fila = $var->fetch()) {
+                        $_SESSION['usuario']=$fila['nombre'];
+                        echo "<meta http-equiv='refresh' content='0'>";
+                    }
+                }
+                ?>
+                <?php if (empty($_SESSION['usuario'])) {
+                    ?>
                 <p class="doen_have_acc">Don’t have an account? <a class="dont-hav-acc" href="#test-form2">Sign Up</a>
                 </p>
+              <?php
+                }?>
             </div>
         </div>
     </form>

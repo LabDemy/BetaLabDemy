@@ -1975,12 +1975,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
 
 
     <!-- form itself end-->
-    <form id="test-form" class="white-popup-block mfp-hide"  href="sessiondestroy.php" method="post">
+    <form id="test-form" class="white-popup-block mfp-hide"   method="post">
         <div class="popup_box ">
             <div class="popup_inner">
                 <div class="logo text-center">
                     <a href="#">
-                        <img src="img/form-logo.png" alt="">
+                        <img src="img/logo-nuevo.png" alt="">
                     </a>
                 </div>
 
@@ -2004,12 +2004,21 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                               if (!empty($_SESSION['usuario'])) {
                                   echo '<button type="submit" formaction="sessiondestroy.php" class="boxed_btn_orange">';
                                   echo "Log out";
+                                  echo '</button>';
+                                  echo "<p>";
+                                  echo "<p>";
+                                  echo "<p>";
+                                  echo "<p>";
+                                  echo '<button type="submit" formaction="onprocess.php" class="boxed_btn_orange">';
+                                  echo "Ver perfil";
+                                  echo '</button>';
                               } else {
                                   echo '<button type="submit" formaction="index.php" class="boxed_btn_orange">';
                                   echo "Sign in";
                               }
                                ?>
                              </button>
+
                         </div>
                     </div>
                 </form>
@@ -2029,9 +2038,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                         echo "<meta http-equiv='refresh' content='0'>";
                     }
                 }
-                ?>
+                    if (empty($_SESSION['usuario'])) {
+                        ?>
                 <p class="doen_have_acc">Don’t have an account? <a class="dont-hav-acc" href="#test-form2">Sign Up</a>
                 </p>
+                <?php
+                    }?>
             </div>
         </div>
     </form>
