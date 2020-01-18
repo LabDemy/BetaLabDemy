@@ -291,110 +291,140 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
         </div>
     </footer>
     <!-- footer -->
-        <!-- link that opens popup -->
 
-        <!-- form itself end-->
-        <form id="test-form" class="white-popup-block mfp-hide" method="post">
-            <div class="popup_box ">
-                <div class="popup_inner">
-                    <div class="logo text-center">
-                        <a href="#">
-                            <img src="img/form-logo.png" alt="">
-                        </a>
-                    </div>
-                    <?php if (empty($_SESSION['usuario'])) {
+    <!-- form itself end-->
+    <form id="test-form" class="white-popup-block mfp-hide"   method="post">
+        <div class="popup_box ">
+            <div class="popup_inner">
+                <div class="logo text-center">
+                    <a href="#">
+                        <img src="img/logo-nuevo.png" alt="">
+                    </a>
+                </div>
+
+                <?php if (empty($_SESSION['usuario'])) {
                                            ?>
-                    <h3>Sign in</h3>
-                    <form action="#">
-                        <div class="row">
+                <h3>Sign in</h3>
+                <form action="#">
+                    <div class="row">
 
-                            <div class="col-xl-12 col-md-12">
-                                <input type="email" name='emailsignin' placeholder="Enter email">
-                            </div>
-                            <div class="col-xl-12 col-md-12">
-                                <input type="password" name='passwordsignin' placeholder="Password">
-                            </div>
-                          <?php
+                        <div class="col-xl-12 col-md-12">
+                            <input type="email" name='emailsignin' placeholder="Enter email">
+                        </div>
+                        <div class="col-xl-12 col-md-12">
+                            <input type="password" name='passwordsignin' placeholder="Password">
+                        </div>
+                      <?php
                                        } ?>
-                            <div class="col-xl-12">
+                        <div class="col-xl-12">
 
-                                  <?php
-                                  if (!empty($_SESSION['usuario'])) {
-                                      echo '<button type="submit" formaction="sessiondestroy.php" class="boxed_btn_orange">';
-                                      echo "Log out";
-                                      echo '</button>';
-                                      echo "<p>";
-                                      echo "<p>";
-                                      echo "<p>";
-                                      echo "<p>";
-                                      echo '<button type="submit" formaction="onprocess.php" class="boxed_btn_orange">';
-                                      echo "Ver perfil";
-                                      echo '</button>';
-                                  } else {
-                                      echo '<button type="submit" formaction="contact.php" class="boxed_btn_orange">';
-                                      echo "Sign in";
-                                  }
-                                   ?>
-                                 </button>
-                            </div>
+                              <?php
+                              if (!empty($_SESSION['usuario'])) {
+                                  echo '<button type="submit" formaction="sessiondestroy.php" class="boxed_btn_orange">';
+                                  echo "Log out";
+                                  echo '</button>';
+                                  echo "<p>";
+                                  echo "<p>";
+                                  echo "<p>";
+                                  echo "<p>";
+                                  echo '<button type="submit" formaction="onprocess.php" class="boxed_btn_orange">';
+                                  echo "Ver perfil";
+                                  echo '</button>';
+                              } else {
+                                  echo '<button type="submit" formaction="index.php" class="boxed_btn_orange">';
+                                  echo "Sign in";
+                              }
+                               ?>
+                             </button>
+
                         </div>
-                    </form>
-                    <?php
-                    include_once 'backend/database.php';
-                    include_once 'backend/user.php';
-
-                    $database = new Database();
-                    $db = $database->getConnection();
-                    $user = new User($db);
-                    if (!empty($_POST['emailsignin'])) {
-                        $user->email= $_POST['emailsignin'];
-                        $user->password = base64_encode($_POST['passwordsignin']);
-                        $var=$user->login();
-                        while ($fila = $var->fetch()) {
-                            $_SESSION['usuario']=$fila['nombre'];
-                            echo "<meta http-equiv='refresh' content='0'>";
-                        }
-                    }?>
-                    <?php if (empty($_SESSION['usuario'])) {
-                        ?>
-                    <p class="doen_have_acc">Don’t have an account? <a class="dont-hav-acc" href="#test-form2">Sign Up</a> </p>
-                  <?php
-                    }?>
-                </div>
-            </div>
-        </form>
-        <!-- form itself end -->
-
-        <!-- form itself end-->
-        <form id="test-form2" class="white-popup-block mfp-hide">
-            <div class="popup_box ">
-                <div class="popup_inner">
-                    <div class="logo text-center">
-                        <a href="#">
-                            <img src="img/form-logo.png" alt="">
-                        </a>
                     </div>
-                    <h3>Resistration</h3>
-                    <form action="#">
-                        <div class="row">
-                            <div class="col-xl-12 col-md-12">
-                                <input type="email" placeholder="Enter email">
-                            </div>
-                            <div class="col-xl-12 col-md-12">
-                                <input type="password" placeholder="Password">
-                            </div>
-                            <div class="col-xl-12 col-md-12">
-                                <input type="Password" placeholder="Confirm password">
-                            </div>
-                            <div class="col-xl-12">
-                                <button type="submit" class="boxed_btn_orange">Sign Up</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                </form>
+                <?php
+                include_once 'backend/database.php';
+                include_once 'backend/user.php';
+
+                $database = new Database();
+                $db = $database->getConnection();
+                $user = new User($db);
+                if (!empty($_POST['emailsignin'])) {
+                    $user->email= $_POST['emailsignin'];
+                    $user->password = base64_encode($_POST['passwordsignin']);
+                    $var=$user->login();
+                    while ($fila = $var->fetch()) {
+                        $_SESSION['usuario']=$fila['nombre'];
+                        $_SESSION['id']=$fila['id'];
+                        echo "<meta http-equiv='refresh' content='0'>";
+                    }
+                }
+                    if (empty($_SESSION['usuario'])) {
+                        ?>
+                <p class="doen_have_acc">Don’t have an account? <a class="dont-hav-acc" href="#test-form2">Sign Up</a>
+                </p>
+                <?php
+                    }?>
             </div>
-        </form>
-        <!-- form itself end -->
+        </div>
+    </form>
+    <!-- form itself end -->
+
+    <!-- form itself end-->
+    <form id="test-form2" onSubmit="return validate()" class="white-popup-block mfp-hide" action="index.php" method="post">
+        <div class="popup_box ">
+            <div class="popup_inner">
+                <div class="logo text-center">
+                    <a href="#">
+                        <img src="img/logo-nuevo.png" alt="">
+                    </a>
+                </div>
+                <h3>Registration</h3>
+                <form action="" onSubmit="return validate()" >
+                    <div class="row" >
+                        <div class="col-xl-12 col-md-12" >
+                            <input type="text" id="name" name='name' placeholder="Enter name">
+                        </div>
+                        <div class="col-xl-12 col-md-12">
+                            <input type="text" id="lastname" name='lastname' placeholder="Enter last name">
+                        </div>
+                        <div class="col-xl-12 col-md-12" >
+                            <input type="password" id='password' name='password' placeholder="Password">
+                        </div>
+                        <div class="col-xl-12 col-md-12" >
+
+                            <input type="password" id='confirm_password' name='confirm_password' placeholder="Confirm password">
+
+                        </div>
+
+                        <div class="col-xl-12 col-md-12" >
+                            <input type="email" id="email" name='email' placeholder="Enter email">
+                        </div>
+                        <div class="col-xl-12">
+                        <!-- <a href="login.php"  class="boxed_btn_orange" type="button">Sign Up</a> -->
+                        <button type="submit"  class="boxed_btn_orange">Sign Up</button>
+                        </div>
+
+                    </div>
+                    <?php
+                      include_once 'backend/database.php';
+                      include_once 'backend/user.php';
+                      $database = new Database();
+                      $db = $database->getConnection();
+                      $user = new user($db);
+
+                      if (!empty($_POST['email'])) {
+                          $user->email =  $_POST['email'];
+                          $user->password =  base64_encode($_POST['password']);
+                          $user->nombre = $_POST['name'];
+                          $user->lastname = $_POST['lastname'];
+                          $user->signup();
+                      }
+
+                    ?>
+                </form>
+            </div>
+        </div>
+    </form>
+    <!-- form itself end -->
 
         <!-- JS here -->
         <script src="js/vendor/modernizr-3.5.0.min.js"></script>
