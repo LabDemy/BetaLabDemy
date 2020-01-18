@@ -30,7 +30,7 @@
 <body>
 <?php
 session_start();
-print_r($_SESSION);
+
 include_once 'backend/database.php';
 include_once 'backend/user.php';
 include_once 'backend/cursos.php';
@@ -1666,38 +1666,38 @@ $db = $database->getConnection();
             <div class="row">
               <?php
               $course = new cursos($db);
-              $arrayCourses=$course->getCoursesPerUser($_SESSION['id']);
+                  if (!empty($_SESSION['id'])) {
+                      $arrayCourses=$course->getCoursesPerUser($_SESSION['id']);
+                      if (!empty($arrayCourses)) {
+                          while ($fila=$arrayCourses->fetch()) {
+                              $imagen= $fila['imagen']; ?>
+                      <div class="all_courses">
+                          <div class="container">
+                              <div class="tab-content" id="myTabContent">
+                                  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                      <div class="col-xl-4 col-lg-4 col-md-6">
+                      <div class="single_courses">
+                          <div class="thumb">
+                              <a href="android_inscripcion.php?idcourse=<?php echo $fila['id']; ?>">
+                                  <img src="img/courses/1.jpg" alt="">
+                              </a>
+                          </div>
+                          <div class="courses_info">
+                          <span><?php echo $fila['nombre']; ?></span>
+                              <h3><a href="android_inscripcion.php?idcourse=<?php echo $fila['id']; ?>"><?php echo $fila['titulo']; ?><br>
+                                      </a></h3>
 
-              while ($fila=$arrayCourses->fetch()) {
-                  ?>
-              <div class="col-xl-4 col-lg-4 col-md-6">
-                  <div class="single_courses">
-                      <div class="thumb">
-                          <a href="android_inscripcion.php?idcourse=<?php echo $fila['id']; ?>">
-                              <img src="<?php echo $fila['imagen']; ?>" alt="">
-                          </a>
-                      </div>
-                      <div class="courses_info">
-                      <span><?php echo $fila['nombre']; ?></span>
-                          <h3><a href="android_inscripcion.php?idcourse=<?php echo $fila['id']; ?>"><?php echo $fila['titulo']; ?><br>
-                                  </a></h3>
-                          <div class="star_prise d-flex justify-content-between">
-                              <div class="star">
-                                  <i class="flaticon-mark-as-favorite-star"></i>
-                                  <span>(4.5)</span>
-                              </div>
-                              <div class="prise">
-                                  <span class="offer">Bs50.00</span>
-                                  <span class="active_prise">
-                                      Bs49
-                                  </span>
-                              </div>
                           </div>
                       </div>
                   </div>
-              </div>
+                </div>
+            </div>
+            </div>
+            </div>
               <?php
-              }
+                          }
+                      }
+                  }
               ?>
 
 
