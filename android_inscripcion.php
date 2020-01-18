@@ -126,7 +126,7 @@ session_start();
      $user = new User($db);
      //$idcourse=$_SESSION['curso'];
      $iduser=$_SESSION['id'];
-     $idcourse=1;
+     $idcourse=4;
      //$iduser=2;
      $array=$course->getCourseInformationPerId($idcourse);
      $arraydocente=$user->getUser($array['id_docente']);
