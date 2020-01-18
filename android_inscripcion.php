@@ -244,15 +244,13 @@ session_start();
                                         <div class="card-header" id="heading_5">
                                             <h5 class="mb-0">
                                                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse_5" aria-expanded="false" aria-controls="collapse_5">
-                                                    <i class="flaticon-question"></i> How do I get started <span>with Shared
-                                                        Hosting?</span>
+                                                    <i class="flaticon-question"></i> ¿Cómo empiezo?
                                                 </button>
                                             </h5>
                                         </div>
                                         <div id="collapse_5" class="collapse" aria-labelledby="heading_5" data-parent="#accordion">
                                             <div class="card-body">
-                                                Our set he for firmament morning sixth subdue darkness creeping gathered divide our
-                                                let god moving. Moving in fourth air night bring upon
+                                            Con muchas ganas de aprender. Tu deseo es lo más importante.
                                             </div>
                                         </div>
                                     </div>

@@ -161,8 +161,9 @@ session_start();
                         <p>El diseñador UX tiene como objetivo que el usuario tenga una experiencia positiva a la hora de conseguir el objetivo por el cual está visitando un sitio. El diseño UI podría definirse como una nueva tendencia en el diseño web que se enfoca en crear una interfaces entre las personas y los diferentes dispositivos digitales.</p> <br>
 
                         <p>&#10004; Obtener estimaciones más precisas. Podremos modificar elementos de diseño de manera más fácil.<p><br>&#10004; Optimizar tiempos. Si tenemos un buen diseño podremos definir más claramente las fases de desarrollo de un producto. <p> <br>&#10004; Aumentar tráfico y, a su vez, la audiencia.  <p> <br> &#10004; Ayuda a definir las necesidades de los usuarios. <p> <br> &#10004; Bajar la tasa de rebote en la web. Se eliminarán errores y por lo tanto los clientes se quedarán.
-<p> <br> &#10004; Mejorar el posicionamiento en los buscadores. Una página usable para el móvil y para el ordenador será mucho mejor puntuada por Google. <p>
-                    <h3 class="second_title">Preguntas Frecuentes</h3>
+                        <p> <br> &#10004; Mejorar el posicionamiento en los buscadores. Una página usable para el móvil y para el ordenador será mucho mejor puntuada por Google. <p>
+                    
+                        <h3 class="second_title">Preguntas Frecuentes</h3>
                     </div>
                     <div class="outline_courses_info">
                             <div id="accordion">
@@ -204,7 +205,7 @@ session_start();
                                         </div>
                                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                                             <div class="card-body">
-                                                El especialista en UX design se encarga, en otras palabras, de la experiencia que vive el usuario con un producto. Por lo tanto debe preocuparse por el uso que se da al mismo, la accesibilidad que ofrece y el sentimiento que se genera en el usuario en su interacción con el mismo.
+                                            UI y UX presentan diferentes aspectos del flujo creativo para los productos digitales. Básicamente, el diseño de la interfaz de usuario tiene como objetivo crear una interfaz de usuario efectiva y atractiva, mientras que el diseño UX tiene como objetivo proporcionar la experiencia positiva del usuario.Los programadores o desarrolladores son personas que realmente construyen el sitio web o la aplicación móvil planificada y diseñada por diseñadores de UI / UX.
                                             </div>
                                         </div>
                                     </div>
