@@ -37,6 +37,7 @@ class cursos
         $sql = 'SELECT * from cursosporusuario where id_user='.$iduser.';';
         $result = $this->conn->query($sql);
         $result->setFetchMode(PDO::FETCH_ASSOC);
+
         $string;
         $contador=0;
 
@@ -55,6 +56,9 @@ class cursos
             $sql1 = 'SELECT * from cursos where '.$string.';';
             $result1 = $this->conn->query($sql1);
             $result1->setFetchMode(PDO::FETCH_ASSOC);
+            //$result1->execute();
+          
+
             return $result1;
         }
     }
@@ -75,5 +79,33 @@ class cursos
         $var=$result->fetch();
 
         return $var;
+    }
+    public function InCourse($iduser, $idcourse)
+    {
+        $query = "SELECT *
+          FROM
+              cursosporusuario
+          WHERE
+              id_user=$iduser and id_curso=$idcourse";
+        // prepare query statement
+
+        $stmt = $this->conn->prepare($query);
+        // execute query
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function saveCourseUser($iduser, $idcourse)
+    {
+        if (!$this->InCourse($iduser, $idcourse)) {
+            $sql = "INSERT INTO cursosporusuario VALUES (null,'$iduser','$idcourse');";
+            $result = $this->conn->prepare($sql);
+            // $result->setFetchMode(PDO::FETCH_ASSOC);
+            $result->execute();
+        }
     }
 }

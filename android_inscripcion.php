@@ -125,7 +125,9 @@ session_start();
      $course = new cursos($db);
      $user = new User($db);
      //$idcourse=$_SESSION['curso'];
+     $iduser=$_SESSION['id'];
      $idcourse=1;
+     //$iduser=2;
      $array=$course->getCourseInformationPerId($idcourse);
      $arraydocente=$user->getUser($array['id_docente']);
      ?>
@@ -284,7 +286,7 @@ session_start();
                                 <li><a href="#"> <i class="ti-linkedin"></i> </a></li>
                             </ul>
                         </div>
-                        <a href="#" class="boxed_btn">Comprar Curso</a>
+                        <a href="prueba.php?iduser=<?php echo $iduser."&idcourse=".$idcourse;?>" class="boxed_btn">Comprar Curso</a>
                         <div class="feedback_info">
                             <h3>Califica este curso!</h3>
                             <p>Rating</p>

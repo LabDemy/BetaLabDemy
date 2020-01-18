@@ -59,7 +59,7 @@ class User implements \Serializable
 
         // Perform queries
         if (!$this->isAlreadyExist()) {
-            $sql= "INSERT INTO $this->table_name VALUES (null,'$this->nombre', '$this->password','$this->email','$this->lastname',1);";
+            $sql= "INSERT INTO $this->table_name VALUES (null,'$this->nombre', '$this->password','$this->email','$this->lastname',null,1);";
 
             $result = $this->conn->prepare($sql);
             // $result->setFetchMode(PDO::FETCH_ASSOC);
@@ -74,7 +74,7 @@ class User implements \Serializable
     {
         // select all query
         $query = "SELECT
-                    `nombre`, `lastname`,`password`, `email`, `tipo`
+                    *
                 FROM
                     " . $this->table_name . "
                 WHERE

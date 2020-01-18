@@ -30,7 +30,13 @@
 <body>
 <?php
 session_start();
+print_r($_SESSION);
+include_once 'backend/database.php';
+include_once 'backend/user.php';
+include_once 'backend/cursos.php';
 
+$database = new Database();
+$db = $database->getConnection();
  ?>
  <script>
  function validate(){
@@ -1651,59 +1657,50 @@ session_start();
             <div class="row">
                 <div class="col-xl-12">
                     <div class="section_title text-center mb-100">
-                        <h3>Tus cursos (nombre usuario)</h3>
+                        <h3>Tus cursos <?php if (!empty($_SESSION)) {
+                                           echo $_SESSION['usuario'];
+                                       }?></h3>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-xl-3 col-md-6 col-lg-6">
-                    <div class="single_course text-center">
-                        <div class="icon">
-                            <i class="flaticon-art-and-design"></i>
-                        </div>
-                        <h3>Premium Quality</h3>
-                        <p>
-                            Your domain control panel is designed for ease-of-use <br> and <br>
-                            allows for all aspects of
-                        </p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 col-lg-6">
-                    <div class="single_course text-center">
-                        <div class="icon blue">
-                            <i class="flaticon-business-and-finance"></i>
-                        </div>
-                        <h3>Premium Quality</h3>
-                        <p>
-                            Your domain control panel is designed for ease-of-use <br> and <br>
-                            allows for all aspects of
-                        </p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 col-lg-6">
-                    <div class="single_course text-center">
-                        <div class="icon">
-                            <i class="flaticon-premium"></i>
-                        </div>
-                        <h3>Premium Quality</h3>
-                        <p>
-                            Your domain control panel is designed for ease-of-use <br> and <br>
-                            allows for all aspects of
-                        </p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 col-lg-6">
-                    <div class="single_course text-center">
-                        <div class="icon gradient">
-                            <i class="flaticon-crown"></i>
-                        </div>
-                        <h3>Premium Quality</h3>
-                        <p>
-                            Your domain control panel is designed for ease-of-use <br> and <br>
-                            allows for all aspects of
-                        </p>
-                    </div>
-                </div>
+              <?php
+              $course = new cursos($db);
+              $arrayCourses=$course->getCoursesPerUser($_SESSION['id']);
+
+              while ($fila=$arrayCourses->fetch()) {
+                  ?>
+              <div class="col-xl-4 col-lg-4 col-md-6">
+                  <div class="single_courses">
+                      <div class="thumb">
+                          <a href="android_inscripcion.php?idcourse=<?php echo $fila['id']; ?>">
+                              <img src="<?php echo $fila['imagen']; ?>" alt="">
+                          </a>
+                      </div>
+                      <div class="courses_info">
+                      <span><?php echo $fila['nombre']; ?></span>
+                          <h3><a href="android_inscripcion.php?idcourse=<?php echo $fila['id']; ?>"><?php echo $fila['titulo']; ?><br>
+                                  </a></h3>
+                          <div class="star_prise d-flex justify-content-between">
+                              <div class="star">
+                                  <i class="flaticon-mark-as-favorite-star"></i>
+                                  <span>(4.5)</span>
+                              </div>
+                              <div class="prise">
+                                  <span class="offer">Bs50.00</span>
+                                  <span class="active_prise">
+                                      Bs49
+                                  </span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <?php
+              }
+              ?>
+
+
             </div>
         </div>
     </div>
@@ -1820,7 +1817,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                     </a>
                 </div>
                 <?php if (empty($_SESSION['usuario'])) {
-                                           ?>
+                  ?>
                 <h3>Sign in</h3>
                 <form action="#">
                     <div class="row">
@@ -1832,7 +1829,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                             <input type="password" name='passwordsignin' placeholder="Password">
                         </div>
                       <?php
-                                       } ?>
+              } ?>
                         <div class="col-xl-12">
 
                               <?php
@@ -1857,11 +1854,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                     </div>
                 </form>
                 <?php
-                include_once 'backend/database.php';
-                include_once 'backend/user.php';
 
-                $database = new Database();
-                $db = $database->getConnection();
+
+
                 $user = new User($db);
                 if (!empty($_POST['emailsignin'])) {
                     $user->email= $_POST['emailsignin'];
@@ -1869,6 +1864,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                     $var=$user->login();
                     while ($fila = $var->fetch()) {
                         $_SESSION['usuario']=$fila['nombre'];
+                        $_SESSION['id']=$fila['id'];
                         echo "<meta http-equiv='refresh' content='0'>";
                     }
                 }

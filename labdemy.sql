@@ -86,6 +86,4 @@ INSERT INTO objetivos VALUES(null,"Cuáles son los componentes de una App Androi
 INSERT INTO objetivos VALUES(null,"Cómo diseñar a interfaz de usuario",1);
 INSERT INTO objetivos VALUES(null,"Cómo implementar funcionalidades importantes: tareas asíncronas, multimedia, acceso a base de datos o utilización de la geolocalización y mapas",1);
 INSERT INTO objetivos VALUES(null,"Cómo incluir una Aplicación en Google Play para su distribución o venta",1);
-
-
 INSERT INTO preguntas VALUES(null,"¿Android vale la pena?","El desarrollo de las aplicaciones Android abarca un mayor campo y mayor crecimiento, donde tienes más posibilidades de entrar al mercado y tienes más capacidad de ser descubierto. Android tiene menores problemas de privacidad y tiene una publicidad mejor segmentada",1);
