@@ -121,7 +121,7 @@ session_start();
              <div class="row">
                  <div class="col-xl-6">
                      <div class="course_text">
-                            <h3>Diseño de Aplicaciones <br> con User Experience</h3>
+                            <h3>Diseño de Aplicaciones con User Experience</h3>
                             <div class="prise">
                                 <span class="inactive">Bs100.00</span>
                                 <span class="active">Bs69</span>
