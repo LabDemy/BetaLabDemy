@@ -77,7 +77,7 @@ INSERT INTO tipos_de_usuario (id, nombre) VALUES (null, 'profesores');
 INSERT INTO tipos_de_usuario (id, nombre) VALUES (null, 'admin');
 
 
-INSERT INTO usuario VALUES (1,'admin','admin',null,null,null,3);
+INSERT INTO usuario VALUES (1,'admin','YWRtaW4=',"admin@admin.com",null,null,3);
 
 
 INSERT INTO usuario VALUES (null,'Kevin','MTIzNA==','kevincardenas.to@gmail.com',"Cardenas",'img/latest_blog/kev.png',2);
