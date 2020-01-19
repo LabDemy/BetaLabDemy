@@ -199,21 +199,31 @@ session_start();
                 </div>
             </div>
         </div>
+        <?php
+        include_once "backend/cursos.php";
+        $database = new Database();
+        $db = $database->getConnection();
+        $courses= new cursos($db);
+        $arrayCourses=$courses->getAllCourses();
+        ?>
         <div class="all_courses">
             <div class="container">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="row">
+                              <?php
+                              while ($fila=$arrayCourses->fetch()) {
+                                  ?>
                                     <div class="col-xl-4 col-lg-4 col-md-6">
                                         <div class="single_courses">
                                             <div class="thumb">
-                                                <a href="android_inscripcion.php">
-                                                    <img src="img/courses/1.jpg" alt="">
+                                                <a href="android_inscripcion.php?idcourse=<?php echo $fila['id']?>">
+                                                    <img src="<?php echo $fila['imagen']; ?>" alt="">
                                                 </a>
                                             </div>
                                             <div class="courses_info">
-                                                <span>Android</span>
-                                                <h3><a href="android_inscripcion.php">Aplicaciones Android<br>
+                                                <span><?php echo $fila['nombre']; ?></span>
+                                                <h3><a href="android_inscripcion.php?idcourse=<?php echo $fila['id']?>"><?php echo $fila['titulo']; ?><br>
                                                         </a></h3>
                                                 <div class="star_prise d-flex justify-content-between">
                                                     <div class="star">
@@ -221,141 +231,23 @@ session_start();
                                                         <span>(4.5)</span>
                                                     </div>
                                                     <div class="prise">
-                                                        <span class="offer">Bs50.00</span>
-                                                        <span class="active_prise">
-                                                            Bs49
+                                                      <?php
+                                                      $information=$courses->getCourseInformationPerId($fila['id']); ?>
+                                                        <span class="offer">Bs<?php echo $information['precio']+20; ?></span>
+                                                        <span class="active_prise">Bs
+                                                            <?php
+
+                                                            echo $information['precio']; ?>
                                                         </span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-6">
-                                        <div class="single_courses">
-                                            <div class="thumb">
-                                                <a href="ux_inscripcion.php">
-                                                    <img src="img/courses/2.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="courses_info">
-                                                <span>UX/UI</span>
-                                                <h3><a href="ux_inscripcion.php">UI vs UX </a></h3>
-                                                <div class="star_prise d-flex justify-content-between">
-                                                    <div class="star">
-                                                        <i class="flaticon-mark-as-favorite-star"></i>
-                                                        <span>(4.5)</span>
-                                                    </div>
-                                                    <div class="prise">
-                                                        <span class="offer">Bs60.00</span>
-                                                        <span class="active_prise">
-                                                            Bs59
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-6">
-                                        <div class="single_courses">
-                                            <div class="thumb">
-                                                <a href="disenoApps_inscripcion.php">
-                                                    <img src="img/courses/3.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="courses_info">
-                                                <span>Aplicaciones</span>
-                                                <h3><a href="disenoApps_inscripcion.php">Diseño de Aplicaciones con UX</a></h3>
-                                                <div class="star_prise d-flex justify-content-between">
-                                                    <div class="star">
-                                                        <i class="flaticon-mark-as-favorite-star"></i>
-                                                        <span>(4.5)</span>
-                                                    </div>
-                                                    <div class="prise">
-                                                        <span class="offer">Bs79.00</span>
-                                                        <span class="active_prise">
-                                                            Bs69
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-6">
-                                        <div class="single_courses">
-                                            <div class="thumb">
-                                                <a href="metodologias_inscripcion.php">
-                                                    <img src="img/courses/4.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="courses_info">
-                                                <span>Ingeniería de Software</span>
-                                                <h3><a href="metodologias_inscripcion.php">Metodologías Ágiles</a></h3>
-                                                <div class="star_prise d-flex justify-content-between">
-                                                    <div class="star">
-                                                        <i class="flaticon-mark-as-favorite-star"></i>
-                                                        <span>(4.5)</span>
-                                                    </div>
-                                                    <div class="prise">
-                                                        <span class="offer">Bs89.00</span>
-                                                        <span class="active_prise">
-                                                            Bs49
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-6">
-                                        <div class="single_courses">
-                                            <div class="thumb">
-                                              <a href="customer_inscripcion.php">
-                                                <img  src="img/courses/5.jpg" alt="">
-                                              </a>
-                                            </div>
-                                            <div class="courses_info">
-                                                <span>CX</span>
-                                                <h3><a href="customer_inscripcion.php">Servicio al Cliente</a></h3>
-                                                <div class="star_prise d-flex justify-content-between">
-                                                    <div class="star">
-                                                        <i class="flaticon-mark-as-favorite-star"></i>
-                                                        <span>(4.5)</span>
-                                                    </div>
-                                                    <div class="prise">
-                                                        <span class="offer">Bs89.00</span>
-                                                        <span class="active_prise">
-                                                            Bs49
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-6">
-                                        <div class="single_courses">
-                                            <div class="thumb">
-                                                <a href="office_inscripcion.php">
-                                                    <img src="img/courses/6.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="courses_info">
-                                                <span>Office 2019</span>
-                                                <h3><a href="office_inscripcion.php">Aprende Excel, Word y Más <br>
-                                                        </a></h3>
-                                                <div class="star_prise d-flex justify-content-between">
-                                                    <div class="star">
-                                                        <i class="flaticon-mark-as-favorite-star"></i>
-                                                        <span>(4.5)</span>
-                                                    </div>
-                                                    <div class="prise">
-                                                        <span class="offer">Bs89.00</span>
-                                                        <span class="active_prise">
-                                                            Bs49
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <?php
+                              }
+                                    ?>
+
                                     <div class="col-xl-12">
                                         <div class="more_courses text-center">
                                             <a href="courses.php" class="boxed_btn_rev">Más Cursos</a>
@@ -369,11 +261,12 @@ session_start();
                                         <div class="single_courses">
                                             <div class="thumb">
                                                 <a href="android_inscripcion.php">
+
                                                     <img src="img/courses/1.png" alt="">
                                                 </a>
                                             </div>
                                             <div class="courses_info">
-                                                <span>Photoshop</span>
+                                                <span>Photoshopasdasd</span>
                                                 <h3><a href="#">Mobile App design step by step <br>
                                                         from beginner</a></h3>
                                                 <div class="star_prise d-flex justify-content-between">
@@ -1985,7 +1878,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                 </div>
 
                 <?php if (empty($_SESSION['usuario'])) {
-                                           ?>
+                                        ?>
                 <h3>Sign in</h3>
                 <form action="#">
                     <div class="row">
@@ -1997,7 +1890,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                             <input type="password" name='passwordsignin' placeholder="Password">
                         </div>
                       <?php
-                                       } ?>
+                                    } ?>
                         <div class="col-xl-12">
 
                               <?php
@@ -2087,7 +1980,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
 
                     </div>
                     <?php
-                      include_once 'backend/database.php';
+
                       include_once 'backend/user.php';
                       $database = new Database();
                       $db = $database->getConnection();

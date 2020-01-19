@@ -1659,6 +1659,8 @@ $db = $database->getConnection();
                     <div class="section_title text-center mb-100">
                         <h3>Tus cursos <?php if (!empty($_SESSION)) {
                                            echo $_SESSION['usuario'];
+                                       } else {
+                                           echo "<br><br>"."Inicia sesion para acceder a este seccion.";
                                        }?></h3>
                     </div>
                 </div>
@@ -1666,8 +1668,14 @@ $db = $database->getConnection();
             <div class="row">
               <?php
               $course = new cursos($db);
+                $user = new User($db);
                   if (!empty($_SESSION['id'])) {
-                      $arrayCourses=$course->getCoursesPerUser($_SESSION['id']);
+                      $usuario=$user->getUser($_SESSION['id']);
+                      if ($usuario['tipo']==1) {
+                          $arrayCourses=$course->getCoursesPerUser($_SESSION['id']);
+                      } elseif ($usuario['tipo']==2) {
+                          $arrayCourses=$course->getCourseForTeacher($_SESSION['id']);
+                      }
                       if (!empty($arrayCourses)) {
                           while ($fila=$arrayCourses->fetch()) {
                               $imagen= $fila['imagen']; ?>
@@ -1679,7 +1687,7 @@ $db = $database->getConnection();
                       <div class="single_courses">
                           <div class="thumb">
                               <a href="android_inscripcion.php?idcourse=<?php echo $fila['id']; ?>">
-                                  <img src="img/courses/1.jpg" alt="">
+                                  <img src="<?php echo $fila['imagen']; ?>" alt="">
                               </a>
                           </div>
                           <div class="courses_info">
@@ -1696,6 +1704,8 @@ $db = $database->getConnection();
             </div>
               <?php
                           }
+                      } else {
+                          echo "Inscribete a un curso primero!";
                       }
                   }
               ?>

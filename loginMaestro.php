@@ -5,7 +5,7 @@
 
 <!DOCTYPE html>
 <html>
-    
+
 <head>
   <title>Labdemy</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -14,6 +14,17 @@
 </head>
 
 <body background="img/banner/bradcam2.png">
+  <!-- <script>
+  function validate(){
+
+      var a = document.getElementById("password").value;
+      var b = document.getElementById("confirm_password").value;
+      if (a!=b) {
+         alert("Passwords do no match");
+         return false;
+      }
+  }
+ </script> -->
   <div class="container h-100">
     <div class="d-flex justify-content-center h-100">
       <div class="user_card">
@@ -23,47 +34,61 @@
           </div>
         </div>
         <div class="d-flex justify-content-center form_container">
-          <form>
+          <form method="post" onSubmit="return validate()">
             <div class="input-group mb-3">
               <div class="input-group-append">
                 <span class="input-group-text"><i class="fas fa-address-card"></i></span>
               </div>
-              <input type="text" name="" class="form-control input_user" value="" placeholder="Nombre">
+              <input type="text" name="name" class="form-control input_user" value="" placeholder="Nombre">
             </div>
             <div class="input-group mb-3">
               <div class="input-group-append">
                 <span class="input-group-text"><i class="fas fa-address-book"></i></span>
               </div>
-              <input type="text" name="" class="form-control input_user" value="" placeholder="Apellido">
+              <input type="text" name="lastname" class="form-control input_user" value="" placeholder="Apellido">
             </div>
             <div class="input-group mb-3">
               <div class="input-group-append">
                 <span class="input-group-text"><i class="fa fa-at" aria-hidden="true"></i></span>
               </div>
-              <input type="mail" name="" class="form-control input_pass" value="" placeholder="Mail">
+              <input type="mail" name="email" class="form-control input_pass" value="" placeholder="Mail">
             </div>
             <div class="input-group mb-3">
               <div class="input-group-append">
                 <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></i></span>
               </div>
-              <input type="password" name="" class="form-control input_pass" value="" placeholder="Contraseña">
+              <input type="password" name="password" class="form-control input_pass" value="" placeholder="Contraseña">
             </div>
             <div class="form-group">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customControlInline">
-                
+
               </div>
             </div>
               <div class="d-flex justify-content-center mt-3 login_container">
-          <button type="button" name="button" class="btn login_btn">Agregar</button>
+          <button type="submit" name="button" class="btn login_btn">Agregar</button>
            </div>
           </form>
         </div>
-    
-        
+
+
         </div>
       </div>
     </div>
   </div>
+  <?php
+  include_once 'backend/database.php';
+  include_once 'backend/user.php';
+  $database = new Database();
+  $db = $database->getConnection();
+  $user = new User($db);
+  if (!empty($_POST['email'])) {
+      $user->email =  $_POST['email'];
+      $user->password =  base64_encode($_POST['password']);
+      $user->nombre = $_POST['name'];
+      $user->lastname = $_POST['lastname'];
+      $user->signupTeacher();
+  }
+  ?>
 </body>
 </html>

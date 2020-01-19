@@ -57,7 +57,37 @@ class cursos
             $result1 = $this->conn->query($sql1);
             $result1->setFetchMode(PDO::FETCH_ASSOC);
             //$result1->execute();
-          
+
+
+            return $result1;
+        }
+    }
+    public function getCourseForTeacher($idTeacher)
+    {
+        $sql = 'SELECT * from informacioncursos where id_docente='.$idTeacher.';';
+        $result = $this->conn->query($sql);
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+
+        $string;
+        $contador=0;
+
+
+        while ($fila=$result->fetch()) {
+            if ($contador==0) {
+                $string="id=".$fila['id_curso'];
+            //  echo $fila['ID_documentos'];
+            } else {
+                $string=$string." or id=".$fila['id_curso'];
+            }
+            $contador=$contador+1;
+        }
+
+        if (!empty($string)) {
+            $sql1 = 'SELECT * from cursos where '.$string.';';
+            $result1 = $this->conn->query($sql1);
+            $result1->setFetchMode(PDO::FETCH_ASSOC);
+            //$result1->execute();
+
 
             return $result1;
         }
@@ -107,5 +137,19 @@ class cursos
             // $result->setFetchMode(PDO::FETCH_ASSOC);
             $result->execute();
         }
+    }
+    public function getObjetivos($idinformation)
+    {
+        $sql = 'SELECT * from objetivos where id_informacion='.$idinformation.';';
+        $result = $this->conn->query($sql);
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        return $result;
+    }
+    public function getPreguntas($idinformation)
+    {
+        $sql = 'SELECT * from preguntas where id_informacion='.$idinformation.';';
+        $result = $this->conn->query($sql);
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        return $result;
     }
 }

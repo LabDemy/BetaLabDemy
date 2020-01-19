@@ -120,11 +120,11 @@ INSERT INTO preguntas VALUES(null,"¿Cuál es la diferencia entre un diseñador 
 INSERT INTO preguntas VALUES(null,"¿Qué hacer para mantenerse siempre actualizado?","En sectores donde la tecnología es el principal motor de cambio, es importante mantenerse siempre actualizado y estar al tanto de las tendencias y novedades que aparecen. Por esto, es fundamental leer.",2);
 
 
-INSERT INTO usuario VALUES (null,'Vladimir','MTIzNA==','vladimirTirado@gmail.com',"Tirado",'img/latest_blog/vladi.png',2);
+
 
 INSERT INTO cursos VALUES (null,"Diseño de Aplicaciones con UX", "https://www.youtube.com/watch?v=4K4ehuyi9rk", "Diseño de Aplicaciones con User Experience", null, "img/courses/3.jpg", null);
 
-INSERT INTO informacioncursos VALUES(null, 3, "https://www.youtube.com/watch?v=4K4ehuyi9rk", "img/latest_blog/3.jpg", 4, "Un buen diseño es la clave principal que hay que tener en cuenta para tener éxito en el Marketing Digital", "Diseño de Aplicaciones con User Experience", 67.0);
+INSERT INTO informacioncursos VALUES(null, 3, "https://www.youtube.com/watch?v=4K4ehuyi9rk", "img/latest_blog/3.jpg", 3, "Un buen diseño es la clave principal que hay que tener en cuenta para tener éxito en el Marketing Digital", "Diseño de Aplicaciones con User Experience", 67.0);
 
 INSERT INTO objetivos VALUES(null,"El tener un buen diseño de aplicación ha cobrado una fiera importancia dentro de la empresa, donde se dan cuenta del valor que supone ya no solo como una manera de diferenciarse en el mercado frente a la competencia (ese gran reto de cualquier empresa), sino también como una herramienta para afianzar usuarios dándoles junto al producto que adquieren una experiencia de uso cómoda y humana, convirtiendo al consumidor en un defensor de la marca del producto, aquí aprenderás todo sobre:",3);
 INSERT INTO objetivos VALUES(null,"Organización de contenidos.", 3);
@@ -144,7 +144,7 @@ INSERT INTO usuario VALUES (null,'Eynar','MTIzNA==','eynarPari@gmail.com',"Pari"
 
 INSERT INTO cursos VALUES (null,"Metodologías ágiles", "https://www.youtube.com/watch?v=tGEYClsYyuw", "Metodologías Ágiles", null, "img/courses/4.jpg", null);
 
-INSERT INTO informacioncursos VALUES(null, 4, "https://www.youtube.com/watch?v=tGEYClsYyuw", "img/latest_blog/4.jpg", 5, "Scrum no es una metodología. Scrum ni siquiera es un proceso. A lo sumo podríamos definirlo como un metaproceso: una maquinita que nos ayuda a construir iteractiva e incrementalmente nuestro propio proceso", "Metodologías Ágiles", 87.0);
+INSERT INTO informacioncursos VALUES(null, 4, "https://www.youtube.com/watch?v=tGEYClsYyuw", "img/latest_blog/4.jpg", 4, "Scrum no es una metodología. Scrum ni siquiera es un proceso. A lo sumo podríamos definirlo como un metaproceso: una maquinita que nos ayuda a construir iteractiva e incrementalmente nuestro propio proceso", "Metodologías Ágiles", 87.0);
 
 INSERT INTO objetivos VALUES(null,"Las empresas que apuestan por una Transformación Digital completa terminan por incluir, implantar y desarrollar metodologías ágiles en el interior de sus departamentos para entregar los productos y/o servicios con una mayor calidad y con unos costes y tiempos mucho más reducidos, aquí aprenderás todo sobre:", 4);
 INSERT INTO objetivos VALUES(null,"Respuesta rápida a cambios de requisitos durante el proyecto.", 4);
@@ -162,7 +162,7 @@ INSERT INTO usuario VALUES (null,'Mariana','MTIzNA==','marianaCarlo123@gmail.com
 
 INSERT INTO cursos VALUES (null,"Customer Experience", "https://www.youtube.com/watch?v=SpvQj-tVZOU", "Customer Experience", null, "img/courses/5.jpg", null);
 
-INSERT INTO informacioncursos VALUES(null, 5, "https://www.youtube.com/watch?v=SpvQj-tVZOU", "img/latest_blog/5.jpg", 6, "La tecnología nos permite dar hoy lo que el cliente nos va a pedir mañana.", "Customer Experience", 69.0);
+INSERT INTO informacioncursos VALUES(null, 5, "https://www.youtube.com/watch?v=SpvQj-tVZOU", "img/latest_blog/5.jpg", 5, "La tecnología nos permite dar hoy lo que el cliente nos va a pedir mañana.", "Customer Experience", 69.0);
 
 INSERT INTO objetivos VALUES(null,"La experiencia del consumidor o Customer Experience tiene el mismo valor tanto en tiendas físicas como en tiendas online, el objetivo es ofrecerlo de la mejor manera posible. El mundo entero ya se ha rendido a los encantos de la compra online así que las tiendas tienen que jugar con la doble estrategia de ofrecer el mejor producto y conseguir que la compra de ese producto o servicio también sea increíble e inolvidable, aquí aprenderás todo sobre:", 5);
 INSERT INTO objetivos VALUES(null,"Mejorar la atención a clientes", 5);
@@ -178,7 +178,7 @@ INSERT INTO usuario VALUES (null,'Andres','MTIzNA==','andres1Duarte@gmail.com',"
 
 INSERT INTO cursos VALUES (null,"Office", "https://www.youtube.com/watch?v=D_fgwhQwOr8", "Office 365", null, "img/courses/6.jpg", null);
 
-INSERT INTO informacioncursos VALUES(null, 6, "https://www.youtube.com/watch?v=D_fgwhQwOr8", "img/latest_blog/6.jpg", 7, "Office 365, la herramienta que todos deberían aprender, que te abre nuevos caminos y nuevos horizontes siempre.", "Office 365", 89.0);
+INSERT INTO informacioncursos VALUES(null, 6, "https://www.youtube.com/watch?v=D_fgwhQwOr8", "img/latest_blog/6.jpg", 6, "Office 365, la herramienta que todos deberían aprender, que te abre nuevos caminos y nuevos horizontes siempre.", "Office 365", 89.0);
 
 INSERT INTO objetivos VALUES(null,"Los principales programas de Microsoft Office como Word, Excel y PowerPoint son de las herramientas que se comienzan a usar desde la educación secundaria, toman mayor relevancia durante la Universidad y se convierten en una competencia clave para acceder a algunos puestos de trabajo y ofertas de empleo., aquí aprenderás todo sobre:", 6);
 INSERT INTO objetivos VALUES(null,"Aprender a compartir todo tipo de documentos.", 6);

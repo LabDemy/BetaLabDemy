@@ -124,12 +124,15 @@ session_start();
      $db = $database->getConnection();
      $course = new cursos($db);
      $user = new User($db);
-     //$idcourse=$_SESSION['curso'];
-     $iduser=$_SESSION['id'];
-     $idcourse=4;
-     //$iduser=2;
-     $array=$course->getCourseInformationPerId($idcourse);
-     $arraydocente=$user->getUser($array['id_docente']);
+     $idcourse=$_GET['idcourse'];
+     if (!empty($_SESSION['id'])) {
+         $iduser=$_SESSION['id'];
+     }
+         //$idcourse=4;
+         //$iduser=2;
+         $array=$course->getCourseInformationPerId($idcourse);
+         $arraydocente=$user->getUser($array['id_docente']);
+
      ?>
      <div class="courses_details_banner">
          <div class="container">
@@ -177,84 +180,52 @@ session_start();
                 <div class="col-xl-7 col-lg-7">
                     <div class="single_courses">
                         <h3>Objetivos</h3>
-                        <p>Con esta formación el alumno aprenderá a programar aplicaciones para dispositivos Android con el nuevo entorno de desarrollo Android Studio. A lo largo del curso conocerá:</p> <br>
+                        <?php
+                        $objetivos=$course->getObjetivos($array['id']);
 
-                        <p>&#10004; En qué consiste la plataforma Android y cuáles son los elementos que la integran<p><br>&#10004; El IDE (entorno de desarrollo) oficial, Android Studio: su instalación, configuración (SDK, emuladores…) y uso.<p> <br>&#10004; Cuáles son los componentes de una App Android y cómo se implementan<p> <br> &#10004; Cómo diseñar a interfaz de usuario <p> <br> &#10004; Cómo implementar funcionalidades importantes: tareas asíncronas, multimedia, acceso a base de datos o utilización de la geolocalización y mapas<p> <br> &#10004; Cómo incluir una Aplicación en Google Play para su distribución o venta <p>
+                        $var=0;
+                        while ($fila=$objetivos->fetch()) {
+                            if ($var==0) {
+                                ?>
+                        <p><?php echo $fila['objetivo'];
+                                $var=1; ?></p> <br>
+                          <?php
+                            } else {
+                                ?>
+                        <p>&#10004; <?php echo $fila['objetivo']; ?><p><br>
+                        <?php
+                            }
+                        }
+                        ?>
+
                     <h3 class="second_title">Preguntas Frecuentes</h3>
                     </div>
                     <div class="outline_courses_info">
                             <div id="accordion">
+                              <?php
+                              $preguntas = $course->getPreguntas($array['id']);
+                              while ($fila=$preguntas->fetch()) {
+                                  ?>
                                     <div class="card">
                                         <div class="card-header" id="headingTwo">
                                             <h5 class="mb-0">
                                                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                    <i class="flaticon-question"></i> ¿Android vale la pena?
+                                                    <i class="flaticon-question"></i> <?php
+                                                      echo $fila['pregunta']; ?>
                                                 </button>
                                             </h5>
                                         </div>
                                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                                             <div class="card-body">
-                                                El desarrollo de las aplicaciones Android abarca un mayor campo y mayor crecimiento, donde tienes más posibilidades de entrar al mercado y tienes más capacidad de ser descubierto. Android tiene menores problemas de privacidad y tiene una publicidad mejor segmentada
+                                                  <?php
+                                                    echo $fila['respuesta']; ?>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card">
-                                        <div class="card-header" id="headingOne">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                                    <i class="flaticon-question"></i>¿Seré un experto en Android?</span>
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion" style="">
-                                            <div class="card-body">
-                                                La práctica hace al maestro, con nuestro curso introductorio y práctica, podrás crear tus propias ideas en tiempo record
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="headingThree">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                    <i class="flaticon-question"></i> ¿Que sirve más, iOS o Android?
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                            <div class="card-body">
-                                                Depende mucho del tipo de orientación que tengas en cuanto a dispositivos móviles, android es mucho más abierto y el campo es más grande, pero es depende a los gustos de cada uno.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="heading_4">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse_4" aria-expanded="false" aria-controls="collapse_4">
-                                                    <i class="flaticon-question"></i>¿Cómo es la competencia en el desarrollo android?
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapse_4" class="collapse" aria-labelledby="heading_4" data-parent="#accordion">
-                                            <div class="card-body">
-                                                Sin duda, muchas empresas están empezando a apostar únicamente por aplicaciones móviles. Poco a poco irán apareciendo nuevas empresas dedicadas únicamente a la movilidad y las actuales tendrán que ir adaptándose a este nuevo panorama que, seguramente, les exigirán sus propios clientes.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="heading_5">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse_5" aria-expanded="false" aria-controls="collapse_5">
-                                                    <i class="flaticon-question"></i> ¿Cómo empiezo?
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapse_5" class="collapse" aria-labelledby="heading_5" data-parent="#accordion">
-                                            <div class="card-body">
-                                            Con muchas ganas de aprender. Tu deseo es lo más importante.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                    <?php
+                              }
+                                    ?>
+                            </div>
                     </div>
                 </div>
                 <div class="col-xl-5 col-lg-5">
@@ -629,7 +600,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                     </a>
                 </div>
                 <?php if (empty($_SESSION['usuario'])) {
-                                    ?>
+                                        ?>
                 <h3>Sign in</h3>
                 <form action="#">
                     <div class="row">
@@ -641,7 +612,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                             <input type="password" name='passwordsignin' placeholder="Password">
                         </div>
                       <?php
-                                } ?>
+                                    } ?>
                         <div class="col-xl-12">
 
                               <?php

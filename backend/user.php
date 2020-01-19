@@ -69,6 +69,32 @@ class User implements \Serializable
             return false;
         }
     }
+    public function signupTeacher()
+    {
+        // if ($this->isAlreadyExist()) {
+        //     return false;
+        // }
+
+        // Check connection
+        // if (mysqli_connect_errno()) {
+        //     echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        // }
+
+
+
+
+        // Perform queries
+        if (!$this->isAlreadyExist()) {
+            $sql= "INSERT INTO $this->table_name VALUES (null,'$this->nombre', '$this->password','$this->email','$this->lastname',null,2);";
+
+            $result = $this->conn->prepare($sql);
+            // $result->setFetchMode(PDO::FETCH_ASSOC);
+            $result->execute();
+            return true;
+        } else {
+            return false;
+        }
+    }
     // login user
     public function login()
     {
