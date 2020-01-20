@@ -148,7 +148,7 @@ session_start();
                         <h3>Te ofrecemos <br>
                             muchas oportunidades</h3><br>
                         <h5><font color ="grey">Bienvenido, en LabDemy aprenderás las últimas tendencias en tecnología donde podrás capacitarte para futuras ofertas laborales, en LabDemy velamos por tu buen desempeño dentro de la plataforma. </h5></font><br>
-                        <a href="#" class="boxed_btn">Pasar un curso</a>
+                        <a href="courses.php" class="boxed_btn">Pasar un curso</a>
                     </div>
                 </div>
                 <div class="col-xl-6 offset-xl-1 col-lg-6">
