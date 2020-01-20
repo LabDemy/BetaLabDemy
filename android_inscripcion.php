@@ -225,15 +225,13 @@ session_start();
                                         <div class="card-header" id="heading_5">
                                             <h5 class="mb-0">
                                                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse_5" aria-expanded="false" aria-controls="collapse_5">
-                                                    <i class="flaticon-question"></i> How do I get started <span>with Shared
-                                                        Hosting?</span>
+                                                    <i class="flaticon-question"></i> ¿Qué tipo de aplicaciones  <span> puedo crear?</span>
                                                 </button>
                                             </h5>
                                         </div>
                                         <div id="collapse_5" class="collapse" aria-labelledby="heading_5" data-parent="#accordion">
                                             <div class="card-body">
-                                                Our set he for firmament morning sixth subdue darkness creeping gathered divide our
-                                                let god moving. Moving in fourth air night bring upon
+                                                El cielo es el límite, con Android puedes crear desde juegos, aplicaciones con realidad virtual, aplicaciones de ciencia, y demás.
                                             </div>
                                         </div>
                                     </div>
@@ -267,7 +265,7 @@ session_start();
                                 <li><a href="#"> <i class="ti-linkedin"></i> </a></li>
                             </ul>
                         </div>
-                        <a href="#" class="boxed_btn">Comprar Curso</a>
+                        <a href="android_curso.php" class="boxed_btn">Comprar Curso</a>
                         <div class="feedback_info">
                             <h3>Califica este curso!</h3>
                             <p>Rating</p>

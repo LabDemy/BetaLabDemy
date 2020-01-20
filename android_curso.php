@@ -118,6 +118,7 @@ session_start();
      <!-- bradcam_area_start -->
      <div class="courses_details_banner">
          <div class="container">
+         <h2 style="color:white"  align="center">CURSO DE ANDROID</h2>
              <div class="row">
                  <div class="col-xl-6">
                             
@@ -154,18 +155,14 @@ Android poco a poco se fue convirtiendo en el favorito de los usuarios porque po
             </div>
         </div>
     </div>
+                    <div class="courses_sidebar" align = "center">
+                    <a href = "https://www.youtube.com/watch?v=P9ZFhTw2hGA" target = "_blank" >
+    
+        <img src="img/courses/video.jpg"><br><br><br><br>
+       
+                           
 
-
-                    <div class="courses_sidebar">
-    <div class="video_thumb" align="center">
-        <img src="img/courses/video1.jpg"> 
-                           <a class="popup-video" href="https://www.youtube.com/watch?v=PRQjrp_7ip8">
-                                <div style="font-size: 80px;">
-                                <i class="fa fa-play fa-10x"></i>
-
-                            </div>
-                            </a>
-                             
+                            
                             
                         </div>
 
