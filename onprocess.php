@@ -138,8 +138,8 @@ session_start();
 
 
 
-    <!-- footer -->
-    <footer class="footer footer_bg_1">
+   <!-- footer -->
+   <footer class="footer footer_bg_1">
         <div class="footer_top">
             <div class="container">
                 <div class="row">
@@ -147,14 +147,9 @@ session_start();
                         <div class="footer_widget">
                             <div class="footer_logo">
                                 <a href="#">
-                                    <img src="img/logo.png" alt="">
+                                    <img src="img/logo-nuevo.png" alt="">
                                 </a>
                             </div>
-                            <p>
-                                Firmament morning sixth subdue darkness creeping gathered divide our let god moving.
-                                Moving in fourth air night bring upon it beast let you dominion likeness open place day
-                                great.
-                            </p>
                             <div class="socail_links">
                                 <ul>
                                     <li>
@@ -185,13 +180,13 @@ session_start();
                     <div class="col-xl-2 offset-xl-1 col-md-6 col-lg-3">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                Courses
+                                Cursos
                             </h3>
                             <ul>
-                                <li><a href="#">Wordpress</a></li>
-                                <li><a href="#"> Photoshop</a></li>
-                                <li><a href="#">Illustrator</a></li>
-                                <li><a href="#">Adobe XD</a></li>
+                                <li><a href="#">Android</a></li>
+                                <li><a href="#">Raspberry Pi</a></li>
+                                <li><a href="#">Arduino</a></li>
+                                <li><a href="#">Bootstrap</a></li>
                                 <li><a href="#">UI/UX</a></li>
                             </ul>
 
@@ -200,26 +195,26 @@ session_start();
                     <div class="col-xl-2 col-md-6 col-lg-2">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                Resourches
+                                Menú
                             </h3>
                             <ul>
-                                <li><a href="#">Free Adobe XD</a></li>
-                                <li><a href="#">Tutorials</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#"> About</a></li>
-                                <li><a href="#"> Contact</a></li>
+                                <li><a href="#">Inicio</a></li>
+                                <li><a href="#">Cursos</a></li>
+                                <li><a href="onprocess.php">Planes</a></li>
+                                <li><a href="#">Nosotros</a></li>
+                                <li><a href="#">Contacto</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6 col-lg-3">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                Address
+                                Contacto
                             </h3>
                             <p>
-                                200, D-block, Green lane USA <br>
-                                +10 367 467 8934 <br>
-                                edumark@contact.com
+                                70163895 - 2750555 <br>
+                               info@labdemy.edu <br>
+
                             </p>
                         </div>
                     </div>
@@ -233,7 +228,7 @@ session_start();
                     <div class="col-xl-12">
                         <p class="copy_right text-center">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Fue hecho con <i class="fa fa-heart-o" aria-hidden="true"></i></a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>

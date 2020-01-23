@@ -217,68 +217,8 @@ session_start();
                                         </div>
                                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                                             <div class="card-body">
-<<<<<<< HEAD
                                                   <?php
                                                     echo $fila['respuesta']; ?>
-=======
-                                                El desarrollo de las aplicaciones Android abarca un mayor campo y mayor crecimiento, donde tienes más posibilidades de entrar al mercado y tienes más capacidad de ser descubierto. Android tiene menores problemas de privacidad y tiene una publicidad mejor segmentada
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="headingOne">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                                    <i class="flaticon-question"></i>¿Seré un experto en Android?</span>
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion" style="">
-                                            <div class="card-body">
-                                                La práctica hace al maestro, con nuestro curso introductorio y práctica, podrás crear tus propias ideas en tiempo record
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="headingThree">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                    <i class="flaticon-question"></i> ¿Que sirve más, iOS o Android?
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                            <div class="card-body">
-                                                Depende mucho del tipo de orientación que tengas en cuanto a dispositivos móviles, android es mucho más abierto y el campo es más grande, pero es depende a los gustos de cada uno.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="heading_4">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse_4" aria-expanded="false" aria-controls="collapse_4">
-                                                    <i class="flaticon-question"></i>¿Cómo es la competencia en el desarrollo android?
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapse_4" class="collapse" aria-labelledby="heading_4" data-parent="#accordion">
-                                            <div class="card-body">
-                                                Sin duda, muchas empresas están empezando a apostar únicamente por aplicaciones móviles. Poco a poco irán apareciendo nuevas empresas dedicadas únicamente a la movilidad y las actuales tendrán que ir adaptándose a este nuevo panorama que, seguramente, les exigirán sus propios clientes.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="heading_5">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse_5" aria-expanded="false" aria-controls="collapse_5">
-                                                    <i class="flaticon-question"></i> ¿Qué tipo de aplicaciones  <span> puedo crear?</span>
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapse_5" class="collapse" aria-labelledby="heading_5" data-parent="#accordion">
-                                            <div class="card-body">
-                                                El cielo es el límite, con Android puedes crear desde juegos, aplicaciones con realidad virtual, aplicaciones de ciencia, y demás.
->>>>>>> CMS
                                             </div>
                                         </div>
                                     </div>
@@ -315,11 +255,7 @@ session_start();
                                 <li><a href="#"> <i class="ti-linkedin"></i> </a></li>
                             </ul>
                         </div>
-<<<<<<< HEAD
                         <a href="prueba.php?iduser=<?php echo $iduser."&idcourse=".$idcourse;?>" class="boxed_btn">Comprar Curso</a>
-=======
-                        <a href="android_curso.php" class="boxed_btn">Comprar Curso</a>
->>>>>>> CMS
                         <div class="feedback_info">
                             <h3>Califica este curso!</h3>
                             <p>Rating</p>
