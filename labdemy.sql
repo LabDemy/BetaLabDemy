@@ -70,6 +70,14 @@ CREATE TABLE objetivos(
   FOREIGN KEY (`id_informacion`)
   REFERENCES `informacioncursos` (`id`)
 );
+CREATE TABLE comentarios(
+  id INT AUTO_INCREMENT,
+  id_user INT,
+  texto TEXT,
+  PRIMARY KEY(`id`),
+  FOREIGN KEY (`id_user`)
+  REFERENCES `usuario` (`id`)
+);
 
 
 INSERT INTO tipos_de_usuario (id, nombre) VALUES (null, 'estudiante');
