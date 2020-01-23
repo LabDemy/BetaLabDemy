@@ -86,7 +86,7 @@ session_start();
                         </div>
                         <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                             <div class="log_chat_area d-flex align-items-center">
-                                <a href="" class="login popup-with-form">
+                                <a href="#test-form" class="login popup-with-form">
                                     <i class="flaticon-user"></i>
 
                                     <span>  <?php
@@ -350,7 +350,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                 </div>
 
                 <?php if (empty($_SESSION['usuario'])) {
-                                        ?>
+                                           ?>
                 <h3>Sign in</h3>
                 <form action="#">
                     <div class="row">
@@ -362,7 +362,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                             <input type="password" name='passwordsignin' placeholder="Password">
                         </div>
                       <?php
-                                    } ?>
+                                       } ?>
                         <div class="col-xl-12">
 
                               <?php
@@ -407,7 +407,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                 }
                     if (empty($_SESSION['usuario'])) {
                         ?>
-                <p class="doen_have_acc">Don’t have an account? <a class="dont-hav-acc" href="2">Sign Up</a>
+                <p class="doen_have_acc">Don’t have an account? <a class="dont-hav-acc" href="#test-form2">Sign Up</a>
                 </p>
                 <?php
                     }?>

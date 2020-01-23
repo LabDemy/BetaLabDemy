@@ -80,6 +80,7 @@ CREATE TABLE comentarios(
 );
 
 
+
 INSERT INTO tipos_de_usuario (id, nombre) VALUES (null, 'estudiante');
 INSERT INTO tipos_de_usuario (id, nombre) VALUES (null, 'profesores');
 INSERT INTO tipos_de_usuario (id, nombre) VALUES (null, 'admin');
