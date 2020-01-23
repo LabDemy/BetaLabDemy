@@ -1709,15 +1709,16 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
     <!-- footer -->
 
 
-    <!-- form itself end-->
-    <form id="test-form" class="white-popup-block mfp-hide">
+   <!-- form itself end-->
+   <form id="test-form" class="white-popup-block mfp-hide"   method="post">
         <div class="popup_box ">
             <div class="popup_inner">
                 <div class="logo text-center">
                     <a href="#">
-                        <img src="img/form-logo.png" alt="">
+                        <img src="img/logo-nuevo.png" alt="">
                     </a>
                 </div>
+
                 <?php if (empty($_SESSION['usuario'])) {
                   ?>
                 <h3>Sign in</h3>
@@ -1747,18 +1748,21 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                                   echo "Ver perfil";
                                   echo '</button>';
                               } else {
-                                  echo '<button type="submit" formaction="courses.php" class="boxed_btn_orange">';
+                                  echo '<button type="submit" formaction="index.php" class="boxed_btn_orange">';
                                   echo "Sign in";
                               }
                                ?>
                              </button>
+
                         </div>
                     </div>
                 </form>
                 <?php
+                include_once 'backend/database.php';
+                include_once 'backend/user.php';
 
-
-
+                $database = new Database();
+                $db = $database->getConnection();
                 $user = new User($db);
                 if (!empty($_POST['emailsignin'])) {
                     $user->email= $_POST['emailsignin'];
@@ -1767,14 +1771,15 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                     while ($fila = $var->fetch()) {
                         $_SESSION['usuario']=$fila['nombre'];
                         $_SESSION['id']=$fila['id'];
+                        $_SESSION['tipo']=$fila['tipo'];
                         echo "<meta http-equiv='refresh' content='0'>";
                     }
                 }
   if (empty($_SESSION['usuario'])) {
       ?>
-                <p class="doen_have_acc">Don’t have an account? <a class="dont-hav-acc" href="2">Sign Up</a>
+                <p class="doen_have_acc">Don’t have an account? <a class="dont-hav-acc" href="">Sign Up</a>
                 </p>
-              <?php
+                <?php
   }?>
             </div>
         </div>
@@ -1782,30 +1787,57 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
     <!-- form itself end -->
 
     <!-- form itself end-->
-    <form id="test-form2" class="white-popup-block mfp-hide">
+    <form id="test-form2" onSubmit="return validate()" class="white-popup-block mfp-hide" action="index.php" method="post">
         <div class="popup_box ">
             <div class="popup_inner">
                 <div class="logo text-center">
                     <a href="#">
-                        <img src="img/form-logo.png" alt="">
+                        <img src="img/logo-nuevo.png" alt="">
                     </a>
                 </div>
-                <h3>Resistration</h3>
-                <form action="#">
-                    <div class="row">
-                        <div class="col-xl-12 col-md-12">
-                            <input type="email" placeholder="Enter email">
+                <h3>Registration</h3>
+                <form action="" onSubmit="return validate()" >
+                    <div class="row" >
+                        <div class="col-xl-12 col-md-12" >
+                            <input type="text" id="name" name='name' placeholder="Enter name">
                         </div>
                         <div class="col-xl-12 col-md-12">
-                            <input type="password" placeholder="Password">
+                            <input type="text" id="lastname" name='lastname' placeholder="Enter last name">
                         </div>
-                        <div class="col-xl-12 col-md-12">
-                            <input type="Password" placeholder="Confirm password">
+                        <div class="col-xl-12 col-md-12" >
+                            <input type="password" id='password' name='password' placeholder="Password">
+                        </div>
+                        <div class="col-xl-12 col-md-12" >
+
+                            <input type="password" id='confirm_password' name='confirm_password' placeholder="Confirm password">
+
+                        </div>
+
+                        <div class="col-xl-12 col-md-12" >
+                            <input type="email" id="email" name='email' placeholder="Enter email">
                         </div>
                         <div class="col-xl-12">
-                            <button type="submit" class="boxed_btn_orange">Sign Up</button>
+                        <!-- <a href="login.php"  class="boxed_btn_orange" type="button">Sign Up</a> -->
+                        <button type="submit"  class="boxed_btn_orange">Sign Up</button>
                         </div>
+
                     </div>
+                    <?php
+
+                      include_once 'backend/user.php';
+                      $database = new Database();
+                      $db = $database->getConnection();
+                      $user = new user($db);
+
+                      if (!empty($_POST['email'])) {
+                          $user->email =  $_POST['email'];
+                          $user->password =  base64_encode($_POST['password']);
+                          $user->nombre = $_POST['name'];
+                          $user->lastname = $_POST['lastname'];
+                          $user->signup();
+                      }
+
+                    ?>
                 </form>
             </div>
         </div>
