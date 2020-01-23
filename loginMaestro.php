@@ -34,7 +34,7 @@
           </div>
         </div>
         <div class="d-flex justify-content-center form_container">
-          <form method="post" onSubmit="return validate()">
+          <form method="post" action="about.php" onSubmit="return validate()">
             <div class="input-group mb-3">
               <div class="input-group-append">
                 <span class="input-group-text"><i class="fas fa-address-card"></i></span>
@@ -66,7 +66,9 @@
               </div>
             </div>
               <div class="d-flex justify-content-center mt-3 login_container">
+              
           <button type="submit" name="button" class="btn login_btn">Agregar</button>
+           
            </div>
           </form>
         </div>

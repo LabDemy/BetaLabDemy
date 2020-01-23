@@ -19,7 +19,7 @@
 <body>
     <header>
         <div class="container">
-            <h1>CIUDADES</h1>
+            <h1>ANDROID</h1>
         </div>
     </header>
 
@@ -187,7 +187,7 @@ $conn = null;
 
     <footer>
         <div class="container">
-            <h3>Sara Uriarte</h3>
+            <h3>Docente</h3>
         </div>
     </footer>
     

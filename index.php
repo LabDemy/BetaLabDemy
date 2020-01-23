@@ -30,7 +30,7 @@
 <body>
 <?php
 session_start();
-print_r($_SESSION);
+//print_r($_SESSION);
 if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==3) {
     header("Location: CMS/index.html");
 }

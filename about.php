@@ -350,7 +350,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                 </div>
 
                 <?php if (empty($_SESSION['usuario'])) {
-                                           ?>
+                                        ?>
                 <h3>Sign in</h3>
                 <form action="#">
                     <div class="row">
@@ -362,7 +362,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                             <input type="password" name='passwordsignin' placeholder="Password">
                         </div>
                       <?php
-                                       } ?>
+                                    } ?>
                         <div class="col-xl-12">
 
                               <?php
@@ -401,6 +401,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                     while ($fila = $var->fetch()) {
                         $_SESSION['usuario']=$fila['nombre'];
                         $_SESSION['id']=$fila['id'];
+                        $_SESSION['tipo']=$fila['tipo'];
                         echo "<meta http-equiv='refresh' content='0'>";
                     }
                 }
@@ -452,7 +453,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
 
                     </div>
                     <?php
-                      include_once 'backend/database.php';
+
                       include_once 'backend/user.php';
                       $database = new Database();
                       $db = $database->getConnection();
