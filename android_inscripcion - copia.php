@@ -66,7 +66,7 @@ session_start();
                                     <ul id="navigation">
                                         <li><a  href="index.php">Inicio</a></li>
                                         <li><a  class="active" href="courses.php">Cursos</a></li>
-                                        <li><a href="onprocess.php">Planes <i class="ti-angle-down"></i></a>
+                                        <li><a href="onprocess.php">Planes<i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="course_details.html">Detalles</a></li>
                                                 <!--li><a href="elements.html">elements</a></li-->
@@ -116,37 +116,15 @@ session_start();
     <!-- header-end -->
 
      <!-- bradcam_area_start -->
-     <?php
-     include_once 'backend/database.php';
-     include_once 'backend/cursos.php';
-     include_once 'backend/user.php';
-     $database = new Database();
-     $db = $database->getConnection();
-     $course = new cursos($db);
-     $user = new User($db);
-     $idcourse=$_GET['idcourse'];
-     if (!empty($_SESSION['id'])) {
-         $iduser=$_SESSION['id'];
-     }
-         //$idcourse=4;
-         //$iduser=2;
-         $array=$course->getCourseInformationPerId($idcourse);
-         $arraydocente=$user->getUser($array['id_docente']);
-
-     ?>
      <div class="courses_details_banner">
          <div class="container">
              <div class="row">
                  <div class="col-xl-6">
                      <div class="course_text">
-                            <h3><?php
-                            echo $array['titulo'];
-                              ?></h3>
+                            <h3>Aplicaciones <br> Android</h3>
                             <div class="prise">
                                 <span class="inactive">Bs100.00</span>
-                                <span class="active">Bs<?php
-                                  echo $array['precio'];
-                                ?></span>
+                                <span class="active">Bs69</span>
                             </div>
                             <div class="rating">
                                 <i class="flaticon-mark-as-favorite-star"></i>
@@ -180,47 +158,23 @@ session_start();
                 <div class="col-xl-7 col-lg-7">
                     <div class="single_courses">
                         <h3>Objetivos</h3>
-                        <?php
-                        $objetivos=$course->getObjetivos($array['id']);
+                        <p>Con esta formación el alumno aprenderá a programar aplicaciones para dispositivos Android con el nuevo entorno de desarrollo Android Studio. A lo largo del curso conocerá:</p> <br>
 
-                        $var=0;
-                        while ($fila=$objetivos->fetch()) {
-                            if ($var==0) {
-                                ?>
-                        <p><?php echo $fila['objetivo'];
-                                $var=1; ?></p> <br>
-                          <?php
-                            } else {
-                                ?>
-                        <p>&#10004; <?php echo $fila['objetivo']; ?><p><br>
-                        <?php
-                            }
-                        }
-                        ?>
-
+                        <p>&#10004; En qué consiste la plataforma Android y cuáles son los elementos que la integran<p><br>&#10004; El IDE (entorno de desarrollo) oficial, Android Studio: su instalación, configuración (SDK, emuladores…) y uso.<p> <br>&#10004; Cuáles son los componentes de una App Android y cómo se implementan<p> <br> &#10004; Cómo diseñar a interfaz de usuario <p> <br> &#10004; Cómo implementar funcionalidades importantes: tareas asíncronas, multimedia, acceso a base de datos o utilización de la geolocalización y mapas<p> <br> &#10004; Cómo incluir una Aplicación en Google Play para su distribución o venta <p>
                     <h3 class="second_title">Preguntas Frecuentes</h3>
                     </div>
                     <div class="outline_courses_info">
                             <div id="accordion">
-                              <?php
-                              $preguntas = $course->getPreguntas($array['id']);
-                              while ($fila=$preguntas->fetch()) {
-                                  ?>
                                     <div class="card">
                                         <div class="card-header" id="headingTwo">
                                             <h5 class="mb-0">
                                                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                    <i class="flaticon-question"></i> <?php
-                                                      echo $fila['pregunta']; ?>
+                                                    <i class="flaticon-question"></i> ¿Android vale la pena?
                                                 </button>
                                             </h5>
                                         </div>
                                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                                             <div class="card-body">
-<<<<<<< HEAD
-                                                  <?php
-                                                    echo $fila['respuesta']; ?>
-=======
                                                 El desarrollo de las aplicaciones Android abarca un mayor campo y mayor crecimiento, donde tienes más posibilidades de entrar al mercado y tienes más capacidad de ser descubierto. Android tiene menores problemas de privacidad y tiene una publicidad mejor segmentada
                                             </div>
                                         </div>
@@ -271,38 +225,36 @@ session_start();
                                         <div class="card-header" id="heading_5">
                                             <h5 class="mb-0">
                                                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse_5" aria-expanded="false" aria-controls="collapse_5">
-                                                    <i class="flaticon-question"></i> ¿Qué tipo de aplicaciones  <span> puedo crear?</span>
+                                                    <i class="flaticon-question"></i> How do I get started <span>with Shared
+                                                        Hosting?</span>
                                                 </button>
                                             </h5>
                                         </div>
                                         <div id="collapse_5" class="collapse" aria-labelledby="heading_5" data-parent="#accordion">
                                             <div class="card-body">
-                                                El cielo es el límite, con Android puedes crear desde juegos, aplicaciones con realidad virtual, aplicaciones de ciencia, y demás.
->>>>>>> CMS
+                                                Our set he for firmament morning sixth subdue darkness creeping gathered divide our
+                                                let god moving. Moving in fourth air night bring upon
                                             </div>
                                         </div>
                                     </div>
-                                    <?php
-                              }
-                                    ?>
-                            </div>
+                                </div>
                     </div>
                 </div>
                 <div class="col-xl-5 col-lg-5">
                     <div class="courses_sidebar">
                         <div class="video_thumb">
-                            <img src="<?php echo $array['imagenvideo'];?>" alt="">
-                            <a class="popup-video" href="<?php echo $array['linkvideo'];?>">
+                            <img src="img/latest_blog/curso2.jpg" alt="">
+                            <a class="popup-video" href="https://www.youtube.com/watch?v=PRQjrp_7ip8">
                                 <i class="fa fa-play"></i>
                             </a>
                         </div>
                         <div class="author_info">
                             <div class="auhor_header">
                                 <div class="thumb">
-                                        <img src="<?php echo $arraydocente['imagen'];?>" alt="">
+                                        <img src="img/latest_blog/kev.png" alt="">
                                 </div>
                                 <div class="name">
-                                    <h3><?php echo $arraydocente['nombre']." "; echo $arraydocente['lastname'];?> </h3>
+                                    <h3>Kevin Cárdenas</h3>
                                     <p>Desarrollador de Android</p>
                                 </div>
                             </div>
@@ -315,11 +267,7 @@ session_start();
                                 <li><a href="#"> <i class="ti-linkedin"></i> </a></li>
                             </ul>
                         </div>
-<<<<<<< HEAD
-                        <a href="prueba.php?iduser=<?php echo $iduser."&idcourse=".$idcourse;?>" class="boxed_btn">Comprar Curso</a>
-=======
-                        <a href="android_curso.php" class="boxed_btn">Comprar Curso</a>
->>>>>>> CMS
+                        <a href="#" class="boxed_btn">Comprar Curso</a>
                         <div class="feedback_info">
                             <h3>Califica este curso!</h3>
                             <p>Rating</p>
@@ -643,7 +591,7 @@ session_start();
                     <div class="col-xl-12">
                         <p class="copy_right text-center">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | fue hecho con <i class="fa fa-heart-o" aria-hidden="true"></i>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>
@@ -655,17 +603,16 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
 
 
     <!-- form itself end-->
-    <form id="test-form" class="white-popup-block mfp-hide"   method="post">
+    <form id="test-form" class="white-popup-block mfp-hide">
         <div class="popup_box ">
             <div class="popup_inner">
                 <div class="logo text-center">
                     <a href="#">
-                        <img src="img/logo-nuevo.png" alt="">
+                        <img src="img/form-logo.png" alt="">
                     </a>
                 </div>
-
                 <?php if (empty($_SESSION['usuario'])) {
-                                        ?>
+                                           ?>
                 <h3>Sign in</h3>
                 <form action="#">
                     <div class="row">
@@ -677,112 +624,54 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                             <input type="password" name='passwordsignin' placeholder="Password">
                         </div>
                       <?php
-                                    } ?>
+                                       } ?>
                         <div class="col-xl-12">
 
                               <?php
                               if (!empty($_SESSION['usuario'])) {
                                   echo '<button type="submit" formaction="sessiondestroy.php" class="boxed_btn_orange">';
                                   echo "Log out";
-                                  echo '</button>';
-                                  echo "<p>";
-                                  echo "<p>";
-                                  echo "<p>";
-                                  echo "<p>";
-                                  echo '<button type="submit" formaction="onprocess.php" class="boxed_btn_orange">';
-                                  echo "Ver perfil";
-                                  echo '</button>';
                               } else {
                                   echo '<button type="submit" formaction="index.php" class="boxed_btn_orange">';
                                   echo "Sign in";
                               }
                                ?>
                              </button>
-
                         </div>
                     </div>
                 </form>
-                <?php
-                include_once 'backend/database.php';
-                include_once 'backend/user.php';
-
-                $database = new Database();
-                $db = $database->getConnection();
-                $user = new User($db);
-                if (!empty($_POST['emailsignin'])) {
-                    $user->email= $_POST['emailsignin'];
-                    $user->password = base64_encode($_POST['passwordsignin']);
-                    $var=$user->login();
-                    while ($fila = $var->fetch()) {
-                        $_SESSION['usuario']=$fila['nombre'];
-                        $_SESSION['id']=$fila['id'];
-                        $_SESSION['tipo']=$fila['tipo'];
-                        echo "<meta http-equiv='refresh' content='0'>";
-                    }
-                }
-                    if (empty($_SESSION['usuario'])) {
-                        ?>
                 <p class="doen_have_acc">Don’t have an account? <a class="dont-hav-acc" href="#test-form2">Sign Up</a>
                 </p>
-                <?php
-                    }?>
             </div>
         </div>
     </form>
     <!-- form itself end -->
 
     <!-- form itself end-->
-    <form id="test-form2" onSubmit="return validate()" class="white-popup-block mfp-hide" action="index.php" method="post">
+    <form id="test-form2" class="white-popup-block mfp-hide">
         <div class="popup_box ">
             <div class="popup_inner">
                 <div class="logo text-center">
                     <a href="#">
-                        <img src="img/logo-nuevo.png" alt="">
+                        <img src="img/form-logo.png" alt="">
                     </a>
                 </div>
-                <h3>Registration</h3>
-                <form action="" onSubmit="return validate()" >
-                    <div class="row" >
-                        <div class="col-xl-12 col-md-12" >
-                            <input type="text" id="name" name='name' placeholder="Enter name">
+                <h3>Resistration</h3>
+                <form action="#">
+                    <div class="row">
+                        <div class="col-xl-12 col-md-12">
+                            <input type="email" placeholder="Enter email">
                         </div>
                         <div class="col-xl-12 col-md-12">
-                            <input type="text" id="lastname" name='lastname' placeholder="Enter last name">
+                            <input type="password" placeholder="Password">
                         </div>
-                        <div class="col-xl-12 col-md-12" >
-                            <input type="password" id='password' name='password' placeholder="Password">
-                        </div>
-                        <div class="col-xl-12 col-md-12" >
-
-                            <input type="password" id='confirm_password' name='confirm_password' placeholder="Confirm password">
-
-                        </div>
-
-                        <div class="col-xl-12 col-md-12" >
-                            <input type="email" id="email" name='email' placeholder="Enter email">
+                        <div class="col-xl-12 col-md-12">
+                            <input type="Password" placeholder="Confirm password">
                         </div>
                         <div class="col-xl-12">
-                        <!-- <a href="login.php"  class="boxed_btn_orange" type="button">Sign Up</a> -->
-                        <button type="submit"  class="boxed_btn_orange">Sign Up</button>
+                            <button type="submit" class="boxed_btn_orange">Sign Up</button>
                         </div>
-
                     </div>
-                    <?php
-
-                      include_once 'backend/user.php';
-                      $database = new Database();
-                      $db = $database->getConnection();
-                      $user = new user($db);
-
-                      if (!empty($_POST['email'])) {
-                          $user->email =  $_POST['email'];
-                          $user->password =  base64_encode($_POST['password']);
-                          $user->nombre = $_POST['name'];
-                          $user->lastname = $_POST['lastname'];
-                          $user->signup();
-                      }
-
-                    ?>
                 </form>
             </div>
         </div>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>LabDemy</title>
+    <title>Labdemy</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,21 +28,6 @@
 </head>
 
 <body>
-<?php
-session_start();
-
- ?>
- <script>
- function validate(){
-
-     var a = document.getElementById("password").value;
-     var b = document.getElementById("confirm_password").value;
-     if (a!=b) {
-        alert("Passwords do no match");
-        return false;
-     }
- }
-</script>
     <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
@@ -64,21 +49,15 @@ session_start();
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a  href="index.php">Inicio</a></li>
-                                        <li><a  class="active" href="courses.php">Cursos</a></li>
-                                        <li><a href="onprocess.php">Planes <i class="ti-angle-down"></i></a>
+                                        <li><a href="index.php">Inicio</a></li>
+                                        <li><a href="courses.php">Cursos</a></li>
+                                        <li><a class="active" href="#">Planes<i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
-                                                <li><a href="course_details.html">Detalles</a></li>
-                                                <!--li><a href="elements.html">elements</a></li-->
+                                                <li><a href="course_details.html">course details</a></li>
+                                                <li><a href="elements.html">elements</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="about.php">Nosotros</a></li>
-                                        <!--li><a href="#">blog <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="blog.html">blog</a></li>
-                                                <li><a href="single-blog.html">single-blog</a></li>
-                                            </ul-->
-                                        </li>
                                         <li><a href="contact.php">Contacto</a></li>
                                     </ul>
                                 </nav>
@@ -88,14 +67,7 @@ session_start();
                             <div class="log_chat_area d-flex align-items-center">
                                 <a href="#test-form" class="login popup-with-form">
                                     <i class="flaticon-user"></i>
-
-                                    <span>  <?php
-
-                                       if (!isset($_SESSION['usuario'])) {
-                                           echo "Log In";
-                                       } else {
-                                           echo $_SESSION['usuario'];
-                                       }?></span>
+                                    <span>Iniciar Sesión</span>
                                 </a>
                                 <div class="live_chat_btn">
                                     <a class="boxed_btn_orange" href="#">
@@ -116,37 +88,15 @@ session_start();
     <!-- header-end -->
 
      <!-- bradcam_area_start -->
-     <?php
-     include_once 'backend/database.php';
-     include_once 'backend/cursos.php';
-     include_once 'backend/user.php';
-     $database = new Database();
-     $db = $database->getConnection();
-     $course = new cursos($db);
-     $user = new User($db);
-     $idcourse=$_GET['idcourse'];
-     if (!empty($_SESSION['id'])) {
-         $iduser=$_SESSION['id'];
-     }
-         //$idcourse=4;
-         //$iduser=2;
-         $array=$course->getCourseInformationPerId($idcourse);
-         $arraydocente=$user->getUser($array['id_docente']);
-
-     ?>
      <div class="courses_details_banner">
          <div class="container">
              <div class="row">
                  <div class="col-xl-6">
                      <div class="course_text">
-                            <h3><?php
-                            echo $array['titulo'];
-                              ?></h3>
+                            <h3>User Experience <br> vs User Interface</h3>
                             <div class="prise">
                                 <span class="inactive">Bs100.00</span>
-                                <span class="active">Bs<?php
-                                  echo $array['precio'];
-                                ?></span>
+                                <span class="active">Bs69</span>
                             </div>
                             <div class="rating">
                                 <i class="flaticon-mark-as-favorite-star"></i>
@@ -162,9 +112,9 @@ session_start();
                                             <i class="fa fa-clock-o"></i> <span>1 video</span>
                                      </div>
                                      <div class="single_video">
-                                            <i class="fa fa-play-circle-o"></i> <span>9 Horas de Entrenamiento</span>
+                                            <i class="fa fa-play-circle-o"></i> <span>4 Horas de Entrenamiento</span>
                                      </div>
-
+                                   
                                 </div>
                             </div>
                      </div>
@@ -180,48 +130,25 @@ session_start();
                 <div class="col-xl-7 col-lg-7">
                     <div class="single_courses">
                         <h3>Objetivos</h3>
-                        <?php
-                        $objetivos=$course->getObjetivos($array['id']);
+                        <p>El diseñador UX tiene como objetivo que el usuario tenga una experiencia positiva a la hora de conseguir el objetivo por el cual está visitando un sitio. El diseño UI podría definirse como una nueva tendencia en el diseño web que se enfoca en crear una interfaces entre las personas y los diferentes dispositivos digitales.</p> <br>
 
-                        $var=0;
-                        while ($fila=$objetivos->fetch()) {
-                            if ($var==0) {
-                                ?>
-                        <p><?php echo $fila['objetivo'];
-                                $var=1; ?></p> <br>
-                          <?php
-                            } else {
-                                ?>
-                        <p>&#10004; <?php echo $fila['objetivo']; ?><p><br>
-                        <?php
-                            }
-                        }
-                        ?>
-
+                        <p>&#10004; Obtener estimaciones más precisas. Podremos modificar elementos de diseño de manera más fácil.<p><br>&#10004; Optimizar tiempos. Si tenemos un buen diseño podremos definir más claramente las fases de desarrollo de un producto. <p> <br>&#10004; Aumentar tráfico y, a su vez, la audiencia.  <p> <br> &#10004; Ayuda a definir las necesidades de los usuarios. <p> <br> &#10004; Bajar la tasa de rebote en la web. Se eliminarán errores y por lo tanto los clientes se quedarán. 
+<p> <br> &#10004; Mejorar el posicionamiento en los buscadores. Una página usable para el móvil y para el ordenador será mucho mejor puntuada por Google. <p>
                     <h3 class="second_title">Preguntas Frecuentes</h3>
                     </div>
                     <div class="outline_courses_info">
                             <div id="accordion">
-                              <?php
-                              $preguntas = $course->getPreguntas($array['id']);
-                              while ($fila=$preguntas->fetch()) {
-                                  ?>
                                     <div class="card">
                                         <div class="card-header" id="headingTwo">
                                             <h5 class="mb-0">
                                                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                    <i class="flaticon-question"></i> <?php
-                                                      echo $fila['pregunta']; ?>
+                                                    <i class="flaticon-question"></i> ¿Cuál es la diferencia entre UX y UI?
                                                 </button>
                                             </h5>
                                         </div>
                                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                                             <div class="card-body">
-<<<<<<< HEAD
-                                                  <?php
-                                                    echo $fila['respuesta']; ?>
-=======
-                                                El desarrollo de las aplicaciones Android abarca un mayor campo y mayor crecimiento, donde tienes más posibilidades de entrar al mercado y tienes más capacidad de ser descubierto. Android tiene menores problemas de privacidad y tiene una publicidad mejor segmentada
+                                                Por lo tanto UI se refiere a la creación de la interfaz, ya sea gráfica o desarrollada con diversas tecnologías web como css, jQuery, jQuery UI, EXT JS, YUI, etc. ... Bueno, pues la diferencia entre UI y UX es una similitud entre la comparación de lo que ahora se define como Desarrollador Web y Diseñador Web.
                                             </div>
                                         </div>
                                     </div>
@@ -229,13 +156,13 @@ session_start();
                                         <div class="card-header" id="headingOne">
                                             <h5 class="mb-0">
                                                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                                    <i class="flaticon-question"></i>¿Seré un experto en Android?</span>
+                                                    <i class="flaticon-question"></i>¿Qué hace un UX Designer?</span>
                                                 </button>
                                             </h5>
                                         </div>
                                         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion" style="">
                                             <div class="card-body">
-                                                La práctica hace al maestro, con nuestro curso introductorio y práctica, podrás crear tus propias ideas en tiempo record
+                                                El especialista en UX design se encarga, en otras palabras, de la experiencia que vive el usuario con un producto. Por lo tanto debe preocuparse por el uso que se da al mismo, la accesibilidad que ofrece y el sentimiento que se genera en el usuario en su interacción con el mismo.
                                             </div>
                                         </div>
                                     </div>
@@ -243,13 +170,13 @@ session_start();
                                         <div class="card-header" id="headingThree">
                                             <h5 class="mb-0">
                                                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                    <i class="flaticon-question"></i> ¿Que sirve más, iOS o Android?
+                                                    <i class="flaticon-question"></i>¿Qué hace un UX Designer?
                                                 </button>
                                             </h5>
                                         </div>
                                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                                             <div class="card-body">
-                                                Depende mucho del tipo de orientación que tengas en cuanto a dispositivos móviles, android es mucho más abierto y el campo es más grande, pero es depende a los gustos de cada uno.
+                                                El especialista en UX design se encarga, en otras palabras, de la experiencia que vive el usuario con un producto. Por lo tanto debe preocuparse por el uso que se da al mismo, la accesibilidad que ofrece y el sentimiento que se genera en el usuario en su interacción con el mismo.
                                             </div>
                                         </div>
                                     </div>
@@ -257,13 +184,13 @@ session_start();
                                         <div class="card-header" id="heading_4">
                                             <h5 class="mb-0">
                                                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse_4" aria-expanded="false" aria-controls="collapse_4">
-                                                    <i class="flaticon-question"></i>¿Cómo es la competencia en el desarrollo android?
+                                                    <i class="flaticon-question"></i>¿Qué hace un UX Designer?
                                                 </button>
                                             </h5>
                                         </div>
                                         <div id="collapse_4" class="collapse" aria-labelledby="heading_4" data-parent="#accordion">
                                             <div class="card-body">
-                                                Sin duda, muchas empresas están empezando a apostar únicamente por aplicaciones móviles. Poco a poco irán apareciendo nuevas empresas dedicadas únicamente a la movilidad y las actuales tendrán que ir adaptándose a este nuevo panorama que, seguramente, les exigirán sus propios clientes.
+                                                El especialista en UX design se encarga, en otras palabras, de la experiencia que vive el usuario con un producto. Por lo tanto debe preocuparse por el uso que se da al mismo, la accesibilidad que ofrece y el sentimiento que se genera en el usuario en su interacción con el mismo.
                                             </div>
                                         </div>
                                     </div>
@@ -271,43 +198,39 @@ session_start();
                                         <div class="card-header" id="heading_5">
                                             <h5 class="mb-0">
                                                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse_5" aria-expanded="false" aria-controls="collapse_5">
-                                                    <i class="flaticon-question"></i> ¿Qué tipo de aplicaciones  <span> puedo crear?</span>
+                                                    <i class="flaticon-question"></i> ¿Qué hace un UX Designer?</span>
                                                 </button>
                                             </h5>
                                         </div>
                                         <div id="collapse_5" class="collapse" aria-labelledby="heading_5" data-parent="#accordion">
                                             <div class="card-body">
-                                                El cielo es el límite, con Android puedes crear desde juegos, aplicaciones con realidad virtual, aplicaciones de ciencia, y demás.
->>>>>>> CMS
+                                                El especialista en UX design se encarga, en otras palabras, de la experiencia que vive el usuario con un producto. Por lo tanto debe preocuparse por el uso que se da al mismo, la accesibilidad que ofrece y el sentimiento que se genera en el usuario en su interacción con el mismo.
                                             </div>
                                         </div>
                                     </div>
-                                    <?php
-                              }
-                                    ?>
-                            </div>
+                                </div>
                     </div>
                 </div>
                 <div class="col-xl-5 col-lg-5">
                     <div class="courses_sidebar">
                         <div class="video_thumb">
-                            <img src="<?php echo $array['imagenvideo'];?>" alt="">
-                            <a class="popup-video" href="<?php echo $array['linkvideo'];?>">
+                            <img src="img/latest_blog/2.jpg" alt="">
+                            <a class="popup-video" href="https://www.youtube.com/watch?v=PRQjrp_7ip8">
                                 <i class="fa fa-play"></i>
                             </a>
                         </div>
                         <div class="author_info">
                             <div class="auhor_header">
                                 <div class="thumb">
-                                        <img src="<?php echo $arraydocente['imagen'];?>" alt="">
+                                        <img src="img/latest_blog/vladi.png" alt="">
                                 </div>
                                 <div class="name">
-                                    <h3><?php echo $arraydocente['nombre']." "; echo $arraydocente['lastname'];?> </h3>
-                                    <p>Desarrollador de Android</p>
+                                    <h3>Vladimir Tirado</h3>
+                                    <p>Diseñador de UX/UI</p>
                                 </div>
                             </div>
                             <p class="text_info">
-                               "El desarrollo de Android es clave para un futuro lleno de tecnología"
+                               "Un buen diseño web es la clave principal que hay que tener en cuenta para tener éxito en la estratégia de Marketing Digital"
                             </p>
                             <ul>
                                 <li><a href="#"> <i class="fa fa-envelope"></i> </a></li>
@@ -315,11 +238,7 @@ session_start();
                                 <li><a href="#"> <i class="ti-linkedin"></i> </a></li>
                             </ul>
                         </div>
-<<<<<<< HEAD
-                        <a href="prueba.php?iduser=<?php echo $iduser."&idcourse=".$idcourse;?>" class="boxed_btn">Comprar Curso</a>
-=======
-                        <a href="android_curso.php" class="boxed_btn">Comprar Curso</a>
->>>>>>> CMS
+                        <a href="#" class="boxed_btn">Comprar Curso</a>
                         <div class="feedback_info">
                             <h3>Califica este curso!</h3>
                             <p>Rating</p>
@@ -328,7 +247,7 @@ session_start();
                             <i class="flaticon-mark-as-favorite-star"></i>
                             <i class="flaticon-mark-as-favorite-star"></i>
                             <i class="flaticon-mark-as-favorite-star"></i>
-
+                            
                         <form action="#">
                                 <textarea name="" id="" cols="30" rows="10" placeholder="Escríbenos"></textarea>
                                 <button type="submit" class="boxed_btn">Enviar</button>
@@ -643,7 +562,7 @@ session_start();
                     <div class="col-xl-12">
                         <p class="copy_right text-center">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | fue hecho con <i class="fa fa-heart-o" aria-hidden="true"></i>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Fue hecho con <i class="fa fa-heart-o" aria-hidden="true"></i> 
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>
@@ -655,134 +574,60 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
 
 
     <!-- form itself end-->
-    <form id="test-form" class="white-popup-block mfp-hide"   method="post">
+    <form id="test-form" class="white-popup-block mfp-hide">
         <div class="popup_box ">
             <div class="popup_inner">
                 <div class="logo text-center">
                     <a href="#">
-                        <img src="img/logo-nuevo.png" alt="">
+                        <img src="img/form-logo.png" alt="">
                     </a>
                 </div>
-
-                <?php if (empty($_SESSION['usuario'])) {
-                                        ?>
                 <h3>Sign in</h3>
                 <form action="#">
                     <div class="row">
-
                         <div class="col-xl-12 col-md-12">
-                            <input type="email" name='emailsignin' placeholder="Enter email">
+                            <input type="email" placeholder="Enter email">
                         </div>
                         <div class="col-xl-12 col-md-12">
-                            <input type="password" name='passwordsignin' placeholder="Password">
+                            <input type="password" placeholder="Password">
                         </div>
-                      <?php
-                                    } ?>
                         <div class="col-xl-12">
-
-                              <?php
-                              if (!empty($_SESSION['usuario'])) {
-                                  echo '<button type="submit" formaction="sessiondestroy.php" class="boxed_btn_orange">';
-                                  echo "Log out";
-                                  echo '</button>';
-                                  echo "<p>";
-                                  echo "<p>";
-                                  echo "<p>";
-                                  echo "<p>";
-                                  echo '<button type="submit" formaction="onprocess.php" class="boxed_btn_orange">';
-                                  echo "Ver perfil";
-                                  echo '</button>';
-                              } else {
-                                  echo '<button type="submit" formaction="index.php" class="boxed_btn_orange">';
-                                  echo "Sign in";
-                              }
-                               ?>
-                             </button>
-
+                            <button type="submit" class="boxed_btn_orange">Sign in</button>
                         </div>
                     </div>
                 </form>
-                <?php
-                include_once 'backend/database.php';
-                include_once 'backend/user.php';
-
-                $database = new Database();
-                $db = $database->getConnection();
-                $user = new User($db);
-                if (!empty($_POST['emailsignin'])) {
-                    $user->email= $_POST['emailsignin'];
-                    $user->password = base64_encode($_POST['passwordsignin']);
-                    $var=$user->login();
-                    while ($fila = $var->fetch()) {
-                        $_SESSION['usuario']=$fila['nombre'];
-                        $_SESSION['id']=$fila['id'];
-                        $_SESSION['tipo']=$fila['tipo'];
-                        echo "<meta http-equiv='refresh' content='0'>";
-                    }
-                }
-                    if (empty($_SESSION['usuario'])) {
-                        ?>
                 <p class="doen_have_acc">Don’t have an account? <a class="dont-hav-acc" href="#test-form2">Sign Up</a>
                 </p>
-                <?php
-                    }?>
             </div>
         </div>
     </form>
     <!-- form itself end -->
 
     <!-- form itself end-->
-    <form id="test-form2" onSubmit="return validate()" class="white-popup-block mfp-hide" action="index.php" method="post">
+    <form id="test-form2" class="white-popup-block mfp-hide">
         <div class="popup_box ">
             <div class="popup_inner">
                 <div class="logo text-center">
                     <a href="#">
-                        <img src="img/logo-nuevo.png" alt="">
+                        <img src="img/form-logo.png" alt="">
                     </a>
                 </div>
-                <h3>Registration</h3>
-                <form action="" onSubmit="return validate()" >
-                    <div class="row" >
-                        <div class="col-xl-12 col-md-12" >
-                            <input type="text" id="name" name='name' placeholder="Enter name">
+                <h3>Resistration</h3>
+                <form action="#">
+                    <div class="row">
+                        <div class="col-xl-12 col-md-12">
+                            <input type="email" placeholder="Enter email">
                         </div>
                         <div class="col-xl-12 col-md-12">
-                            <input type="text" id="lastname" name='lastname' placeholder="Enter last name">
+                            <input type="password" placeholder="Password">
                         </div>
-                        <div class="col-xl-12 col-md-12" >
-                            <input type="password" id='password' name='password' placeholder="Password">
-                        </div>
-                        <div class="col-xl-12 col-md-12" >
-
-                            <input type="password" id='confirm_password' name='confirm_password' placeholder="Confirm password">
-
-                        </div>
-
-                        <div class="col-xl-12 col-md-12" >
-                            <input type="email" id="email" name='email' placeholder="Enter email">
+                        <div class="col-xl-12 col-md-12">
+                            <input type="Password" placeholder="Confirm password">
                         </div>
                         <div class="col-xl-12">
-                        <!-- <a href="login.php"  class="boxed_btn_orange" type="button">Sign Up</a> -->
-                        <button type="submit"  class="boxed_btn_orange">Sign Up</button>
+                            <button type="submit" class="boxed_btn_orange">Sign Up</button>
                         </div>
-
                     </div>
-                    <?php
-
-                      include_once 'backend/user.php';
-                      $database = new Database();
-                      $db = $database->getConnection();
-                      $user = new user($db);
-
-                      if (!empty($_POST['email'])) {
-                          $user->email =  $_POST['email'];
-                          $user->password =  base64_encode($_POST['password']);
-                          $user->nombre = $_POST['name'];
-                          $user->lastname = $_POST['lastname'];
-                          $user->signup();
-                      }
-
-                    ?>
                 </form>
             </div>
         </div>

@@ -66,7 +66,7 @@ session_start();
                                     <ul id="navigation">
                                         <li><a  href="index.php">Inicio</a></li>
                                         <li><a  class="active" href="courses.php">Cursos</a></li>
-                                        <li><a href="onprocess.php">Planes <i class="ti-angle-down"></i></a>
+                                        <li><a href="onprocess.php">Planes<i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="course_details.html">Detalles</a></li>
                                                 <!--li><a href="elements.html">elements</a></li-->
@@ -116,57 +116,13 @@ session_start();
     <!-- header-end -->
 
      <!-- bradcam_area_start -->
-     <?php
-     include_once 'backend/database.php';
-     include_once 'backend/cursos.php';
-     include_once 'backend/user.php';
-     $database = new Database();
-     $db = $database->getConnection();
-     $course = new cursos($db);
-     $user = new User($db);
-     $idcourse=$_GET['idcourse'];
-     if (!empty($_SESSION['id'])) {
-         $iduser=$_SESSION['id'];
-     }
-         //$idcourse=4;
-         //$iduser=2;
-         $array=$course->getCourseInformationPerId($idcourse);
-         $arraydocente=$user->getUser($array['id_docente']);
-
-     ?>
      <div class="courses_details_banner">
          <div class="container">
+         <h2 style="color:white"  align="center">CURSO DE ANDROID</h2>
              <div class="row">
                  <div class="col-xl-6">
-                     <div class="course_text">
-                            <h3><?php
-                            echo $array['titulo'];
-                              ?></h3>
-                            <div class="prise">
-                                <span class="inactive">Bs100.00</span>
-                                <span class="active">Bs<?php
-                                  echo $array['precio'];
-                                ?></span>
-                            </div>
-                            <div class="rating">
-                                <i class="flaticon-mark-as-favorite-star"></i>
-                                <i class="flaticon-mark-as-favorite-star"></i>
-                                <i class="flaticon-mark-as-favorite-star"></i>
-                                <i class="flaticon-mark-as-favorite-star"></i>
-                                <i class="flaticon-mark-as-favorite-star"></i>
-                                <span>(4.5)</span>
-                            </div>
-                            <div class="hours">
-                                <div class="video">
-                                     <div class="single_video">
-                                            <i class="fa fa-clock-o"></i> <span>1 video</span>
-                                     </div>
-                                     <div class="single_video">
-                                            <i class="fa fa-play-circle-o"></i> <span>9 Horas de Entrenamiento</span>
-                                     </div>
+                            
 
-                                </div>
-                            </div>
                      </div>
                  </div>
              </div>
@@ -178,169 +134,40 @@ session_start();
         <div class="container">
             <div class="row">
                 <div class="col-xl-7 col-lg-7">
-                    <div class="single_courses">
-                        <h3>Objetivos</h3>
-                        <?php
-                        $objetivos=$course->getObjetivos($array['id']);
+                    <div class="single_courses" align="justify">
+                        <h3>¿Qué es Android? Un poco de historia</h3>
+                        <p>Android es un Sistema Operativo Open Source basado en el Kernel de Linux, su creador fue Andy Rubin y posteriormente fue adquirido por Google en 2005.
 
-                        $var=0;
-                        while ($fila=$objetivos->fetch()) {
-                            if ($var==0) {
-                                ?>
-                        <p><?php echo $fila['objetivo'];
-                                $var=1; ?></p> <br>
-                          <?php
-                            } else {
-                                ?>
-                        <p>&#10004; <?php echo $fila['objetivo']; ?><p><br>
-                        <?php
-                            }
-                        }
-                        ?>
+Desde 2007 Android pertenece al Open Handset Alliance lo que lo hizo despegar y dominar en la mayoría de las marcas de dispositivos móviles. Este es un consorcio compuesto por las marcas de hardware en el mercado, en él se encuentra Samsung, LG, Sony, Toshiba, Dell, etc.
 
-                    <h3 class="second_title">Preguntas Frecuentes</h3>
-                    </div>
-                    <div class="outline_courses_info">
-                            <div id="accordion">
-                              <?php
-                              $preguntas = $course->getPreguntas($array['id']);
-                              while ($fila=$preguntas->fetch()) {
-                                  ?>
-                                    <div class="card">
-                                        <div class="card-header" id="headingTwo">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                    <i class="flaticon-question"></i> <?php
-                                                      echo $fila['pregunta']; ?>
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                            <div class="card-body">
-<<<<<<< HEAD
-                                                  <?php
-                                                    echo $fila['respuesta']; ?>
-=======
-                                                El desarrollo de las aplicaciones Android abarca un mayor campo y mayor crecimiento, donde tienes más posibilidades de entrar al mercado y tienes más capacidad de ser descubierto. Android tiene menores problemas de privacidad y tiene una publicidad mejor segmentada
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="headingOne">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                                    <i class="flaticon-question"></i>¿Seré un experto en Android?</span>
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion" style="">
-                                            <div class="card-body">
-                                                La práctica hace al maestro, con nuestro curso introductorio y práctica, podrás crear tus propias ideas en tiempo record
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="headingThree">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                    <i class="flaticon-question"></i> ¿Que sirve más, iOS o Android?
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                            <div class="card-body">
-                                                Depende mucho del tipo de orientación que tengas en cuanto a dispositivos móviles, android es mucho más abierto y el campo es más grande, pero es depende a los gustos de cada uno.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="heading_4">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse_4" aria-expanded="false" aria-controls="collapse_4">
-                                                    <i class="flaticon-question"></i>¿Cómo es la competencia en el desarrollo android?
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapse_4" class="collapse" aria-labelledby="heading_4" data-parent="#accordion">
-                                            <div class="card-body">
-                                                Sin duda, muchas empresas están empezando a apostar únicamente por aplicaciones móviles. Poco a poco irán apareciendo nuevas empresas dedicadas únicamente a la movilidad y las actuales tendrán que ir adaptándose a este nuevo panorama que, seguramente, les exigirán sus propios clientes.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="heading_5">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse_5" aria-expanded="false" aria-controls="collapse_5">
-                                                    <i class="flaticon-question"></i> ¿Qué tipo de aplicaciones  <span> puedo crear?</span>
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapse_5" class="collapse" aria-labelledby="heading_5" data-parent="#accordion">
-                                            <div class="card-body">
-                                                El cielo es el límite, con Android puedes crear desde juegos, aplicaciones con realidad virtual, aplicaciones de ciencia, y demás.
->>>>>>> CMS
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <?php
-                              }
-                                    ?>
-                            </div>
+Android se ha mantenido a la vanguardia y en constante evolución, ha liberado multitud de versiones que al estar disponibles en diferentes tipos y gamas de hardware lo hacen más accesible. Como contexto histórico cada vez que se liberaba un feature de software se liberaba un aditamento de hardware también lo que traía innovación por ambas partes.
+
+Android poco a poco se fue convirtiendo en el favorito de los usuarios porque ponía al alcance de muchos, alta tecnología. Al crecer tanto este mercado, trajo consigo una demanda de desarrolladores que conocieran la filosofía del Sistema Operativo y los retos de dar soporte a múltiples gamas de dispositivos.</p> <br>
                     </div>
                 </div>
-                <div class="col-xl-5 col-lg-5">
-                    <div class="courses_sidebar">
-                        <div class="video_thumb">
-                            <img src="<?php echo $array['imagenvideo'];?>" alt="">
-                            <a class="popup-video" href="<?php echo $array['linkvideo'];?>">
-                                <i class="fa fa-play"></i>
-                            </a>
-                        </div>
-                        <div class="author_info">
-                            <div class="auhor_header">
-                                <div class="thumb">
-                                        <img src="<?php echo $arraydocente['imagen'];?>" alt="">
-                                </div>
-                                <div class="name">
-                                    <h3><?php echo $arraydocente['nombre']." "; echo $arraydocente['lastname'];?> </h3>
-                                    <p>Desarrollador de Android</p>
-                                </div>
-                            </div>
-                            <p class="text_info">
-                               "El desarrollo de Android es clave para un futuro lleno de tecnología"
-                            </p>
-                            <ul>
-                                <li><a href="#"> <i class="fa fa-envelope"></i> </a></li>
-                                <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
-                                <li><a href="#"> <i class="ti-linkedin"></i> </a></li>
-                            </ul>
-                        </div>
-<<<<<<< HEAD
-                        <a href="prueba.php?iduser=<?php echo $iduser."&idcourse=".$idcourse;?>" class="boxed_btn">Comprar Curso</a>
-=======
-                        <a href="android_curso.php" class="boxed_btn">Comprar Curso</a>
->>>>>>> CMS
-                        <div class="feedback_info">
-                            <h3>Califica este curso!</h3>
-                            <p>Rating</p>
-                            <i class="flaticon-mark-as-favorite-star"></i>
-                            <i class="flaticon-mark-as-favorite-star"></i>
-                            <i class="flaticon-mark-as-favorite-star"></i>
-                            <i class="flaticon-mark-as-favorite-star"></i>
-                            <i class="flaticon-mark-as-favorite-star"></i>
-
-                        <form action="#">
-                                <textarea name="" id="" cols="30" rows="10" placeholder="Escríbenos"></textarea>
-                                <button type="submit" class="boxed_btn">Enviar</button>
-                            </form>
+                            <div class="" align="center">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <img src="img/courses/Android11.jpg">       
+                            </div>   
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+                    <div class="courses_sidebar" align = "center">
+                    <a href = "https://www.youtube.com/watch?v=P9ZFhTw2hGA" target = "_blank" >
+    
+        <img src="img/courses/video.jpg"><br><br><br><br>
+       
+                           
+
+                            
+                            
+                        </div>
 
 
+                        
 
 
     <!-- testimonial_area_start -->
@@ -643,7 +470,7 @@ session_start();
                     <div class="col-xl-12">
                         <p class="copy_right text-center">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | fue hecho con <i class="fa fa-heart-o" aria-hidden="true"></i>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>
@@ -655,17 +482,16 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
 
 
     <!-- form itself end-->
-    <form id="test-form" class="white-popup-block mfp-hide"   method="post">
+    <form id="test-form" class="white-popup-block mfp-hide">
         <div class="popup_box ">
             <div class="popup_inner">
                 <div class="logo text-center">
                     <a href="#">
-                        <img src="img/logo-nuevo.png" alt="">
+                        <img src="img/form-logo.png" alt="">
                     </a>
                 </div>
-
                 <?php if (empty($_SESSION['usuario'])) {
-                                        ?>
+                                           ?>
                 <h3>Sign in</h3>
                 <form action="#">
                     <div class="row">
@@ -677,112 +503,54 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                             <input type="password" name='passwordsignin' placeholder="Password">
                         </div>
                       <?php
-                                    } ?>
+                                       } ?>
                         <div class="col-xl-12">
 
                               <?php
                               if (!empty($_SESSION['usuario'])) {
                                   echo '<button type="submit" formaction="sessiondestroy.php" class="boxed_btn_orange">';
                                   echo "Log out";
-                                  echo '</button>';
-                                  echo "<p>";
-                                  echo "<p>";
-                                  echo "<p>";
-                                  echo "<p>";
-                                  echo '<button type="submit" formaction="onprocess.php" class="boxed_btn_orange">';
-                                  echo "Ver perfil";
-                                  echo '</button>';
                               } else {
                                   echo '<button type="submit" formaction="index.php" class="boxed_btn_orange">';
                                   echo "Sign in";
                               }
                                ?>
                              </button>
-
                         </div>
                     </div>
                 </form>
-                <?php
-                include_once 'backend/database.php';
-                include_once 'backend/user.php';
-
-                $database = new Database();
-                $db = $database->getConnection();
-                $user = new User($db);
-                if (!empty($_POST['emailsignin'])) {
-                    $user->email= $_POST['emailsignin'];
-                    $user->password = base64_encode($_POST['passwordsignin']);
-                    $var=$user->login();
-                    while ($fila = $var->fetch()) {
-                        $_SESSION['usuario']=$fila['nombre'];
-                        $_SESSION['id']=$fila['id'];
-                        $_SESSION['tipo']=$fila['tipo'];
-                        echo "<meta http-equiv='refresh' content='0'>";
-                    }
-                }
-                    if (empty($_SESSION['usuario'])) {
-                        ?>
                 <p class="doen_have_acc">Don’t have an account? <a class="dont-hav-acc" href="#test-form2">Sign Up</a>
                 </p>
-                <?php
-                    }?>
             </div>
         </div>
     </form>
     <!-- form itself end -->
 
     <!-- form itself end-->
-    <form id="test-form2" onSubmit="return validate()" class="white-popup-block mfp-hide" action="index.php" method="post">
+    <form id="test-form2" class="white-popup-block mfp-hide">
         <div class="popup_box ">
             <div class="popup_inner">
                 <div class="logo text-center">
                     <a href="#">
-                        <img src="img/logo-nuevo.png" alt="">
+                        <img src="img/form-logo.png" alt="">
                     </a>
                 </div>
-                <h3>Registration</h3>
-                <form action="" onSubmit="return validate()" >
-                    <div class="row" >
-                        <div class="col-xl-12 col-md-12" >
-                            <input type="text" id="name" name='name' placeholder="Enter name">
+                <h3>Resistration</h3>
+                <form action="#">
+                    <div class="row">
+                        <div class="col-xl-12 col-md-12">
+                            <input type="email" placeholder="Enter email">
                         </div>
                         <div class="col-xl-12 col-md-12">
-                            <input type="text" id="lastname" name='lastname' placeholder="Enter last name">
+                            <input type="password" placeholder="Password">
                         </div>
-                        <div class="col-xl-12 col-md-12" >
-                            <input type="password" id='password' name='password' placeholder="Password">
-                        </div>
-                        <div class="col-xl-12 col-md-12" >
-
-                            <input type="password" id='confirm_password' name='confirm_password' placeholder="Confirm password">
-
-                        </div>
-
-                        <div class="col-xl-12 col-md-12" >
-                            <input type="email" id="email" name='email' placeholder="Enter email">
+                        <div class="col-xl-12 col-md-12">
+                            <input type="Password" placeholder="Confirm password">
                         </div>
                         <div class="col-xl-12">
-                        <!-- <a href="login.php"  class="boxed_btn_orange" type="button">Sign Up</a> -->
-                        <button type="submit"  class="boxed_btn_orange">Sign Up</button>
+                            <button type="submit" class="boxed_btn_orange">Sign Up</button>
                         </div>
-
                     </div>
-                    <?php
-
-                      include_once 'backend/user.php';
-                      $database = new Database();
-                      $db = $database->getConnection();
-                      $user = new user($db);
-
-                      if (!empty($_POST['email'])) {
-                          $user->email =  $_POST['email'];
-                          $user->password =  base64_encode($_POST['password']);
-                          $user->nombre = $_POST['name'];
-                          $user->lastname = $_POST['lastname'];
-                          $user->signup();
-                      }
-
-                    ?>
                 </form>
             </div>
         </div>
