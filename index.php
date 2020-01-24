@@ -1956,30 +1956,30 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                         <img src="img/logo-nuevo.png" alt="">
                     </a>
                 </div>
-                <h3>Registration</h3>
+                <h3>Regístrate</h3>
                 <form action="" onSubmit="return validate()" >
                     <div class="row" >
                         <div class="col-xl-12 col-md-12" >
-                            <input type="text" id="name" name='name' placeholder="Enter name">
+                            <input type="text" id="name" name='name' placeholder="Ingresa tu nombre" required>
                         </div>
                         <div class="col-xl-12 col-md-12">
-                            <input type="text" id="lastname" name='lastname' placeholder="Enter last name">
+                            <input type="text" id="lastname" name='lastname' placeholder="Ingresa tu Apellido" required>
                         </div>
                         <div class="col-xl-12 col-md-12" >
-                            <input type="password" id='password' name='password' placeholder="Password">
+                            <input type="password" id='password' name='password' placeholder="Contraseña" required>
                         </div>
                         <div class="col-xl-12 col-md-12" >
 
-                            <input type="password" id='confirm_password' name='confirm_password' placeholder="Confirm password">
+                            <input type="password" id='confirm_password' name='confirm_password' placeholder="Confirma tu contraseña" required>
 
                         </div>
 
                         <div class="col-xl-12 col-md-12" >
-                            <input type="email" id="email" name='email' placeholder="Enter email">
+                            <input type="email" id="email" name='email' placeholder="Ingresa email" required>
                         </div>
                         <div class="col-xl-12">
                         <!-- <a href="login.php"  class="boxed_btn_orange" type="button">Sign Up</a> -->
-                        <button type="submit"  class="boxed_btn_orange">Sign Up</button>
+                        <button type="submit"  class="boxed_btn_orange">Registrarse</button>
                         </div>
 
                     </div>

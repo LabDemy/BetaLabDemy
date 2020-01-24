@@ -3,8 +3,8 @@ class Database
 {
     private $host = "localhost";
     private $db_name = "labdemy"; //suriarte17
-    private $username = "root"; 
-    private $password = ""; //sarita123
+    private $username = "emmi"; 
+    private $password = "123456789"; //sarita123
     public $conn;
 
     // get the database connection
