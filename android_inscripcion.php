@@ -156,13 +156,16 @@ session_start();
                         <form role="form" method="post">
                             <div class="form-group">
                                 <textarea class="form-control letra" rows="2" id="comentarios" name="comentarios">
-                                  <?php
-                                      echo $array['titulo']; ?>
+                                  <?php echo $array['titulo']; ?>
                                 </textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary py-2 px-2 text-white">ACEPTAR CAMBIOS</button>
                                 </form>
                                 <?php
+                                if (!empty($_POST['comentarios'])) {
+                                    $course->setTituloInformation($_POST['comentarios'], $idcourse);
+                                    header("Refresh:0");
+                                }
                         } else {
                             ?>
                             <h3><?php

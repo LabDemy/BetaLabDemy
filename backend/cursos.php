@@ -152,4 +152,11 @@ class cursos
         $result->setFetchMode(PDO::FETCH_ASSOC);
         return $result;
     }
+    public function setTituloInformation($idtitulo, $id)
+    {
+        $sql = 'UPDATE informacioncursos SET titulo="'.$idtitulo.'"where id='.$id.';';
+        echo $sql;
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+    }
 }
