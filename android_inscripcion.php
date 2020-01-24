@@ -151,7 +151,7 @@ session_start();
                  <div class="col-xl-6">
                      <div class="course_text">
                         <?php
-                        if ($_SESSION['tipo']==2) {
+                        if (!empty($_SESSION) and $_SESSION['tipo']==2) {
                             ?>
                         <form role="form" method="post">
                             <div class="form-group">
@@ -164,7 +164,7 @@ session_start();
                                 <?php
                                 if (!empty($_POST['comentarios'])) {
                                     $course->setTituloInformation($_POST['comentarios'], $idcourse);
-                                    header("Refresh:0");
+                                    echo "<meta http-equiv='refresh' content='0'>";
                                 }
                         } else {
                             ?>

@@ -155,7 +155,6 @@ class cursos
     public function setTituloInformation($idtitulo, $id)
     {
         $sql = 'UPDATE informacioncursos SET titulo="'.$idtitulo.'"where id='.$id.';';
-        echo $sql;
         $result = $this->conn->prepare($sql);
         $result->execute();
     }
