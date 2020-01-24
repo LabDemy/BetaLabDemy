@@ -26,7 +26,18 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
+<style>
 
+
+
+
+respuestas {
+
+
+  white-space: normal !important;
+  word-wrap: break;
+}
+</style>
 <body>
 <?php
 session_start();
@@ -139,9 +150,25 @@ session_start();
              <div class="row">
                  <div class="col-xl-6">
                      <div class="course_text">
+                        <?php
+                        if ($_SESSION['tipo']==2) {
+                            ?>
+                        <form role="form" method="post">
+                            <div class="form-group">
+                                <textarea class="form-control letra" rows="2" id="comentarios" name="comentarios">
+                                  <?php
+                                      echo $array['titulo']; ?>
+                                </textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary py-2 px-2 text-white">ACEPTAR CAMBIOS</button>
+                                </form>
+                                <?php
+                        } else {
+                            ?>
                             <h3><?php
-                            echo $array['titulo'];
-                              ?></h3>
+                            echo $array['titulo']; ?></h3>
+<?php
+                        }?>
                             <div class="prise">
                                 <span class="inactive">Bs100.00</span>
                                 <span class="active">Bs<?php
@@ -204,26 +231,38 @@ session_start();
                             <div id="accordion">
                               <?php
                               $preguntas = $course->getPreguntas($array['id']);
+                              $contador="headingTwo";
+                              $contador2="collapseTwo";
                               while ($fila=$preguntas->fetch()) {
                                   ?>
                                     <div class="card">
-                                        <div class="card-header" id="headingTwo">
+                                        <div class="card-header" id="<?php echo $contador?>">
                                             <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                    <i class="flaticon-question"></i> <?php
+                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#<?php echo $contador2?>" aria-expanded="false"  aria-controls="<?php echo $contador2?>">
+                                                    <i class="flaticon-question"></i>
+                                                    <respuestas  >
+
+                                                       <?php
                                                       echo $fila['pregunta']; ?>
+                                                    </respuestas>
                                                 </button>
                                             </h5>
                                         </div>
-                                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                            <div class="card-body">
+                                        <div id="<?php echo $contador2?>" class="collapse" aria-labelledby="<?php echo $contador?>" data-parent="#accordion">
+                                            <!-- <div class="card-body"> -->
+                                                <respuestas>
                                                   <?php
                                                     echo $fila['respuesta']; ?>
-                                            </div>
+                                                      </respuestas>
+                                            <!-- </div> -->
                                         </div>
                                     </div>
                                     <?php
+                                    $contador=$contador."1";
+                                  $contador2=$contador2."1";
                               }
+
+
                                     ?>
                             </div>
                     </div>

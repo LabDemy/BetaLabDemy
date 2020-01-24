@@ -24,6 +24,11 @@
       }
   }
  </script> -->
+ <?php
+ session_start();
+
+ if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==3) {
+     ?>
   <div class="container h-100">
     <div class="d-flex justify-content-center h-100">
       <div class="user_card">
@@ -65,9 +70,9 @@
               </div>
             </div>
               <div class="d-flex justify-content-center mt-3 login_container">
-              
+
           <button type="submit" name="button" class="btn login_btn">Agregar</button>
-           
+
            </div>
           </form>
         </div>
@@ -78,6 +83,9 @@
     </div>
   </div>
   <?php
+ } else {
+     echo "no tienes permiso para ver esta pagina";
+ }
   include_once 'backend/database.php';
   include_once 'backend/user.php';
   $database = new Database();
