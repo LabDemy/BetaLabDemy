@@ -1882,15 +1882,15 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
 
                 <?php if (empty($_SESSION['usuario'])) {
                                         ?>
-                <h3>Sign in</h3>
+                <h3>Iniciar Sesión</h3>
                 <form action="#">
                     <div class="row">
 
                         <div class="col-xl-12 col-md-12">
-                            <input type="email" name='emailsignin' placeholder="Enter email">
+                            <input type="email" name='emailsignin' placeholder="Ingresa tu email">
                         </div>
                         <div class="col-xl-12 col-md-12">
-                            <input type="password" name='passwordsignin' placeholder="Password">
+                            <input type="password" name='passwordsignin' placeholder="Contraseña">
                         </div>
                       <?php
                                     } ?>
@@ -1910,7 +1910,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                                   echo '</button>';
                               } else {
                                   echo '<button type="submit" formaction="index.php" class="boxed_btn_orange">';
-                                  echo "Sign in";
+                                  echo "Iniciar Sesión";
                               }
                                ?>
                              </button>
@@ -1938,7 +1938,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                 }
                     if (empty($_SESSION['usuario'])) {
                         ?>
-                <p class="doen_have_acc">Don’t have an account? <a class="dont-hav-acc" href="#test-form2">Sign Up</a>
+                <p class="doen_have_acc">¿No tienes una cuenta? <a class="dont-hav-acc" href="#test-form2">Regístrate aquí</a>
                 </p>
                 <?php
                     }?>
