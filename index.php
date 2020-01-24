@@ -95,7 +95,7 @@ if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==3) {
                                     <span>  <?php
 
                                        if (!isset($_SESSION['usuario'])) {
-                                           echo "Log In";
+                                           echo "Iniciar Sesión";
                                        } else {
                                            echo $_SESSION['usuario'];
                                        }?></span>
