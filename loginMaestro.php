@@ -5,11 +5,6 @@
 
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> CMS
 <head>
   <title>Labdemy</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -18,7 +13,6 @@
 </head>
 
 <body background="img/banner/bradcam2.png">
-<<<<<<< HEAD
   <!-- <script>
   function validate(){
 
@@ -30,8 +24,6 @@
       }
   }
  </script> -->
-=======
->>>>>>> CMS
   <div class="container h-100">
     <div class="d-flex justify-content-center h-100">
       <div class="user_card">
@@ -41,55 +33,34 @@
           </div>
         </div>
         <div class="d-flex justify-content-center form_container">
-<<<<<<< HEAD
           <form method="post" action="about.php" onSubmit="return validate()">
-=======
-          <form>
->>>>>>> CMS
             <div class="input-group mb-3">
               <div class="input-group-append">
                 <span class="input-group-text"><i class="fas fa-address-card"></i></span>
               </div>
-<<<<<<< HEAD
               <input type="text" name="name" class="form-control input_user" value="" placeholder="Nombre">
-=======
-              <input type="text" name="" class="form-control input_user" value="" placeholder="Nombre">
->>>>>>> CMS
             </div>
             <div class="input-group mb-3">
               <div class="input-group-append">
                 <span class="input-group-text"><i class="fas fa-address-book"></i></span>
               </div>
-<<<<<<< HEAD
               <input type="text" name="lastname" class="form-control input_user" value="" placeholder="Apellido">
-=======
-              <input type="text" name="" class="form-control input_user" value="" placeholder="Apellido">
->>>>>>> CMS
             </div>
             <div class="input-group mb-3">
               <div class="input-group-append">
                 <span class="input-group-text"><i class="fa fa-at" aria-hidden="true"></i></span>
               </div>
-<<<<<<< HEAD
               <input type="mail" name="email" class="form-control input_pass" value="" placeholder="Mail">
-=======
-              <input type="mail" name="" class="form-control input_pass" value="" placeholder="Mail">
->>>>>>> CMS
             </div>
             <div class="input-group mb-3">
               <div class="input-group-append">
                 <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></i></span>
               </div>
-<<<<<<< HEAD
               <input type="password" name="password" class="form-control input_pass" value="" placeholder="Contraseña">
-=======
-              <input type="password" name="" class="form-control input_pass" value="" placeholder="Contraseña">
->>>>>>> CMS
             </div>
             <div class="form-group">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customControlInline">
-<<<<<<< HEAD
 
               </div>
             </div>
@@ -102,23 +73,10 @@
         </div>
 
 
-=======
-                
-              </div>
-            </div>
-              <div class="d-flex justify-content-center mt-3 login_container">
-          <button type="button" name="button" class="btn login_btn">Agregar</button>
-           </div>
-          </form>
-        </div>
-    
-        
->>>>>>> CMS
         </div>
       </div>
     </div>
   </div>
-<<<<<<< HEAD
   <?php
   include_once 'backend/database.php';
   include_once 'backend/user.php';
@@ -133,7 +91,5 @@
       $user->signupTeacher();
   }
   ?>
-=======
->>>>>>> CMS
 </body>
 </html>
