@@ -1890,7 +1890,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                             <input type="email" name='emailsignin' placeholder="Ingresa tu email">
                         </div>
                         <div class="col-xl-12 col-md-12">
-                            <input type="password" name='passwordsignin' placeholder="Contraseña">
+                            <input type="password" name='passwordsignin' placeholder="Contraseña" required>
                         </div>
                       <?php
                                     } ?>
