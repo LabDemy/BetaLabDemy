@@ -122,7 +122,7 @@ session_start();
         <!-- bradcam_area_end -->
 
     <!-- about_area_start -->
-    <div class="about_area" align="center">
+    <div class="about_area" align="center" style="padding-bottom:0px; padding-top:20px;">
         <img src="img/logo-about.png">
         <div class="container">
 
@@ -132,7 +132,7 @@ session_start();
 
                     <div class="single_about_info"><br><br><br><br>
                       <h3 align="center">Sobre Labdemy</h3> <br>
-                      <h5 style="text-align: justify;"> Buscamos brindarte la mejor calidad de educación con <br>
+                      <h5 style="text-align: justify; color: #333333"> Buscamos brindarte la mejor calidad de educación con <br>
                         herramientas altamente tecnologizadas, para así brindarte una digitalización <br>
                         y puedas convertirte en todo lo que siempre quisiste. </h5>
 
@@ -151,14 +151,14 @@ session_start();
     <!-- about_area_end -->
 
     <!-- our_team_member_start -->
-    <div class="our_team_member">
+    <div class="our_team_member" style="padding-top:0px;">
         <div class="container">
             <div align="center">
                 <h1>Conoce a nuestro equipo:</h1>
                 <div class="col-xl-3 col-md-6 col-lg-3">
                     <div class="single_team">
                         <div class="thumb">
-                            <img src="img/testmonial/me.png" alt="">
+                            <img src="img/testmonial/me.png">
                             <div class="social_link">
                                 <a href="#"><i class="fa fa-envelope"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
