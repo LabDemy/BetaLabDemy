@@ -122,42 +122,25 @@ session_start();
         <!-- bradcam_area_end -->
 
     <!-- about_area_start -->
-    <div class="about_area">
+    <div class="about_area" align="center">
+        <img src="img/logo-about.png">
         <div class="container">
+
             <div class="row">
+
                 <div class="col-xl-5 col-lg-6">
-                    <div class="single_about_info">
-                        <h3>Podras encontrar mucho tutoriales<br>
-                            en los 6 cursos disponibles</h3>
-                        <a href="onprocess.php" class="boxed_btn">Inscríbete ya!</a>
+
+                    <div class="single_about_info"><br><br><br><br>
+                      <h3 align="center">Sobre Labdemy</h3> <br>
+                      <h5 style="text-align: justify;"> Buscamos brindarte la mejor calidad de educación con <br>
+                        herramientas altamente tecnologizadas, para así brindarte una digitalización <br>
+                        y puedas convertirte en todo lo que siempre quisiste. </h5>
+
                     </div>
                 </div>
                 <div class="col-xl-6 offset-xl-1 col-lg-6">
-                    <div class="about_tutorials">
-                        <div class="courses">
-                            <div class="inner_courses">
-                                <div class="text_info">
-                                    <span>6</span>
-                                    <p>Cursos</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="courses-blue">
-                            <div class="inner_courses">
-                                <div class="text_info">
-                                    <span>10</span>
-                                    <p>Tutoriales</p>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="courses-sky">
-                            <div class="inner_courses">
-                                <div class="text_info">
-                                    <span>12+</span>
-                                    <p>Profesores de excelencia</p>
-                                </div>
-
+                   <img src="img/about.png" align="center">
+                          
                             </div>
                         </div>
                     </div>
@@ -171,11 +154,11 @@ session_start();
     <div class="our_team_member">
         <div class="container">
             <div align="center">
-                <h1>Equipo:</h1>
+                <h1>Conoce a nuestro equipo:</h1>
                 <div class="col-xl-3 col-md-6 col-lg-3">
                     <div class="single_team">
                         <div class="thumb">
-                            <img src="img/team/2.png" alt="">
+                            <img src="img/testmonial/me.png" alt="">
                             <div class="social_link">
                                 <a href="#"><i class="fa fa-envelope"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
@@ -183,8 +166,8 @@ session_start();
                             </div>
                         </div>
                         <div class="master_name text-center">
-                            <h3>Emilia A.</h3>
-                            <p>DEV</p>
+                            <h3>Maria Emilia Aguilar</h3>
+                            <p>Founder & CEO</p>
                         </div>
                     </div>
                 </div>
@@ -199,8 +182,8 @@ session_start();
                             </div>
                         </div>
                         <div class="master_name text-center">
-                            <h3>Sara U.</h3>
-                            <p>DEV</p>
+                            <h3>Sara Uriarte</h3>
+                            <p>CTO</p>
                         </div>
                     </div>
                 </div>
@@ -212,31 +195,7 @@ session_start();
     </div>
     <!-- our_team_member_end -->
 
-    <!-- testimonial_area_start -->
-    <div class="testimonial_area testimonial_bg_1 overlay">
-        <div class="testmonial_active owl-carousel">
-            <div class="single_testmoial">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="testmonial_text text-center">
-                                <div class="author_img">
-                                    <img src="img/testmonial/author_img.png" alt="">
-                                </div>
-                                <p>
-                                    "La educación no cambia al mundo; <br> Cambia a las personas que
-                                    van a cambiar al mundo". <br>
-
-                                </p>
-                                <span>- Jquileen</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- testimonial_area_end -->
+    
 
     <!-- footer -->
     <footer class="footer footer_bg_1">

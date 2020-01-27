@@ -234,12 +234,7 @@ $db = $database->getConnection();
                             }
                                   ?>
 
-                                  <div class="col-xl-12">
-                                      <div class="more_courses text-center">
-                                          <a href="courses.php" class="boxed_btn_rev">Más Cursos</a>
-                                      </div>
                                   </div>
-                              </div>
                   </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="row">
@@ -1543,6 +1538,11 @@ $db = $database->getConnection();
     </div>
     <!-- popular_courses_end-->
 
+    <!-- Descanso --> 
+    <div>
+        <img src="img/banner/descanso.png">
+    </div>
+    
     <!-- CURSOS DEL USUARIO -->
     <div class="our_courses">
         <div class="container">
