@@ -92,7 +92,7 @@ session_start();
                                     <span>  <?php
 
                                        if (!isset($_SESSION['usuario'])) {
-                                           echo "Log In";
+                                           echo "Iniciar Sesión";
                                        } else {
                                            echo $_SESSION['usuario'];
                                        }?></span>
