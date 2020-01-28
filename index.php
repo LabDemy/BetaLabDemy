@@ -190,7 +190,7 @@ if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==3) {
     <!-- about_area_end -->
 
     <!-- popular_courses_start -->
-    <div class="popular_courses">
+    <div class="popular_courses"  style="padding-bottom:20px; padding-top:20px;">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -1609,8 +1609,8 @@ if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==3) {
     <!-- testimonial_area_end -->
 
     <!-- our_courses_start -->
-    <div class="our_courses">
-        <div class="container">
+    <div class="our_courses"style="padding-top:50px;">
+        <div class="container" >
             <div class="row">
                 <div class="col-xl-12">
                     <div class="section_title text-center mb-100">

@@ -115,7 +115,7 @@ session_start();
     </header>
         <!-- bradcam_area_start -->
         <div class="bradcam_area breadcam_bg overlay2">
-                <h3>Contactanos</h3>
+                <h3>Contáctanos</h3>
             </div>
             <!-- bradcam_area_end -->
 
@@ -124,16 +124,16 @@ session_start();
             <div class="container">
             <div align="center">
                         <h2 class="contact-title">Dirección</h2>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3824.7512550221713!2d-68.0823719858687!3d-16.538650846103696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915f213a56ac4d45%3A0x442e98eee6d9c688!2sBurger%20King!5e0!3m2!1ses-419!2sbo!4v1579216781780!5m2!1ses-419!2sbo" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3824.033581005922!2d-68.12892538513476!3d-16.574817288570358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915f27439430fccb%3A0xb94cfae1e2f36204!2sUniversidad%20Privada%20Boliviana!5e0!3m2!1ses-419!2sbo!4v1580247610432!5m2!1ses-419!2sbo" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
                     </div>
 
                 </div>
 
 
-                <div class="row">
+                <div class="row"  style="padding-left:50px; padding-right:50px;">
                     <div class="col-12">
                         <p>
-                        <h2 class="contact-title">Ponte en contacto</h2>
+                        <h2 class="contact-title" >Ponte en contacto</h2>
                     </div>
                     <div class="col-lg-8">
                         <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">

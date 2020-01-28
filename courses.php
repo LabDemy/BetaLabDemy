@@ -127,7 +127,7 @@ $db = $database->getConnection();
         <!-- bradcam_area_end -->
 
     <!-- popular_courses_start -->
-    <div class="popular_courses">
+    <div class="popular_courses"  style="padding-bottom:0px;">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -148,12 +148,8 @@ $db = $database->getConnection();
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                                        aria-controls="profile" aria-selected="false">Photoshop</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
-                                        aria-controls="contact" aria-selected="false">UI/UX</a>
-                                </li>
+                                        aria-controls="profile" aria-selected="false">Crecimiento Profesional</a>
+                        
                                 <li class="nav-item">
                                     <a class="nav-link" id="design-tab" data-toggle="tab" href="#design" role="tab"
                                         aria-controls="design" aria-selected="false">Web Design</a>
@@ -247,7 +243,7 @@ $db = $database->getConnection();
                                             </div>
                                             <div class="courses_info">
                                                 <span>Photoshop</span>
-                                                <h3><a href="#">Mobile App design step by step <br>
+                                                <h3><a href="#"> <br>
                                                         from beginner</a></h3>
                                                 <div class="star_prise d-flex justify-content-between">
                                                     <div class="star">
