@@ -174,7 +174,7 @@ session_start();
                 <div class="col-xl-3 col-md-6 col-lg-3">
                     <div class="single_team">
                         <div class="thumb">
-                            <img src="img/team/3.png" alt="">
+                            <img src="img/team/2.png" alt="">
                             <div class="social_link">
                                 <a href="#"><i class="fa fa-envelope"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
