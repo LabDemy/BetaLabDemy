@@ -48,6 +48,9 @@ session_start();
         <![endif]-->
 
     <!-- header-start -->
+    <?php
+if (!empty($_SESSION)) {
+     ?>
     <header>
         <div class="header-area ">
             <div id="sticky-header" class="main-header-area">
@@ -95,7 +98,7 @@ session_start();
                                            echo "Iniciar Sesión";
                                        } else {
                                            echo $_SESSION['usuario'];
-                                       }?></span>
+                                       } ?></span>
                                 </a>
                                 <div class="live_chat_btn">
                                     <a class="boxed_btn_orange" href="#">
@@ -116,27 +119,40 @@ session_start();
     <!-- header-end -->
 <?php
 include_once 'backend/database.php';
-include_once 'backend/cursos.php';
-include_once 'backend/user.php';
-$database = new Database();
-$db = $database->getConnection();
-$course = new cursos($db);
-// $idcourse=$_GET['idcourse'];
-$idcourse=1;
-$array=$course->getCoursePerId($idcourse);
-$user = new User($db);
-?>
+     include_once 'backend/cursos.php';
+     include_once 'backend/user.php';
+     $database = new Database();
+     $db = $database->getConnection();
+     $course = new cursos($db);
+     // $idcourse=$_GET['idcourse'];
+     $idcourse=1;
+     $array=$course->getCoursePerId($idcourse);
+     $user = new User($db); ?>
      <!-- bradcam_area_start -->
+     <form class="form-container"  method="post" enctype="multipart/form-data">
      <div class="courses_details_banner">
+
          <div class="container">
-         <h2 style="color:white"  align="center">Curso de <?php echo $array['nombre'];?></h2>
+           <?php
+           if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==2) {
+               ?>
+               <h1>Titulo</h1>
+             <textarea class="form-control letra" col="2" rows="2" id="titulo" name="titulo"><?php echo $array['titulo']; ?>
+             </textarea> <br>
+             <?php
+           } else {
+               ?>
+
+         <h2 style="color:white"  align="center">Curso de <?php echo $array['nombre']; ?></h2>
              <div class="row">
                  <div class="col-xl-6">
 
 
-                     </div>
+                 </div>
                  </div>
              </div>
+             <?php
+           } ?>
          </div>
     </div>
     <!-- bradcam_area_end -->
@@ -146,37 +162,73 @@ $user = new User($db);
             <div class="row">
                 <div class="col-xl-7 col-lg-7">
                     <div class="single_courses" align="justify">
-                        <h3>¿Qué es Android? Un poco de historia</h3>
-                        <p><?php echo $array['texto'];?></p> <br>
+
+                        <h3><?php echo $array['titulo']; ?></h3>
+                        <?php
+                        if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==2) {
+                            ?>
+                             <h1>Texto</h1>
+                            <textarea class="form-control letra" rows="15" id="texto" name="texto"><?php echo $array['texto']; ?>
+                            </textarea> <br>
+                            <?php
+                        } else {
+                            ?>
+                          <p><?php echo $array['texto']; ?></p> <br>
+                      <?php
+                        } ?>
+
                     </div>
                 </div>
                             <div class="" align="center">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <img src="<?php echo $array['imagen'];?>">
+                                <?php
+                                if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==2) {
+                                    ?>
+                                    <div class="form-group">
+                                         <h1>Imagen</h1>
+                                    <input type="file" name="myFile" class="form-control">
+                                    </div>
+                                    <?php
+                                } else {
+                                    ?>
+                                <img src="<?php echo $array['imagen']; ?>">
+                                <?php
+                                } ?>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
-                    <div class="courses_sidebar" align = "center">
-                    <a href = "<?php echo $array['linkvideo'];?>" target = "_blank" >
+    <div class="courses_sidebar" align = "center">
+      <?php
+      if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==2) {
+          ?>
+             <h1>Link del video</h1>
+          <textarea class="form-control letra" rows="1" id="linkvideo" name="linkvideo"><?php echo $array['linkvideo']; ?>
+          </textarea> <br>
+          <?php
+      } else {
+          ?>
 
-        <img src="img/courses/video.jpg"><br><br><br><br>
+        <a href = "<?php echo $array['linkvideo']; ?>" target = "_blank" >
 
+          <img src="img/courses/video.jpg"><br><br><br><br>
+          <?php
+      } ?>
 
+    </div>
 
+    <?php
+    if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==2) {
+        ?>
+        <button type="submit" class="btn btn-primary py-2 px-2 text-white">ACEPTAR CAMBIOS</button>
+          </form>
 
-
-                        </div>
-
-
-
-
-
-
-
+  <?php
+    } ?>
     <!-- footer -->
     <footer class="footer footer_bg_1">
         <div class="footer_top">
@@ -287,7 +339,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                     </a>
                 </div>
                 <?php if (empty($_SESSION['usuario'])) {
-    ?>
+        ?>
                 <h3>Sign in</h3>
                 <form action="#">
                     <div class="row">
@@ -299,7 +351,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                             <input type="password" name='passwordsignin' placeholder="Password">
                         </div>
                       <?php
-} ?>
+    } ?>
                         <div class="col-xl-12">
 
                               <?php
@@ -309,8 +361,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                               } else {
                                   echo '<button type="submit" formaction="index.php" class="boxed_btn_orange">';
                                   echo "Sign in";
-                              }
-                               ?>
+                              } ?>
                              </button>
                         </div>
                     </div>
@@ -353,7 +404,31 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     </form>
     <!-- form itself end -->
 
+<?php
+if (!empty($_POST)) {
+                                  $my_folder = "img/";
 
+                                  if (!empty($_FILES) and move_uploaded_file($_FILES['myFile']['tmp_name'], $my_folder . $_FILES['myFile']['name'])) {
+                                      $imagenvideo=$my_folder.basename($_FILES['myFile']['name']);
+                                      chmod($imagenvideo, 0777);
+                                      echo "asd";
+                                      $course->setImagenCourse($imagenvideo, $idcourse);
+                                  } else {
+                                      echo "No se logro subir la imagen";
+                                  }
+
+                                  $course->setTituloCourse($_POST['titulo'], $idcourse);
+                                  $course->setLinkVideoCourse($_POST['linkvideo'], $idcourse);
+                                  $course->setTextCourse($_POST['texto'], $idcourse);
+                                  // while ($arrayobjetivos=$_POST['objetivo']->fetch()) {
+                                  //   $course->setObjective($arrayobjetivos[''],$idcourse);
+                                  // }
+                            //   echo "<meta http-equiv='refresh' content='0'>";
+                              }
+ } else {
+     echo "no tienes permiso para ver esta pagina";
+ }
+?>
     <!-- JS here -->
     <script src="js/vendor/modernizr-3.5.0.min.js"></script>
     <script src="js/vendor/jquery-1.12.4.min.js"></script>

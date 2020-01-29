@@ -164,6 +164,19 @@ class cursos
         $result = $this->conn->prepare($sql);
         $result->execute();
     }
+    public function setTituloCourse($idtitulo, $id)
+    {
+        $sql = 'UPDATE cursos SET titulo="'.$idtitulo.'"where id='.$id.';';
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+    }
+    public function setImagenCourse($imagen, $id)
+    {
+        $sql = 'UPDATE cursos SET imagen="'.$imagen.'"where id='.$id.';';
+        echo $sql;
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+    }
     public function setImagen($imagen, $id)
     {
         $sql = 'UPDATE informacioncursos SET imagenvideo="'.$imagen.'"where id='.$id.';';
@@ -173,6 +186,18 @@ class cursos
     public function setLinkVideo($video, $id)
     {
         $sql = 'UPDATE informacioncursos SET linkvideo="'.$video.'"where id='.$id.';';
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+    }
+    public function setLinkVideoCourse($video, $id)
+    {
+        $sql = 'UPDATE cursos SET linkvideo="'.$video.'"where id='.$id.';';
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+    }
+    public function setTextCourse($texto, $id)
+    {
+        $sql = 'UPDATE cursos SET texto="'.$texto.'"where id='.$id.';';
         $result = $this->conn->prepare($sql);
         $result->execute();
     }
