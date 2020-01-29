@@ -124,8 +124,8 @@ include_once 'backend/database.php';
      $database = new Database();
      $db = $database->getConnection();
      $course = new cursos($db);
-     // $idcourse=$_GET['idcourse'];
-     $idcourse=1;
+     $idcourse=$_GET['idcourse'];
+     //$idcourse=1;
      $array=$course->getCoursePerId($idcourse);
      $user = new User($db); ?>
      <!-- bradcam_area_start -->
@@ -215,7 +215,7 @@ include_once 'backend/database.php';
 
         <a href = "<?php echo $array['linkvideo']; ?>" target = "_blank" >
 
-          <img src="img/courses/video.jpg"><br><br><br><br>
+          <img src="img/banner/edu_ilastration.png"><br><br><br><br>
           <?php
       } ?>
 
