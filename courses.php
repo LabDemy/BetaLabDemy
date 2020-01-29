@@ -98,7 +98,7 @@ $db = $database->getConnection();
                                     <span>  <?php
 
                                        if (!isset($_SESSION['usuario'])) {
-                                           echo "Log In";
+                                           echo "Iniciar Sesión";
                                        } else {
                                            echo $_SESSION['usuario'];
                                        }?></span>
@@ -127,7 +127,7 @@ $db = $database->getConnection();
         <!-- bradcam_area_end -->
 
     <!-- popular_courses_start -->
-    <div class="popular_courses">
+    <div class="popular_courses"  style="padding-bottom:0px;">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -148,36 +148,25 @@ $db = $database->getConnection();
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                                        aria-controls="profile" aria-selected="false">Photoshop</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
-                                        aria-controls="contact" aria-selected="false">UI/UX</a>
-                                </li>
+                                        aria-controls="Crecimiento Profesional" aria-selected="false">Crecimiento Profesional</a>
+                        
                                 <li class="nav-item">
                                     <a class="nav-link" id="design-tab" data-toggle="tab" href="#design" role="tab"
-                                        aria-controls="design" aria-selected="false">Web Design</a>
+                                        aria-controls="design" aria-selected="false">UX/UI</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="Web-tab" data-toggle="tab" href="#Web" role="tab"
-                                        aria-controls="design" aria-selected="false">Web dev</a>
+                                        aria-controls="design" aria-selected="false">Office 365</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="Web-tab1" data-toggle="tab" href="#Web1" role="tab"
-                                        aria-controls="design" aria-selected="false">Wordpress</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="Web-tab11" data-toggle="tab" href="#Web11" role="tab"
-                                        aria-controls="design" aria-selected="false">Adobe XD</a>
+                                        aria-controls="design" aria-selected="false">Metodologías Ágiles</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="Adobe-XD-tab8" data-toggle="tab" href="#Adobe-XD8" role="tab"
-                                        aria-controls="design" aria-selected="false">Sketch App</a>
+                                        aria-controls="design" aria-selected="false">Otros</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="Adobe-XD-tab9" data-toggle="tab" href="#Adobe-XD9" role="tab"
-                                        aria-controls="design" aria-selected="false">Illustrator</a>
-                                </li>
+                                
                             </ul>
                         </nav>
                     </div>
@@ -234,26 +223,20 @@ $db = $database->getConnection();
                             }
                                   ?>
 
-                                  <div class="col-xl-12">
-                                      <div class="more_courses text-center">
-                                          <a href="courses.php" class="boxed_btn_rev">Más Cursos</a>
-                                      </div>
                                   </div>
-                              </div>
                   </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="row">
-                                    <div class="col-xl-4 col-lg-4 col-md-6  col-md-6">
+                                    <div class="col-xl-4 col-lg-4 col-md-6">
                                         <div class="single_courses">
                                             <div class="thumb">
-                                                <a href="android_inscripcion.php">
-                                                    <img src="img/courses/1.png" alt="">
+                                                <a href="#">
+                                                    <img src="img/courses/8.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="courses_info">
-                                                <span>Photoshop</span>
-                                                <h3><a href="#">Mobile App design step by step <br>
-                                                        from beginner</a></h3>
+                                                <span>Crecimiento Profesional</span>
+                                                <h3><a href="#">Creación de Plano Financiero<br> en tu vida</a></h3>
                                                 <div class="star_prise d-flex justify-content-between">
                                                     <div class="star">
                                                         <i class="flaticon-mark-as-favorite-star"></i>
@@ -273,12 +256,13 @@ $db = $database->getConnection();
                                         <div class="single_courses">
                                             <div class="thumb">
                                                 <a href="#">
-                                                    <img src="img/courses/2.png" alt="">
+                                                    <img src="img/courses/9.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="courses_info">
-                                                <span>Adobe XD</span>
-                                                <h3><a href="#">UI/UX design with Adobe XD with Anderson</a></h3>
+                                                <span>Crecimiento Profesional</span>
+                                                <h3><a href="#">Inteligencia Emocional para tu trabajo <br>
+                                                    </a></h3>
                                                 <div class="star_prise d-flex justify-content-between">
                                                     <div class="star">
                                                         <i class="flaticon-mark-as-favorite-star"></i>
@@ -298,13 +282,13 @@ $db = $database->getConnection();
                                         <div class="single_courses">
                                             <div class="thumb">
                                                 <a href="#">
-                                                    <img src="img/courses/3.png" alt="">
+                                                    <img src="img/courses/7.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="courses_info">
-                                                <span>Wordpress</span>
-                                                <h3><a href="#">Wordpress theme development <br>
-                                                        from scratch</a></h3>
+                                                <span>Crecimiento Profesional</span>
+                                                <h3><a href="#">Creando tu primer CV con <br>
+                                                        Latex</a></h3>
                                                 <div class="star_prise d-flex justify-content-between">
                                                     <div class="star">
                                                         <i class="flaticon-mark-as-favorite-star"></i>
@@ -320,102 +304,20 @@ $db = $database->getConnection();
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-6">
-                                        <div class="single_courses">
-                                            <div class="thumb">
-                                                <a href="#">
-                                                    <img src="img/courses/4.png" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="courses_info">
-                                                <span>Photoshop</span>
-                                                <h3><a href="#">Mobile App design step by step <br>
-                                                        from beginner</a></h3>
-                                                <div class="star_prise d-flex justify-content-between">
-                                                    <div class="star">
-                                                        <i class="flaticon-mark-as-favorite-star"></i>
-                                                        <span>(4.5)</span>
-                                                    </div>
-                                                    <div class="prise">
-                                                        <span class="offer">Bs89.00</span>
-                                                        <span class="active_prise">
-                                                        Bs49
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-6">
-                                        <div class="single_courses">
-                                            <div class="thumb">
-                                                <img src="img/courses/5.png" alt="">
-                                            </div>
-                                            <div class="courses_info">
-                                                <span>UI/UX</span>
-                                                <h3><a href="#">How to complete user research <br>
-                                                        and make work flow</a></h3>
-                                                <div class="star_prise d-flex justify-content-between">
-                                                    <div class="star">
-                                                        <i class="flaticon-mark-as-favorite-star"></i>
-                                                        <span>(4.5)</span>
-                                                    </div>
-                                                    <div class="prise">
-                                                        <span class="offer">Bs89.00</span>
-                                                        <span class="active_prise">
-                                                        Bs49
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-6">
-                                        <div class="single_courses">
-                                            <div class="thumb">
-                                                <a href="#">
-                                                    <img src="img/courses/6.png" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="courses_info">
-                                                <span>Wordpress</span>
-                                                <h3><a href="#">Commitment to dedicated <br>
-                                                        Support</a></h3>
-                                                <div class="star_prise d-flex justify-content-between">
-                                                    <div class="star">
-                                                        <i class="flaticon-mark-as-favorite-star"></i>
-                                                        <span>(4.5)</span>
-                                                    </div>
-                                                    <div class="prise">
-                                                        <span class="offer">Bs89.00</span>
-                                                        <span class="active_prise">
-                                                        Bs49
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12">
-                                        <div class="more_courses text-center">
-                                            <a href="#" class="boxed_btn_rev">More Courses</a>
-                                        </div>
-                                    </div>
-                                </div>
-                    </div>
+                                    
+                
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                             <div class="row">
                                     <div class="col-xl-4 col-lg-4 col-md-6">
                                         <div class="single_courses">
                                             <div class="thumb">
                                                 <a href="#">
-                                                    <img src="img/courses/1.png" alt="">
+                                                    <img src="img/courses/4.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="courses_info">
-                                                <span>Photoshop</span>
-                                                <h3><a href="#">Mobile App design step by step <br>
-                                                        from beginner</a></h3>
+                                                <span>Crecimiento Personal</span>
+                                                <h3><a href="#">Creando tu primer CV con Latex</a></h3>
                                                 <div class="star_prise d-flex justify-content-between">
                                                     <div class="star">
                                                         <i class="flaticon-mark-as-favorite-star"></i>
@@ -1543,8 +1445,13 @@ $db = $database->getConnection();
     </div>
     <!-- popular_courses_end-->
 
+    <!-- Descanso --> 
+    <div>
+        <img src="img/banner/descanso2.jpg">
+    </div>
+    
     <!-- CURSOS DEL USUARIO -->
-    <div class="our_courses">
+    <div class="our_courses" style="padding-top:50px;">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">

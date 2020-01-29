@@ -26,18 +26,7 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
-<style>
 
-
-
-
-respuestas {
-
-
-  white-space: normal !important;
-  word-wrap: break;
-}
-</style>
 <body>
 <?php
 session_start();
@@ -76,14 +65,14 @@ session_start();
                                 <nav>
                                     <ul id="navigation">
                                         <li><a  href="index.php">Inicio</a></li>
-                                        <li><a  class="active" href="courses.php">Cursos</a></li>
+                                        <li><a href="courses.php">Cursos</a></li>
                                         <li><a href="onprocess.php">Planes <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="course_details.html">Detalles</a></li>
                                                 <!--li><a href="elements.html">elements</a></li-->
                                             </ul>
                                         </li>
-                                        <li><a href="about.php">Nosotros</a></li>
+                                        <li><a  href="about.php">Nosotros</a></li>
                                         <!--li><a href="#">blog <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html">blog</a></li>
@@ -103,7 +92,7 @@ session_start();
                                     <span>  <?php
 
                                        if (!isset($_SESSION['usuario'])) {
-                                           echo "Iniciar Sesión";
+                                           echo "Log In";
                                        } else {
                                            echo $_SESSION['usuario'];
                                        }?></span>
@@ -125,288 +114,214 @@ session_start();
         </div>
     </header>
     <!-- header-end -->
+        <!-- bradcam_area_start -->
+        <div class="bradcam_area breadcam_bg overlay2">
+          <div class="container">
+              <div class="row">
+                      <div class="onprocess">
 
-     <!-- bradcam_area_start -->
-     <?php
-     include_once 'backend/database.php';
-     include_once 'backend/cursos.php';
-     include_once 'backend/user.php';
-     $database = new Database();
-     $db = $database->getConnection();
-     $course = new cursos($db);
-     $user = new User($db);
-     $idcourse=$_GET['idcourse'];
-     if (!empty($_SESSION['id'])) {
-         $iduser=$_SESSION['id'];
-     }
-         //$idcourse=4;
-         //$iduser=2;
-         $array=$course->getCourseInformationPerId($idcourse);
-         $arraydocente=$user->getUser($array['id_docente']);
-
-     ?>
-    <form class="form-container"  method="post" enctype="multipart/form-data">
-     <div class="courses_details_banner">
-         <div class="container">
-             <div class="row">
-
-                 <div class="col-xl-6">
-                     <div class="course_text">
-                        <?php
-                        if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==2) {
-                            ?>
-
-                          <h3>Titulo</h3>
-                            <div class="form-group">
-
-                                <textarea class="form-control letra" rows="2" id="comentarios" name="comentarios"><?php echo $array['titulo']; ?>
-                                </textarea>
-                                </div>
-
-                                <!-- </form> -->
-                                <?php
-                        } else {
-                            ?>
-                            <h3><?php
-                            echo $array['titulo']; ?></h3>
-<?php
-                        }?>
-                            <div class="prise">
-                                <span class="inactive">Bs100.00</span>
-                                <span class="active">Bs<?php
-                                  echo $array['precio'];
-                                ?></span>
-                            </div>
-                            <div class="rating">
-                                <i class="flaticon-mark-as-favorite-star"></i>
-                                <i class="flaticon-mark-as-favorite-star"></i>
-                                <i class="flaticon-mark-as-favorite-star"></i>
-                                <i class="flaticon-mark-as-favorite-star"></i>
-                                <i class="flaticon-mark-as-favorite-star"></i>
-                                <span>(4.5)</span>
-                            </div>
-                            <div class="hours">
-                                <div class="video">
-                                     <div class="single_video">
-                                            <i class="fa fa-clock-o"></i> <span>1 video</span>
-                                     </div>
-                                     <div class="single_video">
-                                            <i class="fa fa-play-circle-o"></i> <span>9 Horas de Entrenamiento</span>
-                                     </div>
-
-                                </div>
-                            </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-    </div>
-    <!-- bradcam_area_end -->
-
-    <div class="courses_details_info">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-7 col-lg-7">
-                    <div class="single_courses">
-                        <h3>Objetivos</h3>
-                        <?php
-                        if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==2) {
-                            ?>
-                        <!-- <form role="form" method="post"> -->
-
-                            <div class="form-group">
-
-                              <?php
-                              $objetivos=$course->getObjetivos($array['id']);
-
-                            $var=0;
-                            while ($fila=$objetivos->fetch()) {
-                                if ($var==0) {
-                                    ?>
-                                          <textarea class="form-control letra" rows="2" id="objetivos" name="objetivos"><?php echo $fila['objetivo']; ?>
-                                          </textarea> <br>
-                                            <button type="submit" class="btn btn-primary py-2 px-2 text-white">Editar objetivo principal</button><br><br>
-                                <?php
-                                $var=1;
-                                } else {
-                                    ?>
-                                          <textarea class="form-control letra" rows="2" id="objetivos" name="objetivos"><?php echo $fila['objetivo']; ?>
-                                          </textarea><br>
-                                            <button type="submit" class="btn btn-primary py-2 px-2 text-white">Eliminar objetivo</button><br><br>
-                              <?php
-                                }
-                            } ?>
-                            <textarea class="form-control letra" rows="2" id="objetivos" name="objetivos"></textarea><br>
-                              <button type="submit" class="btn btn-primary py-2 px-2 text-white">Añadir objetivo</button><br><br>
-                                </div>
-
-                        <!-- </form> -->
-                                <?php
-                                if (!empty($_POST['objetivos'])) {
-                                    $course->setObjective($_POST['objetivos'], $idcourse);
-                                    echo "<meta http-equiv='refresh' content='0'>";
-                                }
-                        } else {
-                            ?>
-                        <?php
-                        $objetivos=$course->getObjetivos($array['id']);
-
-                            $var=0;
-                            while ($fila=$objetivos->fetch()) {
-                                if ($var==0) {
-                                    ?>
-                        <p><?php echo $fila['objetivo'];
-                                    $var=1; ?></p> <br>
-                          <?php
-                                } else {
-                                    ?>
-                        <p>&#10004; <?php echo $fila['objetivo']; ?><p><br>
-                        <?php
-                                }
-                            }
-                        }
-                        ?>
-
-                    <h3 class="second_title">Preguntas Frecuentes</h3>
-                    </div>
-                    <div class="outline_courses_info">
-                            <div id="accordion">
-
-                              <?php
-                              $preguntas = $course->getPreguntas($array['id']);
-                              $contador="headingTwo";
-                              $contador2="collapseTwo";
-
-                              while ($fila=$preguntas->fetch()) {
-                                  ?>
-                                  <?php
-                                  if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==2) {
-                                      $contador="headingTwo";
-                                      $contador2="collapseTwo"; ?>
-                                  <!-- <form role="form" method="post"> -->
-
-                                      <div class="form-group">
-
-
-                                                    <textarea class="form-control letra" rows="2" id="<?php echo $contador; ?>" name="<?php echo $contador; ?>"><?php echo $fila['pregunta']; ?>
-                                                    </textarea> <br>
-                                                    <textarea class="form-control letra" rows="2" id="<?php echo $contador2; ?>" name="<?php echo $contador2; ?>"><?php echo $fila['respuesta']; ?>
-                                                    </textarea> <br>
-
-                                                  </div>
-                                    <!-- </form> -->
-
-
-
-                                        <?php
-                                        $contador=$contador."1";
-                                      $contador2=$contador2."1";
-                                  } else {
-                                      ?>
-                                    <div class="card">
-                                        <div class="card-header" id="<?php echo $contador?>">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#<?php echo $contador2?>" aria-expanded="false"  aria-controls="<?php echo $contador2?>">
-                                                    <i class="flaticon-question"></i>
-                                                    <respuestas><?php echo $fila['pregunta']; ?></respuestas>
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="<?php echo $contador2?>" class="collapse" aria-labelledby="<?php echo $contador?>" data-parent="#accordion">
-                                          <respuestas><?php echo $fila['respuesta']; ?></respuestas>
-                                        </div>
-                                    </div>
-                                    <?php
-                                    $contador=$contador."1";
-                                      $contador2=$contador2."1";
-                                  }
-                              }
-
-                                    if (!empty($_POST['comentarios'])) {
-                                        print_r($_POST);
-                                        $course->setTituloInformation($_POST['comentarios'], $idcourse);
-                                        $course->setLinkVideo($_POST['linkvideo'], $idcourse);
-                                        //  echo "<meta http-equiv='refresh' content='0'>";
-                                    }
-                                    ?>
-
-                            </div>
-                    </div>
-                </div>
-                <div class="col-xl-5 col-lg-5">
-                    <div class="courses_sidebar">
-                        <div class="video_thumb">
-                          <?php
-                          if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==2) {
-                              ?>
-                          <!-- <form role="form" method="post"> -->
-
-                              <div class="form-group">
-                                   <h3>Imagen</h3>
-                                   <div class="form-group">
-                                   <input type="file" name="myFile" class="form-control">
-                                   </div>
-                                  <h3>Link del video</h3>
-                                  <textarea class="form-control letra" rows="2" id="linkvideo" name="linkvideo"><?php echo $array['linkvideo']; ?>
-                                  </textarea>
-                                  </div>
-
-                                  <!-- </form> -->
-                                  <?php
-                          } else {
-                              ?>
-                            <img src="<?php echo $array['imagenvideo']; ?>" alt="">
-                            <a class="popup-video" href="<?php echo $array['linkvideo']; ?>">
-                                <i class="fa fa-play"></i>
-                            </a>
-                            <?php
-                          }?>
-                        </div>
-                        <div class="author_info">
-                            <div class="auhor_header">
-                                <div class="thumb">
-                                        <img src="<?php echo $arraydocente['imagen'];?>" alt="">
-                                </div>
-                                <div class="name">
-                                    <h3><?php echo $arraydocente['nombre']." "; echo $arraydocente['lastname'];?> </h3>
-                                    <p>Desarrollador de Android</p>
-                                </div>
-                            </div>
-                            <p class="text_info">
-                               <?php echo $array['mensajeDocente'];?>
-                            </p>
-
-                            <ul>
-                                <li><a href="#"> <i class="fa fa-envelope"></i> </a></li>
-                                <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
-                                <li><a href="#"> <i class="ti-linkedin"></i> </a></li>
-                            </ul>
-                        </div>
-                        <a href="prueba.php?iduser=<?php echo $iduser."&idcourse=".$idcourse;?>" class="boxed_btn">Comprar Curso</a>
-                        <div class="feedback_info">
-                            <h3>Califica este curso!</h3>
-                            <p>Rating</p>
-                            <i class="flaticon-mark-as-favorite-star"></i>
-                            <i class="flaticon-mark-as-favorite-star"></i>
-                            <i class="flaticon-mark-as-favorite-star"></i>
-                            <i class="flaticon-mark-as-favorite-star"></i>
-                            <i class="flaticon-mark-as-favorite-star"></i>
-
-
-                                <textarea name="" id="" cols="30" rows="10" placeholder="Escríbenos"></textarea>
-                                <button type="submit" class="boxed_btn">Enviar</button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+                      </div>
+              </div>
+            <h1 align="center" style="color:white"> PLANES </h1>
+          </div>
+      <!-- bradcam_area_end -->
         </div>
-    </div>
-    <button type="submit" class="btn btn-primary py-2 px-2 text-white">ACEPTAR CAMBIOS</button>
-  </form>
+        <!-- <div class = "Planes"> -->
 
-    <!-- footer -->
-    <footer class="footer footer_bg_1">
+            <div class="comparison">
+
+  <table>
+    <thead>
+      <tr>
+        <th class="tl tl2"></th>
+        <th class="qbse">
+          Self-Employed & Freelance
+        </th>
+        <th colspan="3" class="qbo">
+          Small businesses that need accounting, invoicing or payroll
+        </th>
+      </tr>
+      <tr>
+        <th class="tl"></th>
+        <th class="compare-heading">
+          Self-Employed
+        </th>
+        <th class="compare-heading">
+          Simple Start
+        </th>
+        
+        
+      </tr>
+      <tr>
+        <th></th>
+        <th class="price-info">
+          <div class="price-was">Was £6.00</div>
+          <div class="price-now"><span>£4<span class="price-small">.20</span></span> /month</div>
+          <div><a href="#" class="price-buy">Buy <span class="hide-mobile">Now</span></a></div>
+          <div class="price-try"><span class="hide-mobile">or </span><a href="#">try <span class="hide-mobile">it free</span></a></div>
+        </th>
+        <th class="price-info">
+          <div class="price-was">Was £7.00</div>
+          <div class="price-now"><span>£5<span class="price-small">.60</span></span> /month</div>
+          <div><a href="#" class="price-buy">Buy <span class="hide-mobile">Now</span></a></div>
+          <div class="price-try"><span class="hide-mobile">or </span><a href="#">try <span class="hide-mobile">it free</span></a></div>
+        </th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td colspan="4">Seperate business from personal spending</td>
+      </tr>
+      <tr class="compare-row">
+        <td>Seperate business/personal</td>
+        <td><span class="tickblue">✔</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td colspan="4">Estimate tax payments</td>
+      </tr>
+      <tr>
+        <td>Estimate tax payments</td>
+        <td><span class="tickblue">✔</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td colspan="4">Track deductible mileage</td>
+      </tr>
+      <tr class="compare-row">
+        <td>Track deductible mileage</td>
+        <td><span class="tickblue">✔</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td colspan="4">Download online banking</td>
+      </tr>
+      <tr>
+        <td>Download online banking</td>
+        <td><span class="tickblue">✔</span></td>
+        <td><span class="tickgreen">✔</span></td>
+        
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td colspan="4">Works on PC, Mac & mobile</td>
+      </tr>
+      <tr class="compare-row">
+        <td>Multi-device</td>
+        <td><span class="tickblue">✔</span></td>
+        <td><span class="tickgreen">✔</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td colspan="4">Create invoices & estimates</td>
+      </tr>
+      <tr>
+        <td>Create invoices & estimates</td>
+        <td></td>
+        <td><span class="tickgreen">✔</span></td>
+        
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td colspan="4">Manage VAT</td>
+      </tr>
+      <tr class="compare-row">
+        <td>Manage VAT</td>
+        <td></td>
+        <td><span class="tickgreen">✔</span></td>
+        
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td colspan="4">Run payroll</td>
+      </tr>
+      
+        <td>&nbsp;</td>
+        <td colspan="4">Number of users</td>
+      </tr>
+      <tr class="compare-row">
+        <td>Number of users</td>
+        <td class="tickblue">1 user</td>
+        <td class="tickgreen">1 user</td>
+        
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td colspan="4">Manage bills & payments</td>
+      </tr>
+      <tr>
+        <td>Manage bills & payments</td>
+        <td></td>
+        <td></td>
+        
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td colspan="4">Handle multiple currencies</td>
+      </tr>
+      <tr class="compare-row">
+        <td>Handle multiple currencies</td>
+        <td></td>
+        <td></td>
+        
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td colspan="4">Create budgets</td>
+      </tr>
+      <tr>
+        <td>Create budgets</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td colspan="4">Track employee time</td>
+      </tr>
+      <tr class="compare-row">
+        <td>Track employee time</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td colspan="4">Stock control</td>
+      </tr>
+      <tr>
+        <td>Stock control</td>
+        <td></td>
+        <td></td>
+        <td></td>
+       
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+      <!-- </div> -->
+        <!-- bradcam_area_end -->
+
+
+
+
+
+
+   <!-- footer -->
+   <footer class="footer footer_bg_1">
         <div class="footer_top">
             <div class="container">
                 <div class="row">
@@ -465,11 +380,11 @@ session_start();
                                 Menú
                             </h3>
                             <ul>
-                                <li><a href="#">Incio</a></li>
+                                <li><a href="#">Inicio</a></li>
                                 <li><a href="#">Cursos</a></li>
-                                <li><a href="#">Planes</a></li>
+                                <li><a href="onprocess.php">Planes</a></li>
                                 <li><a href="#">Nosotros</a></li>
-                                <li><a href="#"> Contacto</a></li>
+                                <li><a href="#">Contacto</a></li>
                             </ul>
                         </div>
                     </div>
@@ -479,8 +394,9 @@ session_start();
                                 Contacto
                             </h3>
                             <p>
-                                70163895 - 2755505 <br>
-                                info@labdemy.edu
+                                70163895 - 2750555 <br>
+                               info@labdemy.edu <br>
+
                             </p>
                         </div>
                     </div>
@@ -494,7 +410,7 @@ session_start();
                     <div class="col-xl-12">
                         <p class="copy_right text-center">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | fue hecho con <i class="fa fa-heart-o" aria-hidden="true"></i>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Fue hecho con <i class="fa fa-heart-o" aria-hidden="true"></i></a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>
@@ -516,7 +432,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                 </div>
 
                 <?php if (empty($_SESSION['usuario'])) {
-                              ?>
+                                           ?>
                 <h3>Sign in</h3>
                 <form action="#">
                     <div class="row">
@@ -528,7 +444,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                             <input type="password" name='passwordsignin' placeholder="Password">
                         </div>
                       <?php
-                          } ?>
+                                       } ?>
                         <div class="col-xl-12">
 
                               <?php
@@ -571,12 +487,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                         echo "<meta http-equiv='refresh' content='0'>";
                     }
                 }
-                    if (empty($_SESSION['usuario'])) {
-                        ?>
+                ?>
+                <?php if (empty($_SESSION['usuario'])) {
+                    ?>
                 <p class="doen_have_acc">Don’t have an account? <a class="dont-hav-acc" href="#test-form2">Sign Up</a>
                 </p>
                 <?php
-                    }?>
+                }?>
             </div>
         </div>
     </form>

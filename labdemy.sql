@@ -91,7 +91,7 @@ INSERT INTO usuario VALUES (1,'admin','YWRtaW4=',"admin@admin.com",null,null,3);
 
 INSERT INTO usuario VALUES (null,'Kevin','MTIzNA==','kevincardenas.to@gmail.com',"Cardenas",'img/latest_blog/kev.png',2);
 
-INSERT INTO cursos VALUES (null,"Android", "https://www.youtube.com/watch?v=PRQjrp_7ip8", "Aplicaciones Android",null,"img/courses/1.jpg",null);
+INSERT INTO cursos VALUES (null,"Android", "https://www.youtube.com/watch?v=PRQjrp_7ip8", "Aplicaciones Android","Android es un Sistema Operativo Open Source basado en el Kernel de Linux, su creador fue Andy Rubin y posteriormente fue adquirido por Google en 2005. Desde 2007 Android pertenece al Open Handset Alliance lo que lo hizo despegar y dominar en la mayoría de las marcas de dispositivos móviles. Este es un consorcio compuesto por las marcas de hardware en el mercado, en él se encuentra Samsung, LG, Sony, Toshiba, Dell, etc. Android se ha mantenido a la vanguardia y en constante evolución, ha liberado multitud de versiones que al estar disponibles en diferentes tipos y gamas de hardware lo hacen más accesible. Como contexto histórico cada vez que se liberaba un feature de software se liberaba un aditamento de hardware también lo que traía innovación por ambas partes. Android poco a poco se fue convirtiendo en el favorito de los usuarios porque ponía al alcance de muchos, alta tecnología. Al crecer tanto este mercado, trajo consigo una demanda de desarrolladores que conocieran la filosofía del Sistema Operativo y los retos de dar soporte a múltiples gamas de dispositivos.","img/courses/1.jpg",null);
 
 INSERT INTO informacioncursos VALUES(null,1,"https://www.youtube.com/watch?v=PRQjrp_7ip8","img/latest_blog/curso2.jpg",2,"El desarrollo de Android es clave para un futuro lleno de tecnología","Aplicaciones Android",69.0);
 
@@ -111,7 +111,10 @@ INSERT INTO preguntas VALUES(null,"¿Cómo empiezo?","Con muchas ganas de aprend
 
 INSERT INTO usuario VALUES (null,'Vladimir','MTIzNA==','vladimirTirado@gmail.com',"Tirado",'img/latest_blog/vladi.png',2);
 
-INSERT INTO cursos VALUES (null,"UI vs UX", "https://www.youtube.com/watch?v=MLK9TnaV_bQ", "User Experience vs User Interface", null, "img/courses/2.jpg", null);
+INSERT INTO cursos VALUES (null,"UI vs UX", "https://www.youtube.com/watch?v=MLK9TnaV_bQ", "User Experience vs User Interface", "UX (por sus siglas en inglés User eXperience) o en español Experiencia de Usuario, es aquello que una persona percibe al interactuar con un producto o servicio. Logramos una buena UX al enfocarnos en diseñar productos útiles, usables y deseables, lo cual influye en que el usuario se sienta satisfecho, feliz y encantado. Es muy común, que el término UX, se confunda con el de Usabilidad o UI. Pero vamos a dejarlo claro. UI (por sus siglas en inglés User Interface) o en español Interfaz del Usuario, es la vista que permite a un usuario interactuar de manera efectiva con un sistema. Es la suma de una arquitectura de información + elementos visuales + patrones de interacción.
+El UI da el ‘look & feel’ al producto con la estructura e interacción de los elementos de la interfaz.
+
+UX es lo qué te hace sentir una marca o producto al momento de interactuar con él, mientras que UI es una capa visual de colores, texturas, formas y elementos.", "img/courses/2.jpg", null);
 
 INSERT INTO informacioncursos VALUES(null, 2, "https://www.youtube.com/watch?v=MLK9TnaV_bQ", "img/latest_blog/2.jpg", 3, "Un buen diseño web es la clave principal que hay que tener en cuenta para tener éxito en la estratégia de Marketing Digital", "User Experience vs User Interface", 59.0);
 
@@ -131,7 +134,9 @@ INSERT INTO preguntas VALUES(null,"¿Qué hacer para mantenerse siempre actualiz
 
 
 
-INSERT INTO cursos VALUES (null,"Diseño de Aplicaciones con UX", "https://www.youtube.com/watch?v=4K4ehuyi9rk", "Diseño de Aplicaciones con User Experience", null, "img/courses/3.jpg", null);
+INSERT INTO cursos VALUES (null,"Diseño de Aplicaciones con UX", "https://www.youtube.com/watch?v=4K4ehuyi9rk", "Diseño de Aplicaciones con User Experience", "Cuándo hablamos de diseño de app pensamos en el color que se utiliza, en el estilo, en el diseño del icono de la aplicación y demás variables que se ven a simple vista.
+Pero el diseño de aplicaciones va mucho más allá y debe responder ante las necesidades de UX, UI y de IxD. Veamos como afecta cada una de ellas al diseño de apps. Si estas familiarizado con el diseño de apps seguramente sí que sepas qué significan, y si no sabes de que va este artículo te lo dejará mucho más claro. Atento a la importancia de la usabilidad y la experiencia de usuario al diseñar tu app móvil.
+Para conseguir un buen diseño de UX tenemos que conocer bien a nuestro usuario tipo, a nuestro target, identificar las necesidades y motivaciones del usuario/cliente y diseñar en consecuencia. Tanto interfaz, contenidos como interacciones son foco de discusión para el diseño de apps. Especialmente al mejorar la experiencia de usuario.", "img/courses/3.jpg", null);
 
 INSERT INTO informacioncursos VALUES(null, 3, "https://www.youtube.com/watch?v=4K4ehuyi9rk", "img/latest_blog/3.jpg", 3, "Un buen diseño es la clave principal que hay que tener en cuenta para tener éxito en el Marketing Digital", "Diseño de Aplicaciones con User Experience", 67.0);
 
@@ -151,7 +156,8 @@ INSERT INTO preguntas VALUES(null,"¿Qué hacer para mantenerse siempre actualiz
 
 INSERT INTO usuario VALUES (null,'Eynar','MTIzNA==','eynarPari@gmail.com',"Pari",'img/latest_blog/eynar.png',2);
 
-INSERT INTO cursos VALUES (null,"Metodologías ágiles", "https://www.youtube.com/watch?v=tGEYClsYyuw", "Metodologías Ágiles", null, "img/courses/4.jpg", null);
+INSERT INTO cursos VALUES (null,"Metodologías ágiles", "https://www.youtube.com/watch?v=tGEYClsYyuw", "Metodologías Ágiles", "Por metodologías ágiles entendemos a aquellas metodologías de gestión que permiten adaptar la forma de trabajo al contexto y naturaleza de un proyecto, basándose en la flexibilidad y la inmediatez, y teniendo en cuenta las exigencias del mercado y los clientes. Los pilares fundamentales de las metodologías ágiles son el trabajo colaborativo y en equipo.
+Gracias a la flexibilidad y capacidad de adaptación de las mismas, son muchos los beneficios de incorporar metodologías ágiles a la gestión de las organizaciones. Aquí te contamos los principales: Reducción de costos; Rapidez en la entrega de proyectos; Trabajo en equipo y compromiso de todos los miembros del equipo de trabajo; Mayor calidad en el trabajo y en el producto final (ya sea producto o servicio); etc...", "img/courses/4.jpg", null);
 
 INSERT INTO informacioncursos VALUES(null, 4, "https://www.youtube.com/watch?v=tGEYClsYyuw", "img/latest_blog/4.jpg", 4, "Scrum no es una metodología. Scrum ni siquiera es un proceso. A lo sumo podríamos definirlo como un metaproceso: una maquinita que nos ayuda a construir iteractiva e incrementalmente nuestro propio proceso", "Metodologías Ágiles", 87.0);
 
@@ -169,7 +175,8 @@ INSERT INTO preguntas VALUES(null,"¿Cuáles son las metodologías ágiles más 
 
 INSERT INTO usuario VALUES (null,'Mariana','MTIzNA==','marianaCarlo123@gmail.com',"Carlo",'img/latest_blog/mari.png',2);
 
-INSERT INTO cursos VALUES (null,"Customer Experience", "https://www.youtube.com/watch?v=SpvQj-tVZOU", "Customer Experience", null, "img/courses/5.jpg", null);
+INSERT INTO cursos VALUES (null,"Customer Experience", "https://www.youtube.com/watch?v=SpvQj-tVZOU", "Customer Experience", "El Customer Experience es una de las disciplinas estratégicas más importantes a valorar en una compañía. Puede generar un valor a las empresas que eleve sus datos de ventas y consumidores. Pero no se trata tanto de convencer a una persona de que compre un producto o un servicio, sino de generar una relación entre consumidor y marca. Vamos a ayudarte a descubrir por qué el Customer Experience no es marketing.
+Por lo tanto, el Customer Experience es un ejercicio que debe realizarse de manera transversal y que se ejerce en todos los departamentos de la compañía. Esto sirve para dar con diferentes puntos de vista que completen una Experiencia de Cliente desde todos los sectores de la empresa.", "img/courses/5.jpg", null);
 
 INSERT INTO informacioncursos VALUES(null, 5, "https://www.youtube.com/watch?v=SpvQj-tVZOU", "img/latest_blog/5.jpg", 5, "La tecnología nos permite dar hoy lo que el cliente nos va a pedir mañana.", "Customer Experience", 69.0);
 
@@ -185,7 +192,9 @@ INSERT INTO preguntas VALUES(null,"¿Cuáles son los tipos de impacto?","Las sen
 
 INSERT INTO usuario VALUES (null,'Andres','MTIzNA==','andres1Duarte@gmail.com',"Duarte",'img/latest_blog/dini.png',2);
 
-INSERT INTO cursos VALUES (null,"Office", "https://www.youtube.com/watch?v=D_fgwhQwOr8", "Office 365", null, "img/courses/6.jpg", null);
+INSERT INTO cursos VALUES (null,"Office", "https://www.youtube.com/watch?v=D_fgwhQwOr8", "Office 365", "Word: Elabora impecables currículos, boletines y documentos, e invita a otros a revisar y ser coautores en tiempo real. Además, obtén acceso a plantillas gratuitas, herramientas de formato para el estilo APA, MLA y Chicago, y agrega funcionalidad con complementos gratuitos.
+Excel: Organiza tus datos en hojas de cálculo y libros familiares, con todos los cambios guardados automáticamente. Crea objetos visuales modernos que conviertan números en datos valiosos. Trabaja conjuntamente en tiempo real con la certeza de que todos están en la misma página.
+PowerPoint: Convierte tus ideas en persuasivas presentaciones utilizando plantillas de aspecto profesional. Usa animaciones, transiciones, fotos y videos online para contar historias únicas. Crea en coautoría presentaciones de equipo al mismo tiempo desde cualquier lugar.", "img/courses/6.jpg", null);
 
 INSERT INTO informacioncursos VALUES(null, 6, "https://www.youtube.com/watch?v=D_fgwhQwOr8", "img/latest_blog/6.jpg", 6, "Office 365, la herramienta que todos deberían aprender, que te abre nuevos caminos y nuevos horizontes siempre.", "Office 365", 89.0);
 

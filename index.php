@@ -95,7 +95,7 @@ if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==3) {
                                     <span>  <?php
 
                                        if (!isset($_SESSION['usuario'])) {
-                                           echo "Log In";
+                                           echo "Iniciar Sesión";
                                        } else {
                                            echo $_SESSION['usuario'];
                                        }?></span>
@@ -190,7 +190,7 @@ if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==3) {
     <!-- about_area_end -->
 
     <!-- popular_courses_start -->
-    <div class="popular_courses">
+    <div class="popular_courses"  style="padding-bottom:20px; padding-top:20px;">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -1609,8 +1609,8 @@ if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==3) {
     <!-- testimonial_area_end -->
 
     <!-- our_courses_start -->
-    <div class="our_courses">
-        <div class="container">
+    <div class="our_courses"style="padding-top:50px;">
+        <div class="container" >
             <div class="row">
                 <div class="col-xl-12">
                     <div class="section_title text-center mb-100">
@@ -1882,15 +1882,15 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
 
                 <?php if (empty($_SESSION['usuario'])) {
                                         ?>
-                <h3>Sign in</h3>
+                <h3>Iniciar Sesión</h3>
                 <form action="#">
                     <div class="row">
 
                         <div class="col-xl-12 col-md-12">
-                            <input type="email" name='emailsignin' placeholder="Enter email">
+                            <input type="email" name='emailsignin' placeholder="Ingresa tu email">
                         </div>
                         <div class="col-xl-12 col-md-12">
-                            <input type="password" name='passwordsignin' placeholder="Password">
+                            <input type="password" name='passwordsignin' placeholder="Contraseña" required>
                         </div>
                       <?php
                                     } ?>
@@ -1910,7 +1910,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                                   echo '</button>';
                               } else {
                                   echo '<button type="submit" formaction="index.php" class="boxed_btn_orange">';
-                                  echo "Sign in";
+                                  echo "Iniciar Sesión";
                               }
                                ?>
                              </button>
@@ -1938,7 +1938,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                 }
                     if (empty($_SESSION['usuario'])) {
                         ?>
-                <p class="doen_have_acc">Don’t have an account? <a class="dont-hav-acc" href="#test-form2">Sign Up</a>
+                <p class="doen_have_acc">¿No tienes una cuenta? <a class="dont-hav-acc" href="#test-form2">Regístrate aquí</a>
                 </p>
                 <?php
                     }?>
@@ -1956,30 +1956,30 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                         <img src="img/logo-nuevo.png" alt="">
                     </a>
                 </div>
-                <h3>Registration</h3>
+                <h3>Regístrate</h3>
                 <form action="" onSubmit="return validate()" >
                     <div class="row" >
                         <div class="col-xl-12 col-md-12" >
-                            <input type="text" id="name" name='name' placeholder="Enter name">
+                            <input type="text" id="name" name='name' placeholder="Ingresa tu nombre" required>
                         </div>
                         <div class="col-xl-12 col-md-12">
-                            <input type="text" id="lastname" name='lastname' placeholder="Enter last name">
+                            <input type="text" id="lastname" name='lastname' placeholder="Ingresa tu Apellido" required>
                         </div>
                         <div class="col-xl-12 col-md-12" >
-                            <input type="password" id='password' name='password' placeholder="Password">
+                            <input type="password" id='password' name='password' placeholder="Contraseña" required>
                         </div>
                         <div class="col-xl-12 col-md-12" >
 
-                            <input type="password" id='confirm_password' name='confirm_password' placeholder="Confirm password">
+                            <input type="password" id='confirm_password' name='confirm_password' placeholder="Confirma tu contraseña" required>
 
                         </div>
 
                         <div class="col-xl-12 col-md-12" >
-                            <input type="email" id="email" name='email' placeholder="Enter email">
+                            <input type="email" id="email" name='email' placeholder="Ingresa email" required>
                         </div>
                         <div class="col-xl-12">
                         <!-- <a href="login.php"  class="boxed_btn_orange" type="button">Sign Up</a> -->
-                        <button type="submit"  class="boxed_btn_orange">Sign Up</button>
+                        <button type="submit"  class="boxed_btn_orange">Registrarse</button>
                         </div>
 
                     </div>
