@@ -131,7 +131,11 @@ session_start();
 
 
         <div> 
-    <h3 align="left" style="padding-right: 100px; padding-left: 100px">Cursando:</h3>
+        <br>
+    <pre><h3 align="left" style="padding-right: 100px; padding-left: 100px">
+    
+    
+    Cursando:</h3></pre>
     <h2 style="color: black"> Todos los cursos que esta cursando </h2>
 </div>
 
