@@ -114,14 +114,25 @@ session_start();
         </div>
     </header>
     <!-- header-end -->
-
+<?php
+include_once 'backend/database.php';
+include_once 'backend/cursos.php';
+include_once 'backend/user.php';
+$database = new Database();
+$db = $database->getConnection();
+$course = new cursos($db);
+// $idcourse=$_GET['idcourse'];
+$idcourse=1;
+$array=$course->getCoursePerId($idcourse);
+$user = new User($db);
+?>
      <!-- bradcam_area_start -->
      <div class="courses_details_banner">
          <div class="container">
-         <h2 style="color:white"  align="center">CURSO DE ANDROID</h2>
+         <h2 style="color:white"  align="center">Curso de <?php echo $array['nombre'];?></h2>
              <div class="row">
                  <div class="col-xl-6">
-                            
+
 
                      </div>
                  </div>
@@ -136,19 +147,13 @@ session_start();
                 <div class="col-xl-7 col-lg-7">
                     <div class="single_courses" align="justify">
                         <h3>¿Qué es Android? Un poco de historia</h3>
-                        <p>Android es un Sistema Operativo Open Source basado en el Kernel de Linux, su creador fue Andy Rubin y posteriormente fue adquirido por Google en 2005.
-
-Desde 2007 Android pertenece al Open Handset Alliance lo que lo hizo despegar y dominar en la mayoría de las marcas de dispositivos móviles. Este es un consorcio compuesto por las marcas de hardware en el mercado, en él se encuentra Samsung, LG, Sony, Toshiba, Dell, etc.
-
-Android se ha mantenido a la vanguardia y en constante evolución, ha liberado multitud de versiones que al estar disponibles en diferentes tipos y gamas de hardware lo hacen más accesible. Como contexto histórico cada vez que se liberaba un feature de software se liberaba un aditamento de hardware también lo que traía innovación por ambas partes.
-
-Android poco a poco se fue convirtiendo en el favorito de los usuarios porque ponía al alcance de muchos, alta tecnología. Al crecer tanto este mercado, trajo consigo una demanda de desarrolladores que conocieran la filosofía del Sistema Operativo y los retos de dar soporte a múltiples gamas de dispositivos.</p> <br>
+                        <p><?php echo $array['texto'];?></p> <br>
                     </div>
                 </div>
                             <div class="" align="center">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <img src="img/courses/Android11.jpg">       
-                            </div>   
+                                <img src="<?php echo $array['imagen'];?>">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -156,229 +161,20 @@ Android poco a poco se fue convirtiendo en el favorito de los usuarios porque po
         </div>
     </div>
                     <div class="courses_sidebar" align = "center">
-                    <a href = "https://www.youtube.com/watch?v=P9ZFhTw2hGA" target = "_blank" >
-    
+                    <a href = "<?php echo $array['linkvideo'];?>" target = "_blank" >
+
         <img src="img/courses/video.jpg"><br><br><br><br>
-       
-                           
-
-                            
-                            
-                        </div>
 
 
-                        
 
 
-    <!-- testimonial_area_start -->
-   <!-- <div class="testimonial_area testimonial_bg_1 overlay">
-        <div class="testmonial_active owl-carousel">
-            <div class="single_testmoial">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="testmonial_text text-center">
-                                <div class="author_img">
-                                    <img src="img/testmonial/author_img.png" alt="">
-                                </div>
-                                <p>
-                                    "Working in conjunction with humanitarian aid <br> agencies we have supported
-                                    programmes to <br>
-                                    alleviate.
-                                    human suffering.
 
-                                </p>
-                                <span>- Jquileen</span>
-                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single_testmoial">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="testmonial_text text-center">
-                                <div class="author_img">
-                                    <img src="img/testmonial/author_img.png" alt="">
-                                </div>
-                                <p>
-                                    "Working in conjunction with humanitarian aid <br> agencies we have supported
-                                    programmes to <br>
-                                    alleviate.
-                                    human suffering.
 
-                                </p>
-                                <span>- Jquileen</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- testimonial_area_end -->
 
-    <!-- our_courses_start -->
-    <!--<div class="our_courses">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="section_title text-center mb-100">
-                        <h3>Our Course Speciality</h3>
-                        <p>Your domain control panel is designed for ease-of-use and <br>
-                            allows for all aspects of your domains.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-3 col-md-6 col-lg-6">
-                    <div class="single_course text-center">
-                        <div class="icon">
-                            <i class="flaticon-art-and-design"></i>
-                        </div>
-                        <h3>Premium Quality</h3>
-                        <p>
-                            Your domain control panel is designed for ease-of-use <br> and <br>
-                            allows for all aspects of
-                        </p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 col-lg-6">
-                    <div class="single_course text-center">
-                        <div class="icon blue">
-                            <i class="flaticon-business-and-finance"></i>
-                        </div>
-                        <h3>Premium Quality</h3>
-                        <p>
-                            Your domain control panel is designed for ease-of-use <br> and <br>
-                            allows for all aspects of
-                        </p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 col-lg-6">
-                    <div class="single_course text-center">
-                        <div class="icon">
-                            <i class="flaticon-premium"></i>
-                        </div>
-                        <h3>Premium Quality</h3>
-                        <p>
-                            Your domain control panel is designed for ease-of-use <br> and <br>
-                            allows for all aspects of
-                        </p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 col-lg-6">
-                    <div class="single_course text-center">
-                        <div class="icon gradient">
-                            <i class="flaticon-crown"></i>
-                        </div>
-                        <h3>Premium Quality</h3>
-                        <p>
-                            Your domain control panel is designed for ease-of-use <br> and <br>
-                            allows for all aspects of
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- our_courses_end -->
 
-    <!-- subscribe_newsletter_Start -->
-   <!-- <div class="subscribe_newsletter">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-6 col-lg-6">
-                    <div class="newsletter_text">
-                        <h3>Subscribe Newsletter</h3>
-                        <p>Your domain control panel is designed for ease-of-use and allows for all aspects of your</p>
-                    </div>
-                </div>
-                <div class="col-xl-5 offset-xl-1 col-lg-6">
-                    <div class="newsletter_form">
-                        <h4>Your domain control panel is</h4>
-                        <form action="#" class="newsletter_form">
-                            <input type="text" placeholder="Enter your mail">
-                            <button type="submit">Sign Up</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- subscribe_newsletter_end -->
 
-    <!-- our_latest_blog_start -->
-   <!-- <div class="our_latest_blog">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="section_title text-center mb-100">
-                        <h3>Our Latest Blog</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-4 col-md-4">
-                    <div class="single_latest_blog">
-                        <div class="thumb">
-                            <img src="img/latest_blog/1.png" alt="">
-                        </div>
-                        <div class="content_blog">
-                            <div class="date">
-                                <p>12 Jun, 2019 in <a href="#">Design tips</a></p>
-                            </div>
-                            <div class="blog_meta">
-                                <h3><a href="#">Commitment to dedicated Support</a></h3>
-                            </div>
-                            <p class="blog_text">
-                                Firmament morning sixth subdue darkness creeping gathered divide.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-4">
-                    <div class="single_latest_blog">
-                        <div class="thumb">
-                            <img src="img/latest_blog/2.png" alt="">
-                        </div>
-                        <div class="content_blog">
-                            <div class="date">
-                                <p>12 Jun, 2019 in <a href="#">Design tips</a></p>
-                            </div>
-                            <div class="blog_meta">
-                                <h3><a href="#">Commitment to dedicated Support</a></h3>
-                            </div>
-                            <p class="blog_text">
-                                Firmament morning sixth subdue darkness creeping gathered divide.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-4">
-                    <div class="single_latest_blog">
-                        <div class="thumb">
-                            <img src="img/latest_blog/3.png" alt="">
-                        </div>
-                        <div class="content_blog">
-                            <div class="date">
-                                <p>12 Jun, 2019 in <a href="#">Design tips</a></p>
-                            </div>
-                            <div class="blog_meta">
-                                <h3><a href="#">Commitment to dedicated Support</a></h3>
-                            </div>
-                            <p class="blog_text">
-                                Firmament morning sixth subdue darkness creeping gathered divide.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- our_latest_blog_end -->
+
 
 
     <!-- footer -->
@@ -491,7 +287,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                     </a>
                 </div>
                 <?php if (empty($_SESSION['usuario'])) {
-                                           ?>
+    ?>
                 <h3>Sign in</h3>
                 <form action="#">
                     <div class="row">
@@ -503,7 +299,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                             <input type="password" name='passwordsignin' placeholder="Password">
                         </div>
                       <?php
-                                       } ?>
+} ?>
                         <div class="col-xl-12">
 
                               <?php

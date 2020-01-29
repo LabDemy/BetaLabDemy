@@ -95,10 +95,10 @@ class cursos
     public function getCoursePerId($idcourse)
     {
         $sql = 'SELECT * from cursos where id='.$idcourse.';';
+
         $result = $this->conn->query($sql);
         $result->setFetchMode(PDO::FETCH_ASSOC);
         $var=$result->fetch();
-
         return $var;
     }
     public function getCourseInformationPerId($idcourse)
@@ -155,6 +155,77 @@ class cursos
     public function setTituloInformation($idtitulo, $id)
     {
         $sql = 'UPDATE informacioncursos SET titulo="'.$idtitulo.'"where id='.$id.';';
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+        $fila=$this->getIdCourses($id)->fetch();
+
+        $sql = 'UPDATE cursos SET titulo="'.$idtitulo.'"where id='.$fila['id'].';';
+
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+    }
+    public function setImagen($imagen, $id)
+    {
+        $sql = 'UPDATE informacioncursos SET imagenvideo="'.$imagen.'"where id='.$id.';';
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+    }
+    public function setLinkVideo($video, $id)
+    {
+        $sql = 'UPDATE informacioncursos SET linkvideo="'.$video.'"where id='.$id.';';
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+    }
+    public function setObjective($objetivo, $id)
+    {
+        $sql = 'UPDATE objetivos SET objetivo="'.$objetivo.'"where id='.$id.';';
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+    }
+    public function setQuestion($pregunta, $id)
+    {
+        $sql = 'UPDATE preguntas SET pregunta="'.$pregunta.'"where id='.$id.';';
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+    }
+    public function setAnswer($respuesta, $id)
+    {
+        $sql = 'UPDATE preguntas SET respuesta="'.$respuesta.'"where id='.$id.';';
+
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+    }
+    public function addObjective($objetivo, $idinformation)
+    {
+        $sql = "INSERT INTO objetivos VALUES (null,'$objetivo','$idinformation');";
+
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+    }
+    public function deleteObjective($id)
+    {
+        $sql = "DELETE FROM objetivos where id='$id';";
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+    }
+    public function getIdCourses($idinformation)
+    {
+        $sql = 'SELECT * from informacioncursos where id_curso='.$idinformation.';';
+
+        $result = $this->conn->query($sql);
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        return $result;
+    }
+    public function setMessageTeacher($message, $id)
+    {
+        $sql = 'UPDATE informacioncursos SET mensajeDocente="'.$message.'"where id='.$id.';';
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+    }
+    public function addQuestionAnswer($pregunta, $respuesta, $idinformation)
+    {
+        $sql = "INSERT INTO objetivos VALUES (null,'$pregunta','$respuesta','$idinformation');";
+
         $result = $this->conn->prepare($sql);
         $result->execute();
     }

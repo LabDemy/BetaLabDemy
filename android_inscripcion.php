@@ -145,27 +145,26 @@ session_start();
          $arraydocente=$user->getUser($array['id_docente']);
 
      ?>
+    <form class="form-container"  method="post" enctype="multipart/form-data">
      <div class="courses_details_banner">
          <div class="container">
              <div class="row">
+
                  <div class="col-xl-6">
                      <div class="course_text">
                         <?php
-                        if (!empty($_SESSION) and $_SESSION['tipo']==2) {
+                        if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==2) {
                             ?>
-                        <form role="form" method="post">
+
+                          <h3>Titulo</h3>
                             <div class="form-group">
-                                <textarea class="form-control letra" rows="2" id="comentarios" name="comentarios">
-                                  <?php echo $array['titulo']; ?>
+
+                                <textarea class="form-control letra" rows="2" id="comentarios" name="comentarios"><?php echo $array['titulo']; ?>
                                 </textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary py-2 px-2 text-white">ACEPTAR CAMBIOS</button>
-                                </form>
+
+                                <!-- </form> -->
                                 <?php
-                                if (!empty($_POST['comentarios'])) {
-                                    $course->setTituloInformation($_POST['comentarios'], $idcourse);
-                                    echo "<meta http-equiv='refresh' content='0'>";
-                                }
                         } else {
                             ?>
                             <h3><?php
@@ -211,19 +210,62 @@ session_start();
                     <div class="single_courses">
                         <h3>Objetivos</h3>
                         <?php
+                        if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==2) {
+                            ?>
+                        <!-- <form role="form" method="post"> -->
+
+                            <div class="form-group">
+
+                              <?php
+                              $objetivos=$course->getObjetivos($array['id']);
+
+                            $var=0;
+                            while ($fila=$objetivos->fetch()) {
+                                if ($var==0) {
+                                    ?>
+                                          <textarea class="form-control letra" rows="2" id="objetivo" name="objetivo[<?php echo $fila['id']; ?>]"><?php echo $fila['objetivo']; ?>
+                                          </textarea> <br>
+
+                                            <button type="submit" class="btn btn-primary py-2 px-2 text-white">Editar objetivo principal</button><br><br>
+                                <?php
+                                $var=1;
+                                } else {
+                                    ?>
+                                          <textarea class="form-control letra" rows="2" id="objetivo<?php echo $var; ?>" name="objetivo[<?php echo $fila['id']; ?>]"><?php echo $fila['objetivo']; ?>
+                                          </textarea><br>
+
+                                            <a href="eliminarObjetivo.php?id=<?php echo $fila['id']."&idcourse=".$idcourse; ?>" type="submit" class="btn btn-primary py-2 px-2 text-white">Eliminar objetivo</a><br><br>
+                              <?php
+                                  $var=$var+1;
+                                }
+                            } ?>
+                            <textarea class="form-control letra" rows="2" id="objetivonuevo" name="objetivonuevo"></textarea><br>
+
+                                </div>
+
+                        <!-- </form> -->
+                                <?php
+                                // if (!empty($_POST['objetivos'])) {
+                                //     $course->setObjective($_POST['objetivos'], $idcourse);
+                                //     echo "<meta http-equiv='refresh' content='0'>";
+                                // }
+                        } else {
+                            ?>
+                        <?php
                         $objetivos=$course->getObjetivos($array['id']);
 
-                        $var=0;
-                        while ($fila=$objetivos->fetch()) {
-                            if ($var==0) {
-                                ?>
+                            $var=0;
+                            while ($fila=$objetivos->fetch()) {
+                                if ($var==0) {
+                                    ?>
                         <p><?php echo $fila['objetivo'];
-                                $var=1; ?></p> <br>
+                                    $var=1; ?></p> <br>
                           <?php
-                            } else {
-                                ?>
+                                } else {
+                                    ?>
                         <p>&#10004; <?php echo $fila['objetivo']; ?><p><br>
                         <?php
+                                }
                             }
                         }
                         ?>
@@ -232,51 +274,140 @@ session_start();
                     </div>
                     <div class="outline_courses_info">
                             <div id="accordion">
+
                               <?php
                               $preguntas = $course->getPreguntas($array['id']);
                               $contador="headingTwo";
                               $contador2="collapseTwo";
+
                               while ($fila=$preguntas->fetch()) {
                                   ?>
+                                  <?php
+                                  if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==2) {
+                                      // $contador="headingTwo";
+                                      // $contador2="collapseTwo";?>
+                                  <!-- <form role="form" method="post"> -->
+
+                                      <div class="form-group">
+
+
+                                                    <textarea class="form-control letra" rows="2" id="<?php echo $contador; ?>" name="pregunta[<?php echo $fila['id']; ?>]"><?php echo $fila['pregunta']; ?>
+                                                    </textarea> <br>
+                                                    <textarea class="form-control letra" rows="2" id="<?php echo $contador2; ?>" name="respuesta[<?php echo $fila['id']; ?>]"><?php echo $fila['respuesta']; ?>
+                                                    </textarea> <br>
+
+
+                                    <!-- </form> -->
+
+                                    </div>
+
+                                        <?php
+
+                                        $contador=$contador."1";
+                                      $contador2=$contador2."1";
+                                  } else {
+                                      ?>
+
+
+
                                     <div class="card">
                                         <div class="card-header" id="<?php echo $contador?>">
                                             <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#<?php echo $contador2?>" aria-expanded="false"  aria-controls="<?php echo $contador2?>">
+                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#<?php echo $contador2; ?>" aria-expanded="false"  aria-controls="<?php echo $contador2; ?>">
                                                     <i class="flaticon-question"></i>
-                                                    <respuestas  >
-
-                                                       <?php
-                                                      echo $fila['pregunta']; ?>
-                                                    </respuestas>
+                                                    <respuestas><?php echo $fila['pregunta']; ?></respuestas>
                                                 </button>
                                             </h5>
                                         </div>
-                                        <div id="<?php echo $contador2?>" class="collapse" aria-labelledby="<?php echo $contador?>" data-parent="#accordion">
-                                            <!-- <div class="card-body"> -->
-                                                <respuestas>
-                                                  <?php
-                                                    echo $fila['respuesta']; ?>
-                                                      </respuestas>
-                                            <!-- </div> -->
+                                        <div id="<?php echo $contador2; ?>" class="collapse" aria-labelledby="<?php echo $contador; ?>" data-parent="#accordion">
+                                          <respuestas><?php echo $fila['respuesta']; ?></respuestas>
                                         </div>
                                     </div>
                                     <?php
                                     $contador=$contador."1";
-                                  $contador2=$contador2."1";
+                                      $contador2=$contador2."1";
+                                  }
                               }
 
 
+
+                                if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==2) {
                                     ?>
+                                    <form method="post" action="addpregunta.php" >
+                                    <textarea class="form-control letra" rows="2" id="nuevapregunta" name="nuevapregunta"></textarea> <br>
+                                    <textarea class="form-control letra" rows="2" id="nuevarespuesta" name="nuevarespuesta"></textarea> <br>
+                                    <button type="submit" class="btn btn-primary py-2 px-2 text-white">ACEPTAR CAMBIOS</button>
+                                  </form>
+                                    <?php
+                                }
+                                      if (!empty($_POST)) {
+                                          $my_folder = "img/";
+
+                                          if (move_uploaded_file($_FILES['myFile']['tmp_name'], $my_folder . $_FILES['myFile']['name'])) {
+                                              $imagenvideo=$my_folder.basename($_FILES['myFile']['name']);
+                                              chmod($imagenvideo, 0777);
+                                              $course->setImagen($imagenvideo, $idcourse);
+                                          } else {
+                                              echo "No se logro subir la imagen";
+                                          }
+                                          if ($_POST['objetivonuevo']!="") {
+                                              $course->addObjective($_POST['objetivonuevo'], $idcourse);
+                                          }
+                                          if ($_POST['nuevapregunta']!="" and $_POST['nuevarespuesta']!="") {
+                                              $course->addQuestionAnswer($_POST['nuevapregunta'], $_POST['nuevarespuesta'], $idcourse);
+                                          }
+                                          $course->setTituloInformation($_POST['comentarios'], $idcourse);
+                                          $course->setLinkVideo($_POST['linkvideo'], $idcourse);
+                                          $course->setMessageTeacher($_POST['mensajeDocente'], $idcourse);
+                                          // while ($arrayobjetivos=$_POST['objetivo']->fetch()) {
+                                          //   $course->setObjective($arrayobjetivos[''],$idcourse);
+                                          // }
+                                          foreach ($_POST['objetivo'] as $key => $value) {
+                                              $course->setObjective($value, $key);
+                                          }
+                                          foreach ($_POST['pregunta'] as $key => $value) {
+                                              $course->setQuestion($value, $key);
+                                          }
+                                          foreach ($_POST['respuesta'] as $key => $value) {
+                                              $course->setAnswer($value, $key);
+                                          }
+
+                                          echo "<meta http-equiv='refresh' content='0'>";
+                                      }
+                                    ?>
+
                             </div>
                     </div>
                 </div>
                 <div class="col-xl-5 col-lg-5">
                     <div class="courses_sidebar">
                         <div class="video_thumb">
-                            <img src="<?php echo $array['imagenvideo'];?>" alt="">
-                            <a class="popup-video" href="<?php echo $array['linkvideo'];?>">
+                          <?php
+                          if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==2) {
+                              ?>
+                          <!-- <form role="form" method="post"> -->
+
+                              <div class="form-group">
+                                   <h3>Imagen</h3>
+                                   <div class="form-group">
+                                   <input type="file" name="myFile" class="form-control">
+                                   <?php echo $array['imagenvideo']; ?>
+                                   </div>
+                                  <h3>Link del video</h3>
+                                  <textarea class="form-control letra" rows="2" id="linkvideo" name="linkvideo"><?php echo $array['linkvideo']; ?>
+                                  </textarea>
+                                  </div>
+
+                                  <!-- </form> -->
+                                  <?php
+                          } else {
+                              ?>
+                            <img src="<?php echo $array['imagenvideo']; ?>" alt="">
+                            <a class="popup-video" href="<?php echo $array['linkvideo']; ?>">
                                 <i class="fa fa-play"></i>
                             </a>
+                            <?php
+                          }?>
                         </div>
                         <div class="author_info">
                             <div class="auhor_header">
@@ -288,9 +419,19 @@ session_start();
                                     <p>Desarrollador de Android</p>
                                 </div>
                             </div>
+                            <?php
+                            if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==2) {
+                                ?>
+                              <textarea class="form-control letra" rows="2" id="mensajeDocente" name="mensajeDocente"><?php echo $array['mensajeDocente']; ?>
+                              </textarea>
+                              <?php
+                            } else {
+                                ?>
                             <p class="text_info">
-                               "El desarrollo de Android es clave para un futuro lleno de tecnología"
+                               <?php echo $array['mensajeDocente']; ?>
                             </p>
+                          <?php
+                            } ?>
                             <ul>
                                 <li><a href="#"> <i class="fa fa-envelope"></i> </a></li>
                                 <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
@@ -307,10 +448,10 @@ session_start();
                             <i class="flaticon-mark-as-favorite-star"></i>
                             <i class="flaticon-mark-as-favorite-star"></i>
 
-                        <form action="#">
+
                                 <textarea name="" id="" cols="30" rows="10" placeholder="Escríbenos"></textarea>
                                 <button type="submit" class="boxed_btn">Enviar</button>
-                            </form>
+
                         </div>
                     </div>
                 </div>
@@ -318,219 +459,7 @@ session_start();
         </div>
     </div>
 
-
-
-
-    <!-- testimonial_area_start -->
-   <!-- <div class="testimonial_area testimonial_bg_1 overlay">
-        <div class="testmonial_active owl-carousel">
-            <div class="single_testmoial">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="testmonial_text text-center">
-                                <div class="author_img">
-                                    <img src="img/testmonial/author_img.png" alt="">
-                                </div>
-                                <p>
-                                    "Working in conjunction with humanitarian aid <br> agencies we have supported
-                                    programmes to <br>
-                                    alleviate.
-                                    human suffering.
-
-                                </p>
-                                <span>- Jquileen</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single_testmoial">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="testmonial_text text-center">
-                                <div class="author_img">
-                                    <img src="img/testmonial/author_img.png" alt="">
-                                </div>
-                                <p>
-                                    "Working in conjunction with humanitarian aid <br> agencies we have supported
-                                    programmes to <br>
-                                    alleviate.
-                                    human suffering.
-
-                                </p>
-                                <span>- Jquileen</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- testimonial_area_end -->
-
-    <!-- our_courses_start -->
-    <!--<div class="our_courses">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="section_title text-center mb-100">
-                        <h3>Our Course Speciality</h3>
-                        <p>Your domain control panel is designed for ease-of-use and <br>
-                            allows for all aspects of your domains.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-3 col-md-6 col-lg-6">
-                    <div class="single_course text-center">
-                        <div class="icon">
-                            <i class="flaticon-art-and-design"></i>
-                        </div>
-                        <h3>Premium Quality</h3>
-                        <p>
-                            Your domain control panel is designed for ease-of-use <br> and <br>
-                            allows for all aspects of
-                        </p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 col-lg-6">
-                    <div class="single_course text-center">
-                        <div class="icon blue">
-                            <i class="flaticon-business-and-finance"></i>
-                        </div>
-                        <h3>Premium Quality</h3>
-                        <p>
-                            Your domain control panel is designed for ease-of-use <br> and <br>
-                            allows for all aspects of
-                        </p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 col-lg-6">
-                    <div class="single_course text-center">
-                        <div class="icon">
-                            <i class="flaticon-premium"></i>
-                        </div>
-                        <h3>Premium Quality</h3>
-                        <p>
-                            Your domain control panel is designed for ease-of-use <br> and <br>
-                            allows for all aspects of
-                        </p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 col-lg-6">
-                    <div class="single_course text-center">
-                        <div class="icon gradient">
-                            <i class="flaticon-crown"></i>
-                        </div>
-                        <h3>Premium Quality</h3>
-                        <p>
-                            Your domain control panel is designed for ease-of-use <br> and <br>
-                            allows for all aspects of
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- our_courses_end -->
-
-    <!-- subscribe_newsletter_Start -->
-   <!-- <div class="subscribe_newsletter">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-6 col-lg-6">
-                    <div class="newsletter_text">
-                        <h3>Subscribe Newsletter</h3>
-                        <p>Your domain control panel is designed for ease-of-use and allows for all aspects of your</p>
-                    </div>
-                </div>
-                <div class="col-xl-5 offset-xl-1 col-lg-6">
-                    <div class="newsletter_form">
-                        <h4>Your domain control panel is</h4>
-                        <form action="#" class="newsletter_form">
-                            <input type="text" placeholder="Enter your mail">
-                            <button type="submit">Sign Up</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- subscribe_newsletter_end -->
-
-    <!-- our_latest_blog_start -->
-   <!-- <div class="our_latest_blog">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="section_title text-center mb-100">
-                        <h3>Our Latest Blog</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-4 col-md-4">
-                    <div class="single_latest_blog">
-                        <div class="thumb">
-                            <img src="img/latest_blog/1.png" alt="">
-                        </div>
-                        <div class="content_blog">
-                            <div class="date">
-                                <p>12 Jun, 2019 in <a href="#">Design tips</a></p>
-                            </div>
-                            <div class="blog_meta">
-                                <h3><a href="#">Commitment to dedicated Support</a></h3>
-                            </div>
-                            <p class="blog_text">
-                                Firmament morning sixth subdue darkness creeping gathered divide.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-4">
-                    <div class="single_latest_blog">
-                        <div class="thumb">
-                            <img src="img/latest_blog/2.png" alt="">
-                        </div>
-                        <div class="content_blog">
-                            <div class="date">
-                                <p>12 Jun, 2019 in <a href="#">Design tips</a></p>
-                            </div>
-                            <div class="blog_meta">
-                                <h3><a href="#">Commitment to dedicated Support</a></h3>
-                            </div>
-                            <p class="blog_text">
-                                Firmament morning sixth subdue darkness creeping gathered divide.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-4">
-                    <div class="single_latest_blog">
-                        <div class="thumb">
-                            <img src="img/latest_blog/3.png" alt="">
-                        </div>
-                        <div class="content_blog">
-                            <div class="date">
-                                <p>12 Jun, 2019 in <a href="#">Design tips</a></p>
-                            </div>
-                            <div class="blog_meta">
-                                <h3><a href="#">Commitment to dedicated Support</a></h3>
-                            </div>
-                            <p class="blog_text">
-                                Firmament morning sixth subdue darkness creeping gathered divide.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- our_latest_blog_end -->
-
+  </form>
 
     <!-- footer -->
     <footer class="footer footer_bg_1">
@@ -643,7 +572,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                 </div>
 
                 <?php if (empty($_SESSION['usuario'])) {
-                                        ?>
+                                ?>
                 <h3>Sign in</h3>
                 <form action="#">
                     <div class="row">
@@ -655,7 +584,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                             <input type="password" name='passwordsignin' placeholder="Password">
                         </div>
                       <?php
-                                    } ?>
+                            } ?>
                         <div class="col-xl-12">
 
                               <?php

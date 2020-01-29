@@ -43,25 +43,25 @@
               <div class="input-group-append">
                 <span class="input-group-text"><i class="fas fa-address-card"></i></span>
               </div>
-              <input type="text" name="name" class="form-control input_user" value="" placeholder="Nombre">
+              <input type="text" name="name" class="form-control input_user" value="" placeholder="Nombre" required>
             </div>
             <div class="input-group mb-3">
               <div class="input-group-append">
                 <span class="input-group-text"><i class="fas fa-address-book"></i></span>
               </div>
-              <input type="text" name="lastname" class="form-control input_user" value="" placeholder="Apellido">
+              <input type="text" name="lastname" class="form-control input_user" value="" placeholder="Apellido" required>
             </div>
             <div class="input-group mb-3">
               <div class="input-group-append">
                 <span class="input-group-text"><i class="fa fa-at" aria-hidden="true"></i></span>
               </div>
-              <input type="mail" name="email" class="form-control input_pass" value="" placeholder="Mail">
+              <input type="mail" name="email" class="form-control input_pass" value="" placeholder="Mail" required>
             </div>
             <div class="input-group mb-3">
               <div class="input-group-append">
                 <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></i></span>
               </div>
-              <input type="password" name="password" class="form-control input_pass" value="" placeholder="Contraseña">
+              <input type="password" name="password" class="form-control input_pass" value="" placeholder="Contraseña" required>
             </div>
             <div class="form-group">
               <div class="custom-control custom-checkbox">
