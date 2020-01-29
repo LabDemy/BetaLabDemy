@@ -69,7 +69,7 @@ if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==3) {
                                     <ul id="navigation">
                                         <li><a class="active" href="index.php">Inicio</a></li>
                                         <li><a  href="courses.php">Cursos</a></li>
-                                        <li><a href="onprocess.php">Planes <i class="ti-angle-down"></i></a>
+                                        <li><a href="planes.php">Planes <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="course_details.html">Detalles</a></li>
                                                 <!--li><a href="elements.html">elements</a></li-->
@@ -1831,7 +1831,7 @@ if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==3) {
                             <ul>
                                 <li><a href="#">Inicio</a></li>
                                 <li><a href="#">Cursos</a></li>
-                                <li><a href="onprocess.php">Planes</a></li>
+                                <li><a href="planes.php">Planes</a></li>
                                 <li><a href="#">Nosotros</a></li>
                                 <li><a href="#">Contacto</a></li>
                             </ul>

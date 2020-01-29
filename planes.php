@@ -64,15 +64,15 @@ session_start();
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a  href="index.php">Inicio</a></li>
-                                        <li><a href="courses.php">Cursos</a></li>
+                                        <li><a class="active" href="index.php">Inicio</a></li>
+                                        <li><a  href="courses.php">Cursos</a></li>
                                         <li><a href="onprocess.php">Planes <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="course_details.html">Detalles</a></li>
                                                 <!--li><a href="elements.html">elements</a></li-->
                                             </ul>
                                         </li>
-                                        <li><a  href="about.php">Nosotros</a></li>
+                                        <li><a href="about.php">Nosotros</a></li>
                                         <!--li><a href="#">blog <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html">blog</a></li>
@@ -92,7 +92,7 @@ session_start();
                                     <span>  <?php
 
                                        if (!isset($_SESSION['usuario'])) {
-                                           echo "Log In";
+                                           echo "Iniciar Sesión";
                                        } else {
                                            echo $_SESSION['usuario'];
                                        }?></span>
