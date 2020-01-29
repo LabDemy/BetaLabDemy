@@ -149,7 +149,7 @@ $db = $database->getConnection();
                                 <li class="nav-item">
                                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
                                         aria-controls="Crecimiento Profesional" aria-selected="false">Crecimiento Profesional</a>
-                        
+
                                 <li class="nav-item">
                                     <a class="nav-link" id="design-tab" data-toggle="tab" href="#design" role="tab"
                                         aria-controls="design" aria-selected="false">UX/UI</a>
@@ -166,7 +166,7 @@ $db = $database->getConnection();
                                     <a class="nav-link" id="Adobe-XD-tab8" data-toggle="tab" href="#Adobe-XD8" role="tab"
                                         aria-controls="design" aria-selected="false">Otros</a>
                                 </li>
-                                
+
                             </ul>
                         </nav>
                     </div>
@@ -304,8 +304,8 @@ $db = $database->getConnection();
                                             </div>
                                         </div>
                                     </div>
-                                    
-                
+
+
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                             <div class="row">
                                     <div class="col-xl-4 col-lg-4 col-md-6">
@@ -1445,11 +1445,11 @@ $db = $database->getConnection();
     </div>
     <!-- popular_courses_end-->
 
-    <!-- Descanso --> 
+    <!-- Descanso -->
     <div>
         <img src="img/banner/descanso2.jpg">
     </div>
-    
+
     <!-- CURSOS DEL USUARIO -->
     <div class="our_courses" style="padding-top:50px;">
         <div class="container">
@@ -1486,13 +1486,13 @@ $db = $database->getConnection();
                       <div class="col-xl-12 col-lg-12 col-md-9">
                       <div class="single_courses">
                           <div class="thumb">
-                              <a href="android_inscripcion.php?idcourse=<?php echo $fila['id']; ?>">
+                              <a href="android_curso.php?idcourse=<?php echo $fila['id']; ?>">
                                   <img src="<?php echo $fila['imagen']; ?>" alt="">
                               </a>
                           </div>
                           <div class="courses_info">
                           <span><?php echo $fila['nombre']; ?></span>
-                              <h3><a href="android_inscripcion.php?idcourse=<?php echo $fila['id']; ?>"><?php echo $fila['titulo']; ?><br>
+                              <h3><a href="android_curso.php?idcourse=<?php echo $fila['id']; ?>"><?php echo $fila['titulo']; ?><br>
                                       </a></h3>
 
                           </div>
