@@ -95,10 +95,10 @@ class cursos
     public function getCoursePerId($idcourse)
     {
         $sql = 'SELECT * from cursos where id='.$idcourse.';';
+
         $result = $this->conn->query($sql);
         $result->setFetchMode(PDO::FETCH_ASSOC);
         $var=$result->fetch();
-
         return $var;
     }
     public function getCourseInformationPerId($idcourse)
