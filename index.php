@@ -1905,7 +1905,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                                   echo "<p>";
                                   echo "<p>";
                                   echo "<p>";
-                                  echo '<button type="submit" formaction="onprocess.php" class="boxed_btn_orange">';
+                                  $var=$_SESSION['id'];
+                                  echo "<button type='submit' formaction='perfil.php?id=$var' class='boxed_btn_orange'>";
                                   echo "Ver perfil";
                                   echo '</button>';
                               } else {

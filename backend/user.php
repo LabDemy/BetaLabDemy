@@ -162,4 +162,17 @@ class User implements \Serializable
         $result->setFetchMode(PDO::FETCH_ASSOC);
         $fila = $result->fetch();
     }
+    public function setImagenUser($imagen, $id)
+    {
+        $sql = 'UPDATE usuario SET imagen="'.$imagen.'"where id='.$id.';';
+
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+    }
+    public function setNewPassword($password, $id)
+    {
+        $sql = 'UPDATE usuario SET password="'.$password.'"where id='.$id.';';
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+    }
 }

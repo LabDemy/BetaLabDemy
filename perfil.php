@@ -120,23 +120,119 @@ session_start();
             <!-- bradcam_area_end -->
 
     <!-- ================ perfil inicio ================= -->
-   
-   <div style="padding-top:50px; padding-bottom:50px" ; align="center"> 
-    <img src="img/team/emmi.png">
-    <h3 style="padding-top:15px;"> Nombre del usuario </h3>
-    <i class="fa fa-address-book" aria-hidden="true"></i> Nombre y Apellido <br>
-    <i class="fa fa-envelope-o" aria-hidden="true"></i> Correo <br>
-    <i class="fa fa-wrench" aria-hidden="true"></i> Cambiar Contraseña &nbsp;&nbsp;&nbsp;
-    <i class="fa fa-wrench" aria-hidden="true"></i> Cambiar foto de perfil
+
+   <?php
+        include_once 'backend/database.php';
+        include_once 'backend/cursos.php';
+        include_once 'backend/user.php';
+        $database = new Database();
+        $db = $database->getConnection();
+        $usuario = new User($db);
+        $array=$usuario->getUser($_GET['id']);
+        $iduser=$_GET['id'];
+
+   ?>
+   <div style="padding-top:50px; padding-bottom:50px" ; align="center">
+    <img src="<?php  echo $array['imagen']; ?>">
+
+    <h3 style="padding-top:15px;"> <?php  echo $array['nombre']; ?> </h3>
+    <i class="fa fa-address-book" aria-hidden="true"></i> <?php  echo $array['nombre']." ".$array['lastname']; ?>  <br>
+    <i class="fa fa-envelope-o" aria-hidden="true"></i> <?php  echo $array['email']; ?> <br>
+    <form class="form-container"  method="post" enctype="multipart/form-data" onSubmit="return validate()">
+    <i class="fa fa-wrench" aria-hidden="true"><input type="password"class="form-control w-100" name="password" id="password" cols="20" rows="1" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ingresa el mensaje'" placeholder="Ingresa nueva contraseña"></input></i> &nbsp;&nbsp;&nbsp;
+    <i class="fa fa-wrench" aria-hidden="true"><input type="password" class="form-control w-100" name="confirm_password" id="confirm_password" cols="20" rows="1" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ingresa el mensaje'" placeholder="Confirma nueva contraseña"></input></i> &nbsp;&nbsp;&nbsp;
+    <br><br><i class="fa fa-wrench" aria-hidden="true">
+           <div class="form-group"><input type="file" name="myFile" class="form-control"></div></i><br><br>
+    <button type="submit" class="btn btn-primary py-2 px-2 text-white">ACEPTAR CAMBIOS</button>
+  </form>
+<?php
+$my_folder = "img/";
+if (!empty($_FILES) and move_uploaded_file($_FILES['myFile']['tmp_name'], $my_folder . $_FILES['myFile']['name'])) {
+    echo "sdasa";
+    $imagenperfil=$my_folder.basename($_FILES['myFile']['name']);
+    chmod($imagenperfil, 0777);
+
+    $usuario->setImagenUser($imagenperfil, $iduser);
+}
+ if (!empty($_POST['password'])) {
+     $usuario->setNewPassword(base64_encode($_POST['password']), $iduser);
+ }
+
+?>
 
 
-        <div> 
+        <div>
         <br>
-    <pre><h3 align="left" style="padding-right: 100px; padding-left: 100px">
-    
-    
-    Cursando:</h3></pre>
-    <h2 style="color: black"> Todos los cursos que esta cursando </h2>
+        <!-- CURSOS DEL USUARIO -->
+    <div class="our_courses" style="padding-top:50px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title text-center mb-100">
+                        <h3>Tus cursos <?php if (!empty($_SESSION['usuario'])) {
+    echo $_SESSION['usuario'];
+} else {
+    echo "<br><br>"."Inicia sesion para acceder a este seccion.";
+}?></h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+              <?php
+              $course = new cursos($db);
+                $user = new User($db);
+                  if (!empty($_SESSION['id'])) {
+                      $usuario=$user->getUser($_SESSION['id']);
+                      if ($usuario['tipo']==1) {
+                          $arrayCourses=$course->getCoursesPerUser($_SESSION['id']);
+                      } elseif ($usuario['tipo']==2) {
+                          $arrayCourses=$course->getCourseForTeacher($_SESSION['id']);
+                      }
+                      if (!empty($arrayCourses)) {
+                          while ($fila=$arrayCourses->fetch()) {
+                              $imagen= $fila['imagen']; ?>
+                      <div class="all_courses">
+                          <div class="container">
+                              <div class="tab-content" id="myTabContent">
+                                  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                      <div class="col-xl-12 col-lg-12 col-md-9">
+                      <div class="single_courses">
+                          <div class="thumb">
+                              <a href="android_curso.php?idcourse=<?php echo $fila['id']; ?>">
+                                  <img src="<?php echo $fila['imagen']; ?>" alt="">
+                              </a>
+                          </div>
+                          <div class="courses_info">
+                          <span><?php echo $fila['nombre']; ?></span>
+                              <h3><a href="android_curso.php?idcourse=<?php echo $fila['id']; ?>"><?php echo $fila['titulo']; ?><br>
+                                      </a></h3>
+
+                          </div>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            </div>
+            </div>
+              <?php
+                          }
+                      } else {
+                          echo "Inscribete a un curso primero!";
+                      }
+                  }
+              ?>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- FIN de cursos del usuario -->
+    <!-- <pre><h3 align="left" style="padding-right: 100px; padding-left: 100px">
+
+
+    Cursando:</h3></pre> -->
+
 </div>
 
    </div>
@@ -253,7 +349,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                 </div>
 
                 <?php if (empty($_SESSION['usuario'])) {
-                                           ?>
+                  ?>
                 <h3>Sign in</h3>
                 <form action="#">
                     <div class="row">
@@ -265,7 +361,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                             <input type="password" name='passwordsignin' placeholder="Password">
                         </div>
                       <?php
-                                       } ?>
+              } ?>
                         <div class="col-xl-12">
 
                               <?php
