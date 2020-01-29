@@ -224,7 +224,6 @@ include_once 'backend/database.php';
     if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==2) {
         ?>
         <button type="submit" class="btn btn-primary py-2 px-2 text-white">ACEPTAR CAMBIOS</button>
-
   <?php
     } ?>
     </form>
