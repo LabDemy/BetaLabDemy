@@ -1464,6 +1464,7 @@ $db = $database->getConnection();
                     </div>
                 </div>
             </div>
+
             <div class="row">
               <?php
               $course = new cursos($db);
@@ -1482,7 +1483,7 @@ $db = $database->getConnection();
                           <div class="container">
                               <div class="tab-content" id="myTabContent">
                                   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                      <div class="col-xl-4 col-lg-4 col-md-6">
+                      <div class="col-xl-12 col-lg-12 col-md-9">
                       <div class="single_courses">
                           <div class="thumb">
                               <a href="android_inscripcion.php?idcourse=<?php echo $fila['id']; ?>">
