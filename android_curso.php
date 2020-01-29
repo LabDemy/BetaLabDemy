@@ -129,7 +129,7 @@ include_once 'backend/database.php';
      $array=$course->getCoursePerId($idcourse);
      $user = new User($db); ?>
      <!-- bradcam_area_start -->
-     <form class="form-container"  method="post" enctype="multipart/form-data">
+  <form class="form-container"  method="post" enctype="multipart/form-data">
      <div class="courses_details_banner">
 
          <div class="container">
@@ -220,15 +220,13 @@ include_once 'backend/database.php';
       } ?>
 
     </div>
-
     <?php
     if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==2) {
         ?>
         <button type="submit" class="btn btn-primary py-2 px-2 text-white">ACEPTAR CAMBIOS</button>
-          </form>
-
   <?php
     } ?>
+    </form>
     <!-- footer -->
     <footer class="footer footer_bg_1">
         <div class="footer_top">
