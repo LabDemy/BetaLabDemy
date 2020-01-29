@@ -223,29 +223,32 @@ session_start();
                             while ($fila=$objetivos->fetch()) {
                                 if ($var==0) {
                                     ?>
-                                          <textarea class="form-control letra" rows="2" id="objetivos" name="objetivos"><?php echo $fila['objetivo']; ?>
+                                          <textarea class="form-control letra" rows="2" id="objetivo" name="objetivo[<?php echo $fila['id']; ?>]"><?php echo $fila['objetivo']; ?>
                                           </textarea> <br>
+
                                             <button type="submit" class="btn btn-primary py-2 px-2 text-white">Editar objetivo principal</button><br><br>
                                 <?php
                                 $var=1;
                                 } else {
                                     ?>
-                                          <textarea class="form-control letra" rows="2" id="objetivos" name="objetivos"><?php echo $fila['objetivo']; ?>
+                                          <textarea class="form-control letra" rows="2" id="objetivo<?php echo $var; ?>" name="objetivo[<?php echo $fila['id']; ?>]"><?php echo $fila['objetivo']; ?>
                                           </textarea><br>
-                                            <button type="submit" class="btn btn-primary py-2 px-2 text-white">Eliminar objetivo</button><br><br>
+
+                                            <a href="eliminarObjetivo.php?id=<?php echo $fila['id']."&idcourse=".$idcourse; ?>" type="submit" class="btn btn-primary py-2 px-2 text-white">Eliminar objetivo</a><br><br>
                               <?php
+                                  $var=$var+1;
                                 }
                             } ?>
-                            <textarea class="form-control letra" rows="2" id="objetivos" name="objetivos"></textarea><br>
-                              <button type="submit" class="btn btn-primary py-2 px-2 text-white">Añadir objetivo</button><br><br>
+                            <textarea class="form-control letra" rows="2" id="objetivonuevo" name="objetivonuevo"></textarea><br>
+
                                 </div>
 
                         <!-- </form> -->
                                 <?php
-                                if (!empty($_POST['objetivos'])) {
-                                    $course->setObjective($_POST['objetivos'], $idcourse);
-                                    echo "<meta http-equiv='refresh' content='0'>";
-                                }
+                                // if (!empty($_POST['objetivos'])) {
+                                //     $course->setObjective($_POST['objetivos'], $idcourse);
+                                //     echo "<meta http-equiv='refresh' content='0'>";
+                                // }
                         } else {
                             ?>
                         <?php
@@ -281,38 +284,42 @@ session_start();
                                   ?>
                                   <?php
                                   if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==2) {
-                                      $contador="headingTwo";
-                                      $contador2="collapseTwo"; ?>
+                                      // $contador="headingTwo";
+                                      // $contador2="collapseTwo";?>
                                   <!-- <form role="form" method="post"> -->
 
                                       <div class="form-group">
 
 
-                                                    <textarea class="form-control letra" rows="2" id="<?php echo $contador; ?>" name="<?php echo $contador; ?>"><?php echo $fila['pregunta']; ?>
+                                                    <textarea class="form-control letra" rows="2" id="<?php echo $contador; ?>" name="pregunta[<?php echo $fila['id']; ?>]"><?php echo $fila['pregunta']; ?>
                                                     </textarea> <br>
-                                                    <textarea class="form-control letra" rows="2" id="<?php echo $contador2; ?>" name="<?php echo $contador2; ?>"><?php echo $fila['respuesta']; ?>
+                                                    <textarea class="form-control letra" rows="2" id="<?php echo $contador2; ?>" name="respuesta[<?php echo $fila['id']; ?>]"><?php echo $fila['respuesta']; ?>
                                                     </textarea> <br>
 
-                                                  </div>
+
                                     <!-- </form> -->
 
-
+                                    </div>
 
                                         <?php
+
                                         $contador=$contador."1";
                                       $contador2=$contador2."1";
                                   } else {
                                       ?>
+
+
+
                                     <div class="card">
                                         <div class="card-header" id="<?php echo $contador?>">
                                             <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#<?php echo $contador2?>" aria-expanded="false"  aria-controls="<?php echo $contador2?>">
+                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#<?php echo $contador2; ?>" aria-expanded="false"  aria-controls="<?php echo $contador2; ?>">
                                                     <i class="flaticon-question"></i>
                                                     <respuestas><?php echo $fila['pregunta']; ?></respuestas>
                                                 </button>
                                             </h5>
                                         </div>
-                                        <div id="<?php echo $contador2?>" class="collapse" aria-labelledby="<?php echo $contador?>" data-parent="#accordion">
+                                        <div id="<?php echo $contador2; ?>" class="collapse" aria-labelledby="<?php echo $contador; ?>" data-parent="#accordion">
                                           <respuestas><?php echo $fila['respuesta']; ?></respuestas>
                                         </div>
                                     </div>
@@ -322,12 +329,51 @@ session_start();
                                   }
                               }
 
-                                    if (!empty($_POST['comentarios'])) {
-                                        print_r($_POST);
-                                        $course->setTituloInformation($_POST['comentarios'], $idcourse);
-                                        $course->setLinkVideo($_POST['linkvideo'], $idcourse);
-                                        //  echo "<meta http-equiv='refresh' content='0'>";
-                                    }
+
+
+                                if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==2) {
+                                    ?>
+                                    <form method="post" action="addpregunta.php" >
+                                    <textarea class="form-control letra" rows="2" id="nuevapregunta" name="nuevapregunta"></textarea> <br>
+                                    <textarea class="form-control letra" rows="2" id="nuevarespuesta" name="nuevarespuesta"></textarea> <br>
+                                    <button type="submit" class="btn btn-primary py-2 px-2 text-white">ACEPTAR CAMBIOS</button>
+                                  </form>
+                                    <?php
+                                }
+                                      if (!empty($_POST)) {
+                                          $my_folder = "img/";
+
+                                          if (move_uploaded_file($_FILES['myFile']['tmp_name'], $my_folder . $_FILES['myFile']['name'])) {
+                                              $imagenvideo=$my_folder.basename($_FILES['myFile']['name']);
+                                              chmod($imagenvideo, 0777);
+                                              $course->setImagen($imagenvideo, $idcourse);
+                                          } else {
+                                              echo "No se logro subir la imagen";
+                                          }
+                                          if ($_POST['objetivonuevo']!="") {
+                                              $course->addObjective($_POST['objetivonuevo'], $idcourse);
+                                          }
+                                          if ($_POST['nuevapregunta']!="" and $_POST['nuevarespuesta']!="") {
+                                              $course->addQuestionAnswer($_POST['nuevapregunta'], $_POST['nuevarespuesta'], $idcourse);
+                                          }
+                                          $course->setTituloInformation($_POST['comentarios'], $idcourse);
+                                          $course->setLinkVideo($_POST['linkvideo'], $idcourse);
+                                          $course->setMessageTeacher($_POST['mensajeDocente'], $idcourse);
+                                          // while ($arrayobjetivos=$_POST['objetivo']->fetch()) {
+                                          //   $course->setObjective($arrayobjetivos[''],$idcourse);
+                                          // }
+                                          foreach ($_POST['objetivo'] as $key => $value) {
+                                              $course->setObjective($value, $key);
+                                          }
+                                          foreach ($_POST['pregunta'] as $key => $value) {
+                                              $course->setQuestion($value, $key);
+                                          }
+                                          foreach ($_POST['respuesta'] as $key => $value) {
+                                              $course->setAnswer($value, $key);
+                                          }
+
+                                          echo "<meta http-equiv='refresh' content='0'>";
+                                      }
                                     ?>
 
                             </div>
@@ -345,6 +391,7 @@ session_start();
                                    <h3>Imagen</h3>
                                    <div class="form-group">
                                    <input type="file" name="myFile" class="form-control">
+                                   <?php echo $array['imagenvideo']; ?>
                                    </div>
                                   <h3>Link del video</h3>
                                   <textarea class="form-control letra" rows="2" id="linkvideo" name="linkvideo"><?php echo $array['linkvideo']; ?>
@@ -372,10 +419,19 @@ session_start();
                                     <p>Desarrollador de Android</p>
                                 </div>
                             </div>
+                            <?php
+                            if (!empty($_SESSION['tipo']) and $_SESSION['tipo']==2) {
+                                ?>
+                              <textarea class="form-control letra" rows="2" id="mensajeDocente" name="mensajeDocente"><?php echo $array['mensajeDocente']; ?>
+                              </textarea>
+                              <?php
+                            } else {
+                                ?>
                             <p class="text_info">
-                               <?php echo $array['mensajeDocente'];?>
+                               <?php echo $array['mensajeDocente']; ?>
                             </p>
-
+                          <?php
+                            } ?>
                             <ul>
                                 <li><a href="#"> <i class="fa fa-envelope"></i> </a></li>
                                 <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
@@ -402,7 +458,7 @@ session_start();
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary py-2 px-2 text-white">ACEPTAR CAMBIOS</button>
+
   </form>
 
     <!-- footer -->
@@ -516,7 +572,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                 </div>
 
                 <?php if (empty($_SESSION['usuario'])) {
-                              ?>
+                                ?>
                 <h3>Sign in</h3>
                 <form action="#">
                     <div class="row">
@@ -528,7 +584,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                             <input type="password" name='passwordsignin' placeholder="Password">
                         </div>
                       <?php
-                          } ?>
+                            } ?>
                         <div class="col-xl-12">
 
                               <?php

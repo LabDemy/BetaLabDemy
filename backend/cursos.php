@@ -166,7 +166,7 @@ class cursos
     }
     public function setImagen($imagen, $id)
     {
-        $sql = 'UPDATE informacioncursos SET imagen="'.$imagen.'"where id='.$id.';';
+        $sql = 'UPDATE informacioncursos SET imagenvideo="'.$imagen.'"where id='.$id.';';
         $result = $this->conn->prepare($sql);
         $result->execute();
     }
@@ -178,13 +178,33 @@ class cursos
     }
     public function setObjective($objetivo, $id)
     {
-        $sql = 'UPDATE informacioncursos SET objetivo="'.$objetivo.'"where id='.$id.';';
+        $sql = 'UPDATE objetivos SET objetivo="'.$objetivo.'"where id='.$id.';';
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+    }
+    public function setQuestion($pregunta, $id)
+    {
+        $sql = 'UPDATE preguntas SET pregunta="'.$pregunta.'"where id='.$id.';';
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+    }
+    public function setAnswer($respuesta, $id)
+    {
+        $sql = 'UPDATE preguntas SET respuesta="'.$respuesta.'"where id='.$id.';';
+
         $result = $this->conn->prepare($sql);
         $result->execute();
     }
     public function addObjective($objetivo, $idinformation)
     {
         $sql = "INSERT INTO objetivos VALUES (null,'$objetivo','$idinformation');";
+
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+    }
+    public function deleteObjective($id)
+    {
+        $sql = "DELETE FROM objetivos where id='$id';";
         $result = $this->conn->prepare($sql);
         $result->execute();
     }
@@ -195,5 +215,18 @@ class cursos
         $result = $this->conn->query($sql);
         $result->setFetchMode(PDO::FETCH_ASSOC);
         return $result;
+    }
+    public function setMessageTeacher($message, $id)
+    {
+        $sql = 'UPDATE informacioncursos SET mensajeDocente="'.$message.'"where id='.$id.';';
+        $result = $this->conn->prepare($sql);
+        $result->execute();
+    }
+    public function addQuestionAnswer($pregunta, $respuesta, $idinformation)
+    {
+        $sql = "INSERT INTO objetivos VALUES (null,'$pregunta','$respuesta','$idinformation');";
+
+        $result = $this->conn->prepare($sql);
+        $result->execute();
     }
 }
