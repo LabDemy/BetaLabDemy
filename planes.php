@@ -149,8 +149,8 @@ session_start();
         <th class="compare-heading">
           Simple Start
         </th>
-        
-        
+
+
       </tr>
       <tr>
         <th></th>
@@ -166,7 +166,7 @@ session_start();
           <div><a href="#" class="price-buy">Buy <span class="hide-mobile">Now</span></a></div>
           <div class="price-try"><span class="hide-mobile">or </span><a href="#">try <span class="hide-mobile">it free</span></a></div>
         </th>
-        
+
       </tr>
     </thead>
     <tbody>
@@ -211,7 +211,7 @@ session_start();
         <td>Download online banking</td>
         <td><span class="tickblue">✔</span></td>
         <td><span class="tickgreen">✔</span></td>
-        
+
       </tr>
       <tr>
         <td>&nbsp;</td>
@@ -230,7 +230,7 @@ session_start();
         <td>Create invoices & estimates</td>
         <td></td>
         <td><span class="tickgreen">✔</span></td>
-        
+
       </tr>
       <tr>
         <td>&nbsp;</td>
@@ -240,13 +240,13 @@ session_start();
         <td>Manage VAT</td>
         <td></td>
         <td><span class="tickgreen">✔</span></td>
-        
+
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td colspan="4">Run payroll</td>
       </tr>
-      
+
         <td>&nbsp;</td>
         <td colspan="4">Number of users</td>
       </tr>
@@ -254,7 +254,7 @@ session_start();
         <td>Number of users</td>
         <td class="tickblue">1 user</td>
         <td class="tickgreen">1 user</td>
-        
+
       </tr>
       <tr>
         <td>&nbsp;</td>
@@ -264,7 +264,7 @@ session_start();
         <td>Manage bills & payments</td>
         <td></td>
         <td></td>
-        
+
       </tr>
       <tr>
         <td>&nbsp;</td>
@@ -274,7 +274,7 @@ session_start();
         <td>Handle multiple currencies</td>
         <td></td>
         <td></td>
-        
+
       </tr>
       <tr>
         <td>&nbsp;</td>
@@ -295,7 +295,7 @@ session_start();
         <td></td>
         <td></td>
         <td></td>
-        
+
       </tr>
       <tr>
         <td>&nbsp;</td>
@@ -306,7 +306,7 @@ session_start();
         <td></td>
         <td></td>
         <td></td>
-       
+
       </tr>
     </tbody>
   </table>
@@ -456,7 +456,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                                   echo "<p>";
                                   echo "<p>";
                                   echo "<p>";
-                                  echo '<button type="submit" formaction="onprocess.php" class="boxed_btn_orange">';
+                                  $var=$_SESSION['id'];
+                                  echo "<button type='submit' formaction='perfil.php?id=$var' class='boxed_btn_orange'>";
                                   echo "Ver perfil";
                                   echo '</button>';
                               } else {
