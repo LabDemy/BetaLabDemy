@@ -135,9 +135,9 @@ session_start();
     <button type="submit" class="btn btn-primary py-2 px-2 text-white">ACEPTAR CAMBIOS</button>
   </form>
 <?php
-$my_folder = "img/";
+$my_folder = "/home/suriarte17/public_html/BetaLabDemy/img/";
 if (!empty($_FILES) and move_uploaded_file($_FILES['myFile']['tmp_name'], $my_folder . $_FILES['myFile']['name'])) {
-    echo "sdasa";
+    //echo "sdasa";
     $imagenperfil=$my_folder.basename($_FILES['myFile']['name']);
     chmod($imagenperfil, 0777);
     $usuario->setImagenUser($imagenperfil, $iduser);
