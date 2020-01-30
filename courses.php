@@ -70,21 +70,10 @@ $db = $database->getConnection();
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a  href="index.php">Inicio</a></li>
+                                    <li><a href="index.php">Inicio</a></li>
                                         <li><a class="active" href="courses.php">Cursos</a></li>
-                                        <li><a href="planes.php">Planes <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="course_details.html">Detalles</a></li>
-                                                <!--li><a href="elements.html">elements</a></li-->
-                                            </ul>
-                                        </li>
+                                        <li><a href="planes.php">Planes</a></li>
                                         <li><a href="about.php">Nosotros</a></li>
-                                        <!--li><a href="#">blog <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="blog.html">blog</a></li>
-                                                <li><a href="single-blog.html">single-blog</a></li>
-                                            </ul-->
-                                        </li>
                                         <li><a href="contact.php">Contacto</a></li>
                                     </ul>
                                 </nav>
