@@ -140,7 +140,7 @@ session_start();
                 </div>
                 <div class="col-xl-6 offset-xl-1 col-lg-6">
                    <img src="img/about.png" align="center">
-                          
+
                             </div>
                         </div>
                     </div>
@@ -195,7 +195,7 @@ session_start();
     </div>
     <!-- our_team_member_end -->
 
-    
+
 
     <!-- footer -->
     <footer class="footer footer_bg_1">
@@ -333,7 +333,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                                   echo "<p>";
                                   echo "<p>";
                                   echo "<p>";
-                                  echo '<button type="submit" formaction="onprocess.php" class="boxed_btn_orange">';
+                                  $var=$_SESSION['id'];
+                                  echo "<button type='submit' formaction='perfil.php?id=$var' class='boxed_btn_orange'>";
                                   echo "Ver perfil";
                                   echo '</button>';
                               } else {

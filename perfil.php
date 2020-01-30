@@ -151,12 +151,13 @@ if (!empty($_FILES) and move_uploaded_file($_FILES['myFile']['tmp_name'], $my_fo
     echo "sdasa";
     $imagenperfil=$my_folder.basename($_FILES['myFile']['name']);
     chmod($imagenperfil, 0777);
-
     $usuario->setImagenUser($imagenperfil, $iduser);
+    if (!empty($_POST['password'])) {
+        $usuario->setNewPassword(base64_encode($_POST['password']), $iduser);
+        echo "<meta http-equiv='refresh' content='0'>";
+    }
 }
- if (!empty($_POST['password'])) {
-     $usuario->setNewPassword(base64_encode($_POST['password']), $iduser);
- }
+
 
 ?>
 
