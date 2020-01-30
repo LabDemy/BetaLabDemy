@@ -104,7 +104,7 @@ $db = $database->getConnection();
                                        }?></span>
                                 </a>
                                 <div class="live_chat_btn">
-                                    <a class="boxed_btn_orange" href="#">
+                                    <a class="boxed_btn_orange" href="contact.php">
                                         <i class="fa fa-phone"></i>
                                         <span>Call Center</span>
                                     </a>
@@ -1524,7 +1524,7 @@ $db = $database->getConnection();
                     <div class="col-xl-4 col-md-6 col-lg-4">
                         <div class="footer_widget">
                             <div class="footer_logo">
-                                <a href="#">
+                                <a href="index.php">
                                     <img src="img/logo-nuevo.png" alt="">
                                 </a>
                             </div>
@@ -1576,11 +1576,11 @@ $db = $database->getConnection();
                                 Menú
                             </h3>
                             <ul>
-                                <li><a href="#">Inicio</a></li>
-                                <li><a href="#">Cursos</a></li>
-                                <li><a href="onprocess.php">Planes</a></li>
-                                <li><a href="#">Nosotros</a></li>
-                                <li><a href="#">Contacto</a></li>
+                                <li><a href="index.php">Inicio</a></li>
+                                <li><a href="courses.php">Cursos</a></li>
+                                <li><a href="planes.php">Planes</a></li>
+                                <li><a href="about.php">Nosotros</a></li>
+                                <li><a href="contact.php">Contacto</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1622,7 +1622,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
         <div class="popup_box ">
             <div class="popup_inner">
                 <div class="logo text-center">
-                    <a href="#">
+                    <a href="index.php">
                         <img src="img/logo-nuevo.png" alt="">
                     </a>
                 </div>
@@ -1701,7 +1701,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
         <div class="popup_box ">
             <div class="popup_inner">
                 <div class="logo text-center">
-                    <a href="#">
+                    <a href="index.php">
                         <img src="img/logo-nuevo.png" alt="">
                     </a>
                 </div>
