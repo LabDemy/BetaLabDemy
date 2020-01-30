@@ -338,7 +338,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                 </div>
 
                 <?php if (empty($_SESSION['usuario'])) {
-                                        ?>
+        ?>
                 <h3>Iniciar Sesión</h3>
                 <form action="#">
                     <div class="row">
@@ -350,7 +350,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                             <input type="password" name='passwordsignin' placeholder="Contraseña" required>
                         </div>
                       <?php
-                                    } ?>
+    } ?>
                         <div class="col-xl-12">
 
                               <?php
@@ -362,14 +362,14 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                                   echo "<p>";
                                   echo "<p>";
                                   echo "<p>";
-                                  echo '<button type="submit" formaction="onprocess.php" class="boxed_btn_orange">';
+                                  $var=$_SESSION['id'];
+                                  echo "<button type='submit' formaction='perfil.php?id=$var' class='boxed_btn_orange'>";
                                   echo "Ver perfil";
                                   echo '</button>';
                               } else {
                                   echo '<button type="submit" formaction="index.php" class="boxed_btn_orange">';
                                   echo "Iniciar Sesión";
-                              }
-                               ?>
+                              } ?>
                              </button>
 
                         </div>
@@ -377,28 +377,28 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                 </form>
                 <?php
                 include_once 'backend/database.php';
-                include_once 'backend/user.php';
+     include_once 'backend/user.php';
 
-                $database = new Database();
-                $db = $database->getConnection();
-                $user = new User($db);
-                if (!empty($_POST['emailsignin'])) {
-                    $user->email= $_POST['emailsignin'];
-                    $user->password = base64_encode($_POST['passwordsignin']);
-                    $var=$user->login();
-                    while ($fila = $var->fetch()) {
-                        $_SESSION['usuario']=$fila['nombre'];
-                        $_SESSION['id']=$fila['id'];
-                        $_SESSION['tipo']=$fila['tipo'];
-                        echo "<meta http-equiv='refresh' content='0'>";
-                    }
-                }
-                    if (empty($_SESSION['usuario'])) {
-                        ?>
+     $database = new Database();
+     $db = $database->getConnection();
+     $user = new User($db);
+     if (!empty($_POST['emailsignin'])) {
+         $user->email= $_POST['emailsignin'];
+         $user->password = base64_encode($_POST['passwordsignin']);
+         $var=$user->login();
+         while ($fila = $var->fetch()) {
+             $_SESSION['usuario']=$fila['nombre'];
+             $_SESSION['id']=$fila['id'];
+             $_SESSION['tipo']=$fila['tipo'];
+             echo "<meta http-equiv='refresh' content='0'>";
+         }
+     }
+     if (empty($_SESSION['usuario'])) {
+         ?>
                 <p class="doen_have_acc">¿No tienes una cuenta? <a class="dont-hav-acc" href="#test-form2">Regístrate aquí</a>
                 </p>
                 <?php
-                    }?>
+     } ?>
             </div>
         </div>
     </form>
@@ -443,19 +443,17 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                     <?php
 
                       include_once 'backend/user.php';
-                      $database = new Database();
-                      $db = $database->getConnection();
-                      $user = new user($db);
+     $database = new Database();
+     $db = $database->getConnection();
+     $user = new user($db);
 
-                      if (!empty($_POST['email'])) {
-                          $user->email =  $_POST['email'];
-                          $user->password =  base64_encode($_POST['password']);
-                          $user->nombre = $_POST['name'];
-                          $user->lastname = $_POST['lastname'];
-                          $user->signup();
-                      }
-
-                    ?>
+     if (!empty($_POST['email'])) {
+         $user->email =  $_POST['email'];
+         $user->password =  base64_encode($_POST['password']);
+         $user->nombre = $_POST['name'];
+         $user->lastname = $_POST['lastname'];
+         $user->signup();
+     } ?>
                 </form>
             </div>
         </div>
@@ -464,25 +462,25 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 <?php
 if (!empty($_POST)) {
-                                  $my_folder = "img/";
+         $my_folder = "img/";
 
-                                  if (!empty($_FILES) and move_uploaded_file($_FILES['myFile']['tmp_name'], $my_folder . $_FILES['myFile']['name'])) {
-                                      $imagenvideo=$my_folder.basename($_FILES['myFile']['name']);
-                                      chmod($imagenvideo, 0777);
-                                      echo "asd";
-                                      $course->setImagenCourse($imagenvideo, $idcourse);
-                                  } else {
-                                      echo "No se logro subir la imagen";
-                                  }
+         if (!empty($_FILES) and move_uploaded_file($_FILES['myFile']['tmp_name'], $my_folder . $_FILES['myFile']['name'])) {
+             $imagenvideo=$my_folder.basename($_FILES['myFile']['name']);
+             chmod($imagenvideo, 0777);
+             echo "asd";
+             $course->setImagenCourse($imagenvideo, $idcourse);
+         } else {
+             echo "No se logro subir la imagen";
+         }
 
-                                  $course->setTituloCourse($_POST['titulo'], $idcourse);
-                                  $course->setLinkVideoCourse($_POST['linkvideo'], $idcourse);
-                                  $course->setTextCourse($_POST['texto'], $idcourse);
-                                  // while ($arrayobjetivos=$_POST['objetivo']->fetch()) {
-                                  //   $course->setObjective($arrayobjetivos[''],$idcourse);
-                                  // }
-                               echo "<meta http-equiv='refresh' content='0'>";
-                              }
+         $course->setTituloCourse($_POST['titulo'], $idcourse);
+         $course->setLinkVideoCourse($_POST['linkvideo'], $idcourse);
+         $course->setTextCourse($_POST['texto'], $idcourse);
+         // while ($arrayobjetivos=$_POST['objetivo']->fetch()) {
+         //   $course->setObjective($arrayobjetivos[''],$idcourse);
+         // }
+         echo "<meta http-equiv='refresh' content='0'>";
+     }
  } else {
      echo "no tienes permiso para ver esta pagina";
  }
